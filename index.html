@@ -4,132 +4,212 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
-  <!-- آیکون‌های FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/:
-* **نارنجی اصلی کارت**: `#f56e00` (تم انرژی‌بخش و زمینه کارت)
-* **مشکی تیره / فریم دور**: `#151515` (فریم بیرونی کارت و دکمه‌ها)
-* **سفید با حاشیه و سایه برجسته**: برای فونت‌ها و باکس‌ها
-* **اطلاعات تماس واقعی روی کارت**:
-  * تلفن ثابت: `01152331643`
-  * همراه ۱: `09114538740`
-  * همراه ۲: `09397235970`
-  * اینستاگرام: `stock_khazar`
-
----
-
-### ۱. کدهای کامل و آماده:
-
-#### الف) کد کامل فایل `index.html`:
-این کد را جایگزین تمام محتوای فایل `index.html` کنید:
-```html
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
-  <!-- آیکون‌های FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- فونت وزیرمتن -->
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="style.css">
+  <!-- فونت وزیرمتن و آیکون‌ها -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- نوار بالای سایت با شماره‌های تماس کارت -->
-  <div class="top-bar">
-<div class="container top-bar-content">
-<div class="contact-quick">
-<span><i class="fa-solid fa-phone"></i> ۰۱۱-cart-shopping"></i></a>
-</div>
-</div>
+  <!-- هدر و منوبار افقی -->
+  <header class="header-container">
+    <div class="header-content">
+      
+      <!-- لوگو و برند (سمت چپ) -->
+      <a href="#home" class="logo-box">
+        <span class="logo-khazar">خزر</span>
+        <span class="logo-stock">استوک</span>
+      </a>
+
+      <!-- منو بار افقی به رنگ سفید (سمت راست) -->
+      <nav class="nav-bar">
+        <a href="#home" class="nav-item">صفحه اصلی</a>
+        <a href="#domestic" class="nav-item">خودروهای داخلی</a>
+        <a href="#foreign" class="nav-item">خودروهای خارجی</a>
+        <a href="#contact" class="nav-item">ارتباط با ما</a>
+      </nav>
+
+    </div>
   </header>
 
-  <!-- منوی ناوبری اصلی -->
-  <nav class="navbar">
-<div class="container">
-<ul class="nav-links">
-<li><a href="#" class="active"><i class="fa-solid fa-house"></i> صفحه اصلی</a></li>
-<li><a href="#domestic-cars">خودروهای داخلی (ایرانی)</a></li>
-<li><a href="#foreign-cars">خودروهای خارجی</a></li>
-<li><a href="#">قطعات موتوری</a></li>
-<li><a href="#">گیربکس و انتقال قدرت</a></li>
-<li><a href="#">بدنه و روشنایی</a></li>
-<li><a href="#">ارتباط با ما</a></li>
-</ul>
-</div>
-  </nav>
+  <!-- بخش هیرو (پوستر متغیر ماشین در سمت چپ + توضیحات در سمت راست) -->
+  <section class="hero-section" id="home">
+    <div class="hero-container">
+      
+      <!-- پوستر متغیر تصاویر خودروها (سمت چپ) -->
+      <div class="slider-wrapper">
+        <div class="car-slider">
+          <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="خودرو اسپرت">
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" alt="ماشین سواری">
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80" alt="خودرو لوکس">
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1200&q=80" alt="خودرو کلاسیک">
+          </div>
+          
+          <div class="slider-overlay">
+            <span class="badge">خزر استوک</span>
+            <p>تضمین سلامت و اصالت قطعات استوک</p>
+          </div>
 
-  <!-- بنر معرفی برگرفته از کارت ویزیت -->
-  <section class="container hero-section">
-<div class="card-banner">
-<div class="banner-text">
-<h1>بورس لوازم استوک خودروهای سواری و باری</h1>
-<p class="sub-banner">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
-<span class="badge">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و...</span>
-</div>
-</div>
+          <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- متن و معرفی اصلی (سمت راست) -->
+      <div class="hero-text">
+        <span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
+        <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
+        <p class="highlight-text">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
+        <p class="car-models">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و انواع خودروهای وارداتی...</p>
+        
+        <div class="hero-actions">
+          <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
+          <a href="#domestic" class="btn-hero-category">مشاهده قطعات</a>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- ۱. بخش خودروهای داخلی (ایرانی) با زیرمجموعه ایران‌خودرو و سایپا -->
-  <section id="domestic-cars" class="brands-section container">
-<div class="brands-wrapper">
-<div class="section-title-white">
-<h3><i class="fa-solid fa-car"></i> خودروهای داخلی (ایرانی)</h3>
-</div>
+  <!-- دسته‌بندی خودروهای داخلی -->
+  <section class="category-section orange-box" id="domestic">
+    <div class="section-title">
+      <i class="fa-solid fa-car-side"></i>
+      <h2>خودروهای داخلی (ایرانی)</h2>
+    </div>
 
-<!-- دسته اول: ایران خودرو -->
-<div class="sub-category-title">
-<span>محصولات ایران‌خودرو (IKCO)</span>
-</div>
-<div class="brands-grid">
-<div class="brand-card">پژو ۲۰۶ / ۲۰۷</div>
-<div class="brand-card">پژو پارس / ۴۰۵</div>
-<div class="brand-card">سمند / سورن / دنا</div>
-<div class="brand-card">رنو تندر ۹۰ (ال۹۰)</div>
-<div class="brand-card">تارا / رانا</div>
-</div>
+    <!-- ایران خودرو -->
+    <div class="sub-group">
+      <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
+      <div class="car-grid">
+        <div class="car-card">پژو ۲۰۶ / ۲۰۷</div>
+        <div class="car-card">پژو پارس / ۴۰۵</div>
+        <div class="car-card">سمند / سورن / دنا</div>
+        <div class="car-card">رنو تندر ۹۰ (ال۹۰)</div>
+        <div class="car-card">تارا / رانا</div>
+      </div>
+    </div>
 
-<!-- دسته دوم: سایپا -->
-<div class="sub-category-title mt-20">
-<span>محصولات سایپا و پارس‌خودرو</span>
-</div>
-<div class="brands-grid">
-<div class="brand-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
-<div class="brand-card">تیبا / ساینا / کوییک</div>
-<div class="brand-card">وانت نیسان زامیاد</div>
-<div class="brand-card">شاهین</div>
-<div class="brand-card">رنو مگان / ساندرو</div>
-</div>
-</div>
+    <!-- سایپا و پارس خودرو -->
+    <div class="sub-group">
+      <span class="group-title">محصولات سایپا و پارس‌خودرو</span>
+      <div class="car-grid">
+        <div class="car-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
+        <div class="car-card">تیبا / ساینا / کوییک</div>
+        <div class="car-card">وانت نیسان زامیاد</div>
+        <div class="car-card">شاهین</div>
+        <div class="car-card">رنو مگان / ساندرو</div>
+      </div>
+    </div>
   </section>
 
-  <!-- ۲. بخش خودروهای خارجی -->
-  <section id="foreign-cars" class="brands-section container">
-<div class="brands-wrapper foreign-wrapper">
-<div class="section-title-white">
-<h3><i class="fa-solid fa-globe"></i> خودروهای خارجی (استوک اروپایی، ژاپنی، کره‌ای)</h3>
-</div>
-<div class="brands-grid">
-<div class="brand-card">هیوندای (Hyundai)</div>
-<div class="brand-card">کیا (Kia)</div>
-<div class="brand-card">تویوتا (Toyota)</div>
-<div class="brand-card">نیسان ژاپن (Nissan)</div>
-<div class="brand-card">مزدا (Mazda)</div>
-<div class="brand-card">خودروهای چینی (MVM/Chery/JAC)</div>
-</div>
-</div>
+  <!-- دسته‌بندی خودروهای خارجی -->
+  <section class="category-section orange-box" id="foreign">
+    <div class="section-title">
+      <i class="fa-solid fa-globe"></i>
+      <h2>خودروهای خارجی و وارداتی</h2>
+    </div>
+
+    <div class="sub-group">
+      <span class="group-title">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
+      <div class="car-grid">
+        <div class="car-card">هیوندای (سوناتا، آزرا، سانتافه)</div>
+        <div class="car-card">کیا (اسپورتیج، اپتیما، سراتو)</div>
+        <div class="car-card">تویوتا (کمری، کرولا، هایلوکس)</div>
+        <div class="car-card">نیسان (ماکسیما، رونیز، پاترول)</div>
+        <div class="car-card">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
+        <div class="car-card">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
+      </div>
+    </div>
   </section>
+
+  <!-- اطلاعات تماس بر اساس کارت ویزیت -->
+  <section class="contact-section" id="contact">
+    <h2>اطلاعات تماس و سفارش قطعات</h2>
+    <div class="contact-cards">
+      <div class="c-card">
+        <i class="fa-solid fa-phone-volume"></i>
+        <span>تلفن ثابت فروشگاه</span>
+        <strong>۰۱۱-۵۲۳۳۱۶۴۳</strong>
+      </div>
+      <div class="c-card">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <span>شماره همراه (مدیریت)</span>
+        <strong>۰۹۱۱۴۵۳۸۷۴۰</strong>
+      </div>
+      <div class="c-card">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>واتس‌اپ و مشاوره آنلاین</span>
+        <strong>۰۹۳۹۷۲۳۵۹۷۰</strong>
+      </div>
+      <div class="c-card">
+        <i class="fa-brands fa-instagram"></i>
+        <span>صفحه اینستاگرام</span>
+        <strong>@stock_khazar</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر سایت -->
+  <footer>
+    <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
+  </footer>
 
   <!-- دکمه‌های شناور تماس و واتس‌اپ -->
-  <div class="floating-actions">
-<a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی">
-<i class="fa-solid fa-phone"></i>
-</a>
-<a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
+  <div class="floating-buttons">
+    <a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
   </div>
+
+  <!-- اسکریپت کنترل پوستر خودکار (اسلایدر) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+      let currentIndex = 0;
+      const intervalTime = 3500; // تغییر عکس هر ۳.۵ ثانیه
+
+      function setSlide(index) {
+        slides.forEach(s => s.classList.remove("active"));
+        dots.forEach(d => d.classList.remove("active"));
+        
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        setSlide(currentIndex);
+      }
+
+      let slideTimer = setInterval(nextSlide, intervalTime);
+
+      // امکان کلیک روی نقاط اسلایدر
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => {
+          clearInterval(slideTimer);
+          currentIndex = idx;
+          setSlide(currentIndex);
+          slideTimer = setInterval(nextSlide, intervalTime);
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
