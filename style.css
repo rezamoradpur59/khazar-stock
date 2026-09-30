@@ -14,52 +14,56 @@ body {
   line-height: 1.6;
 }
 
-/* هدر و نوبار */
+/* ================== سربرگ و منو بار افقی ================== */
 .header-container {
   width: 100%;
-  background: #1a1a1a;
-  border-bottom: 2px solid #f56e00;
+  background: #181818;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* لوگوی خزر استوک در سمت چپ با رنگ سفید-مشکی */
 .logo-box {
   display: flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
+  order: 2;
 }
 
 .logo-khazar {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: -0.5px;
 }
 
 .logo-stock {
-  background-color: #f56e00;
-  color: #ffffff;
-  font-size: 18px;
+  background-color: #ffffff;
+  color: #121212;
+  font-size: 20px;
   font-weight: 900;
   padding: 2px 10px;
   border-radius: 6px;
 }
 
+/* منوبار افقی با رنگ سفید */
 .nav-bar {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
+  order: 1;
 }
 
 .nav-item {
@@ -67,17 +71,34 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-weight: 700;
-  transition: color 0.25s ease;
+  transition: all 0.25s ease;
+  position: relative;
+  padding: 6px 0;
 }
 
 .nav-item:hover {
   color: #f56e00;
 }
 
-/* بخش معرفی و اسلایدر */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #f56e00;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* ================== بخش هیرو و پوستر متغیر ================== */
 .hero-section {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 35px auto;
   padding: 0 20px;
 }
 
@@ -85,7 +106,12 @@ body {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
-  gap: 40px;
+  gap: 35px;
+}
+
+/* متون سمت راست هیرو */
+.hero-text {
+  text-align: right;
 }
 
 .sub-badge {
@@ -96,26 +122,27 @@ body {
   border-radius: 20px;
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 15px;
-  border: 1px solid rgba(245, 110, 0, 0.4);
+  margin-bottom: 12px;
+  border: 1px solid rgba(245, 110, 0, 0.3);
 }
 
 .hero-text h1 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 900;
   line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .highlight-text {
   font-size: 18px;
   color: #f56e00;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .car-models {
-  color: #a0a0a0;
+  color: #b0b0b0;
   font-size: 14px;
   margin-bottom: 25px;
 }
@@ -126,85 +153,46 @@ body {
   flex-wrap: wrap;
 }
 
-.btn-call {
+.btn-hero-call {
   background: #f56e00;
   color: #ffffff;
-  padding: 12px 24px;
+  padding: 12px 22px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 15px;
-  box-shadow: 0 4px 15px rgba(245, 110, 0, 0.35);
-  transition: background 0.25s;
+  transition: background 0.25s ease;
 }
 
-.btn-call:hover {
+.btn-hero-call:hover {
   background: #d95e00;
 }
 
-.btn-category {
+.btn-hero-category {
   background: transparent;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 12px 24px;
+  padding: 12px 22px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 15px;
-  transition: all 0.25s;
+  transition: all 0.25s ease;
 }
 
-.btn-category:hover {
+.btn-hero-category:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: #ffffff;
 }
 
-/* ساختار اسلایدر */
+/* پوستر متغیر ماشین (اسلایدر) */
 .slider-wrapper {
   position: relative;
   width: 100%;
-  height: 330px;
+  aspect-ratio: 16 / 10;
+  min-height: 280px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #181818;
-}
-
-.car-slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  55, 255, 255, 0.1);
-  border-color: #ffffff;
-}
-
-/* ساختار اسلایدر */
-.slider-wrapper {
-  position: relative;
-  width: 100%;
-  height: 330px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #181818;
+  background: #1c1c1c;
 }
 
 .car-slider {
@@ -228,42 +216,84 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.slide.slide-parts img {
-  object-fit: contain;
-  background-color: #ffffff;
-  padding: 15px;
-}
-
-.slide-caption {
+.slider-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  padding: 30px 20px 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   color: #ffffff;
-  padding: 25px 15px 15px;
-  font-size: 14px;
+}
+
+.slider-overlay .badge {
+  background: #f56e00;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
   font-weight: 700;
-  text-align: center;
+}
+
+.slider-overlay p {
+  font-size: 14px;
+  margin-top: 4px;
+  color: #e0e0e0;
 }
 
 .slider-dots {
   position: absolute;
-  top: 15px;
+  bottom: 12px;
   left: 15px;
   display: flex;
   gap: 6px;
-  z-index:  font-size: 18px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #f56e00;
+  width: 20px;
+  border-radius: 10px;
+}
+
+/* ================== بخش‌های نارنجی دسته‌بندی خودرو ================== */
+.category-section {
+  max-width: 1200px;
+  margin: 30px auto;
+  border-radius: 16px;
+  padding: 25px 30px;
+}
+
+.orange-box {
+  background-color: #f56e00;
+  color: #ffffff;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
   font-weight: 900;
   margin-bottom: 20px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 12px;
 }
 
 .sub-group {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .sub-group:last-child {
@@ -271,56 +301,49 @@ body {
 }
 
 .group-title {
-  display: block;
+  display: inline-block;
   font-size: 14px;
   font-weight: 800;
   margin-bottom: 12px;
+  color: #ffffff;
+  opacity: 0.95;
 }
 
 .car-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 12px;
 }
 
 .car-card {
   background-color: #ffffff;
-  color: #1a1a1a;
+  color: #121212;
   padding: 14px 10px;
   border-radius: 10px;
   text-align: center;
   font-weight: 800;
   font-size: 14px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .car-card:hover {
   transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* بخش اطلاعات تماس */
+/* ================== بخش تماس با ما ================== */
 .contact-section {
   max-width: 1200px;
-  margin: 45px auto;
+  margin: 40px auto;
   padding: 0 20px;
-}
-
-.contact-title {
   text-align: center;
-  margin-bottom: 30px;
 }
 
-.contact-title h2 {
-  font-size: 24px;
+.contact-section h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
   color: #f56e00;
-  font-weight: 900;
-  margin-bottom: 6px;
-}
-
-.contact-title p {
-  color: #a0a0a0;
-  font-size: 14px;
 }
 
 .contact-cards {
@@ -330,29 +353,24 @@ body {
 }
 
 .c-card {
-  background: #1c1c1c;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: #1e1e1e;
   padding: 20px;
-  text-align: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
-  transition: border-color 0.25s;
-}
-
-.c-card:hover {
-  border-color: #f56e00;
 }
 
 .c-card i {
-  font-size: 28px;
+  font-size: 26px;
   color: #f56e00;
 }
 
 .c-card span {
   font-size: 13px;
-  color: #888;
+  color: #a0a0a0;
 }
 
 .c-card strong {
@@ -364,15 +382,14 @@ body {
 /* فوتر */
 footer {
   text-align: center;
-  padding: 25px 15px;
+  padding: 20px;
   background: #0d0d0d;
   color: #777;
   font-size: 13px;
   margin-top: 50px;
-  border-top: 1px solid #222;
 }
 
-/* دکمه‌های شناور */
+/* ================== دکمه‌های شناور تماس ================== */
 .floating-buttons {
   position: fixed;
   bottom: 25px;
@@ -392,7 +409,7 @@ footer {
   justify-content: center;
   color: #ffffff;
   font-size: 22px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   transition: transform 0.25s ease;
 }
@@ -402,21 +419,24 @@ footer {
 }
 
 .call-btn {
-  background-color: #f56e00;
+  background-color: #1a1a1a;
+  border: 2px solid #ffffff;
 }
 
 .whatsapp-btn {
   background-color: #25d366;
 }
 
-/* واکنش‌گرایی در موبایل */
+/* ریسپانسیو برای موبایل */
 @media (max-width: 850px) {
   .header-content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 15px;
   }
-
+  
   .nav-bar {
+    width: 100%;
+    justify-content: center;
     gap: 16px;
   }
 
