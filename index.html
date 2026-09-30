@@ -1,5 +1,28 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+<head>لود کنید و از آن‌ها استفاده کنیم:
+
+---
+
+### مرحله ۱: ذخیره و آپلود تصاویر در گیت‌هاب (فقط ۱ دقیقه)
+
+۱. این ۳ تصویری که ارسال کردید را روی کامپیوتر خود با نام‌های انگلیسی ساده زیر ذخیره کنید:
+   - تصویر خودروهای ایرانی (پژو، دنا و...): **`car-iran.jpg`**
+   - تصویر خودروهای خارجی و شاسی‌بلندها: **`car-foreign.jpg`**
+   - تصویر ۴ قطعه فنی (گیربکس، دینام، استارت و رام): **`car-parts.jpg`**
+
+۲. وارد مخزن گیت‌هاب خود شوید (`https://github.com/rezamoradpur59/khazar-stock`).
+۳. روی دکمه **Add file** و سپس **Upload files** کلیک کنید.
+۴. هر ۳ فایل (`car-iran.jpg` و `car-foreign.jpg` و `car-parts.jpg`) را بکشید و داخل کادر بیندازید و پایین صفحه دکمه سبز **Commit changes** را بزنید.
+
+---
+
+### مرحله ۲: کد یکپارچه `index.html`
+
+کد زیر را کپی کرده و جایگزین کل محتوای **`index.html`** کنید:
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,313 +30,179 @@
   <link rel="stylesheet" href="style.css">
   <!-- فونت وزیرمتن و آیکون‌ها -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/لاید ۱: خودروهای داخلی -->
+<div class="slide active">
+<img src="car-iran.jpg" alt="لوازم استوک خودروهای داخلی">
+<div class="slide-caption">بورس لوازم خودروهای ایرانی (پژو، سمند، دنا، ال۹۰ و...)</div>
+</div>
 
-  <!-- هدر و منوبار افقی -->
-  <header class="header-container">
-    <div class="header-content">
-      
-      <!-- لوگو و برند (سمت چپ) -->
-      <a href="#home" class="logo-box">
-        <span class="logo-khazar">خزر</span>
-        <span class="logo-stock">استوک</span>
-      </a>
+<!-- اسلاید ۲: خودروهای خارجی -->
+<div class="slide">
+<img src="car-foreign.jpg" alt="لوازم استوک خودروهای خارجی">
+<div class="slide-caption">بورس قطعات استوک خودروهای خارجی، وارداتی و چینی</div>
+</div>
 
-      <!-- منوبار افقی سفید (سمت راست) -->
-      <nav class="nav-bar">
-        <a href="#home" class="nav-item">صفحه اصلی</a>
-        <a href="#domestic" class="nav-item">خودروهای داخلی</a>
-        <a href="#foreign" class="nav-item">خودروهای خارجی</a>
-        <a href="#contact" class="nav-item">ارتباط با ما</a>
-      </nav>
+<!-- اسلاید ۳: قطعات فنی و یدکی -->
+<div class="slide slide-parts">
+<img src="car-parts.jpg" alt="قطعات یدکی و موتوری خزر استوک">
+<div class="slide-caption">گیربکس، دینام، استارت، رام و قطعات موتوری</div>
+</div>
 
-    </div>
-  </header>
+<div class="slider-overlay">
+<span class="badge">خزر استوک</span>
+<p>تضمین سلامت و اصالت قطعات خودرو</p>
+</div>
 
-  <!-- بخش هیرو (پوستر متغیر ماشین در سمت راست/وسط + متون) -->
-  <section class="hero-section" id="home">
-    <div class="hero-container">
-      
-      <!-- اسلایدر با وکتورهای خودرویی پایدار و بدون فیلتر -->
-      <div class="slider-wrapper">
-        <div class="car-slider">
-          
-          <!-- اسلاید ۱: خودرو سواری و اسپرت -->
-          <div class="slide active">
-            <svg class="slide-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#1e1e1e" />
-                  <stop offset="100%" stop-color="#0a0a0a" />
-                </linearGradient>
-                <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#f56e00" />
-                  <stop offset="100%" stop-color="#ff9d42" />
-                </linearGradient>
-                <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#f56e00" stop-opacity="0.3" />
-                  <stop offset="100%" stop-color="#f56e00" stop-opacity="0" />
-                </radialGradient>
-              </defs>
-              <rect width="800" height="500" fill="url(#bgGrad1)" />
-              <circle cx="400" cy="250" r="220" fill="url(#glow)" />
-              <!-- خطوط سرعت -->
-              <path d="M 50 380 L 750 380" stroke="#f56e00" stroke-width="3" stroke-dasharray="15,10" opacity="0.4" />
-              <path d="M 100 400 L 700 400" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="30,20" opacity="0.2" />
-              <!-- بدنه ماشین سواری لوکس -->
-              <g transform="translate(140, 130)">
-                <path d="M 60 170 C 80 120, 150 90, 240 85 C 330 80, 420 110, 470 145 C 500 150, 520 175, 520 195 L 480 205 C 470 205, 450 170, 390 170 C 330 170, 310 205, 300 205 L 180 205 C 170 205, 150 170, 90 170 C 50 170, 30 195, 10 200 Z" fill="url(#carGrad)" />
-                <!-- شیشه‌ها -->
-                <path d="M 170 95 L 250 92 C 320 90, 380 115, 410 140 L 160 140 Z" fill="#111111" opacity="0.85" />
-                <path d="M 260 95 L 340 95 L 350 135 L 260 135 Z" fill="#1f2937" opacity="0.6" />
-                <!-- چراغ‌ها -->
-                <polygon points="480,155 515,165 490,175" fill="#ffffff" opacity="0.9" filter="drop-shadow(0 0 8px #fff)" />
-                <polygon points="15,175 35,170 30,185" fill="#ff2222" opacity="0.9" />
-                <!-- چرخ عقب -->
-                <circle cx="90" cy="205" r="42" fill="#111" stroke="#333" stroke-width="6" />
-                <circle cx="90" cy="205" r="22" fill="#f56e00" />
-                <circle cx="90" cy="205" r="8" fill="#fff" />
-                <!-- چرخ جلو -->
-                <circle cx="390" cy="205" r="42" fill="#111" stroke="#333" stroke-width="6" />
-                <circle cx="390" cy="205" r="22" fill="#f56e00" />
-                <circle cx="390" cy="205" r="8" fill="#fff" />
-              </g>
-              <text x="400" y="440" fill="#ffffff" font-size="22" font-family="Vazirmatn, sans-serif" font-weight="bold" text-anchor="middle">انواع لوازم یدکی و بدنه خودروهای سواری</text>
-            </svg>
-          </div>
+<div class="slider-dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+</div>
+</div>
 
-          <!-- اسلاید ۲: موتور و گیربکس -->
-          <div class="slide">
-            <svg class="slide-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-              <rect width="800" height="500" fill="#141414" />
-              <circle cx="400" cy="230" r="180" fill="#f56e00" opacity="0.15" />
-              <g transform="translate(250, 100)" stroke="#f56e00" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round">
-                <!-- بلوک سیلندر و موتور -->
-                <rect x="40" y="60" width="220" height="150" rx="15" fill="#222" />
-                <path d="M 80 60 L 80 20 L 130 20 L 130 60" fill="#333" />
-                <path d="M 170 60 L 170 20 L 220 20 L 220 60" fill="#333" />
-                <!-- توربو / چرخدنده -->
-                <circle cx="150" cy="135" r="45" fill="#181818" stroke="#ffffff" stroke-width="4" />
-                <circle cx="150" cy="135" r="20" fill="#f56e00" />
-                <line x1="150" y1="90" x2="150" y2="180" stroke="#fff" stroke-width="3" />
-                <line x1="105" y1="135" x2="195" y2="135" stroke="#fff" stroke-width="3" />
-                <path d="M 10 110 L 40 110" stroke-width="8" stroke="#ff9d42" />
-                <path d="M 260 110 L 290 110" stroke-width="8" stroke="#ff9d42" />
-                <path d="M 70 210 L 70 240 L 230 240 L 230 210" fill="#2a2a2a" />
-              </g>
-              <text x="400" y="420" fill="#ffffff" font-size="22" font-family="Vazirmatn, sans-serif" font-weight="bold" text-anchor="middle">موتور کامل، نیم موتور، سرسیلندر و گیربکس استوک</text>
-            </svg>
-          </div>
+<!-- متن و معرفی اصلی -->
+<div class="hero-text">
+<span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
+<h1>بورس لوازم استوک خودروهای سواری و باری</h1>
+<p class="highlight-text">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای، چینی)</p>
+<p class="car-models">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و انواع خودروهای وارداتی...</p>
 
-          <!-- اسلاید ۳: خودروهای باری و وانت -->
-          <div class="slide">
-            <svg class="slide-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-              <rect width="800" height="500" fill="#181818" />
-              <circle cx="400" cy="240" r="190" fill="#f56e00" opacity="0.12" />
-              <!-- وکتور وانت / نیسان باری -->
-              <g transform="translate(150, 130)">
-                <!-- قسمت بار -->
-                <rect x="30" y="80" width="220" height="90" rx="6" fill="#f56e00" stroke="#ffffff" stroke-width="2" />
-                <line x1="30" y1="115" x2="250" y2="115" stroke="#d95e00" stroke-width="3" />
-                <!-- کابین -->
-                <path d="M 250 80 L 320 80 L 370 120 L 440 130 L 440 170 L 250 170 Z" fill="#ffffff" />
-                <!-- شیشه کابین -->
-                <path d="M 265 92 L 315 92 L 355 125 L 265 125 Z" fill="#1e293b" />
-                <!-- سپر و شاسی -->
-                <rect x="20" y="170" width="430" height="15" fill="#333" rx="4" />
-                <!-- چرخ عقب -->
-                <circle cx="110" cy="185" r="38" fill="#111" stroke="#444" stroke-width="6" />
-                <circle cx="110" cy="185" r="18" fill="#f56e00" />
-                <!-- چرخ جلو -->
-                <circle cx="370" cy="185" r="38" fill="#111" stroke="#444" stroke-width="6" />
-                <circle cx="370" cy="185" r="18" fill="#f56e00" />
-              </g>
-              <text x="400" y="420" fill="#ffffff" font-size="22" font-family="Vazirmatn, sans-serif" font-weight="bold" text-anchor="middle">قطعات یدکی خودروهای باری و وانت (نیسان، آریسان و...)</text>
-            </svg>
-          </div>
+<div class="hero-actions">
+<a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
+<a href="#domestic" class="btn-hero-category">مشاهده دسته‌بندی قطعات</a>
+</div>
+</div>
 
-          <!-- اسلاید ۴: قطعات برقی و سنسورها -->
-          <div class="slide">
-            <svg class="slide-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-              <rect width="800" height="500" fill="#121212" />
-              <circle cx="400" cy="220" r="170" fill="#f56e00" opacity="0.15" />
-              <!-- کامپیوتر ECU و سیم‌کشی -->
-              <g transform="translate(260, 110)">
-                <rect x="40" y="30" width="200" height="160" rx="12" fill="#252525" stroke="#f56e00" stroke-width="3" />
-                <!-- خطوط مدار -->
-                <path d="M 70 70 L 130 70 L 130 110 L 210 110" stroke="#f56e00" stroke-width="3" fill="none" />
-                <circle cx="70" cy="70" r="5" fill="#fff" />
-                <circle cx="210" cy="110" r="5" fill="#fff" />
-                <path d="M 70 140 L 160 140 L 160 90" stroke="#ffffff" stroke-width="2.5" fill="none" opacity="0.6" />
-                <!-- سوکت -->
-                <rect x="80" y="190" width="120" height="25" fill="#111" stroke="#666" stroke-width="2" />
-                <circle cx="105" cy="202" r="3" fill="#ff9d42" />
-                <circle cx="125" cy="202" r="3" fill="#ff9d42" />
-                <circle cx="145" cy="202" r="3" fill="#ff9d42" />
-                <circle cx="165" cy="202" r="3" fill="#ff9d42" />
-              </g>
-              <text x="400" y="420" fill="#ffffff" font-size="22" font-family="Vazirmatn, sans-serif" font-weight="bold" text-anchor="middle">انواع ECU کامپیوتر، سیم‌کشی و قطعات برقی استوک</text>
-            </svg>
-          </div>
-
-          <div class="slider-overlay">
-            <span class="badge">خزر استوک</span>
-            <p>تضمین کیفیت و اصالت قطعات خودرو</p>
-          </div>
-
-          <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- متن و معرفی اصلی -->
-      <div class="hero-text">
-        <span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
-        <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
-        <p class="highlight-text">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
-        <p class="car-models">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و انواع خودروهای وارداتی...</p>
-        
-        <div class="hero-actions">
-          <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
-          <a href="#domestic" class="btn-hero-category">مشاهده دسته‌بندی قطعات</a>
-        </div>
-      </div>
-
-    </div>
+</div>
   </section>
 
   <!-- دسته‌بندی خودروهای داخلی -->
   <section class="category-section orange-box" id="domestic">
-    <div class="section-title">
-      <i class="fa-solid fa-car-side"></i>
-      <h2>خودروهای داخلی (ایرانی)</h2>
-    </div>
+<div class="section-title">
+<i class="fa-solid fa-car-side"></i>
+<h2>خودروهای داخلی (ایرانی)</h2>
+</div>
 
-    <!-- ایران خودرو -->
-    <div class="sub-group">
-      <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
-      <div class="car-grid">
-        <div class="car-card">پژو ۲۰۶ / ۲۰۷</div>
-        <div class="car-card">پژو پارس / ۴۰۵</div>
-        <div class="car-card">سمند / سورن / دنا</div>
-        <div class="car-card">رنو تندر ۹۰ (ال۹۰)</div>
-        <div class="car-card">تارا / رانا</div>
-      </div>
-    </div>
+<!-- ایران خودرو -->
+<div class="sub-group">
+<span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
+<div class="car-grid">
+<div class="car-card">پژو ۲۰۶ / ۲۰۷</div>
+<div class="car-card">پژو پارس / ۴۰۵</div>
+<div class="car-card">سمند / سورن / دنا</div>
+<div class="car-card">رنو تندر ۹۰ (ال۹۰)</div>
+<div class="car-card">تارا / رانا</div>
+</div>
+</div>
 
-    <!-- سایپا و پارس خودرو -->
-    <div class="sub-group">
-      <span class="group-title">محصولات سایپا و پارس‌خودرو</span>
-      <div class="car-grid">
-        <div class="car-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
-        <div class="car-card">تیبا / ساینا / کوییک</div>
-        <div class="car-card">وانت نیسان زامیاد</div>
-        <div class="car-card">شاهین</div>
-        <div class="car-card">رنو مگان / ساندرو</div>
-      </div>
-    </div>
+<!-- سایپا و پارس خودرو -->
+<div class="sub-group">
+<span class="group-title">محصولات سایپا و پارس‌خودرو</span>
+<div class="car-grid">
+<div class="car-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
+<div class="car-card">تیبا / ساینا / کوییک</div>
+<div class="car-card">وانت نیسان زامیاد</div>
+<div class="car-card">شاهین</div>
+<div class="car-card">رنو مگان / ساندرو</div>
+</div>
+</div>
   </section>
 
   <!-- دسته‌بندی خودروهای خارجی -->
   <section class="category-section orange-box" id="foreign">
-    <div class="section-title">
-      <i class="fa-solid fa-globe"></i>
-      <h2>خودروهای خارجی و وارداتی</h2>
-    </div>
+<div class="section-title">
+<i class="fa-solid fa-globe"></i>
+<h2>خودروهای خارجی و وارداتی</h2>
+</div>
 
-    <div class="sub-group">
-      <span class="group-title">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
-      <div class="car-grid">
-        <div class="car-card">هیوندای (سوناتا، آزرا، سانتافه)</div>
-        <div class="car-card">کیا (اسپورتیج، اپتیما، سراتو)</div>
-        <div class="car-card">تویوتا (کمری، کرولا، هایلوکس)</div>
-        <div class="car-card">نیسان (ماکسیما، رونیز، پاترول)</div>
-        <div class="car-card">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
-        <div class="car-card">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
-      </div>
-    </div>
+<div class="sub-group">
+<span class="group-title">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
+<div class="car-grid">
+<div class="car-card">هیوندای (سوناتا، آزرا، سانتافه)</div>
+<div class="car-card">کیا (اسپورتیج، اپتیما، سراتو)</div>
+<div class="car-card">تویوتا (کمری، کرولا، هایلوکس)</div>
+<div class="car-card">نیسان (ماکسیما، رونیز، پاترول)</div>
+<div class="car-card">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
+<div class="car-card">خودروهای چینی (ام‌وی‌ام، جک، چری، هایما، هاوال)</div>
+</div>
+</div>
   </section>
 
   <!-- اطلاعات تماس -->
   <section class="contact-section" id="contact">
-    <h2>اطلاعات تماس و سفارش قطعات</h2>
-    <div class="contact-cards">
-      <div class="c-card">
-        <i class="fa-solid fa-phone-volume"></i>
-        <span>تلفن ثابت فروشگاه</span>
-        <strong>۰۱۱-۵۲۳۳۱۶۴۳</strong>
-      </div>
-      <div class="c-card">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-        <span>شماره همراه (مدیریت)</span>
-        <strong>۰۹۱۱۴۵۳۸۷۴۰</strong>
-      </div>
-      <div class="c-card">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>واتس‌اپ و مشاوره آنلاین</span>
-        <strong>۰۹۳۹۷۲۳۵۹۷۰</strong>
-      </div>
-      <div class="c-card">
-        <i class="fa-brands fa-instagram"></i>
-        <span>صفحه اینستاگرام</span>
-        <strong>@stock_khazar</strong>
-      </div>
-    </div>
+<h2>اطلاعات تماس و سفارش قطعات</h2>
+<div class="contact-cards">
+<div class="c-card">
+<i class="fa-solid fa-phone-volume"></i>
+<span>تلفن ثابت فروشگاه</span>
+<strong>۰۱۱-۵۲۳۳۱۶۴۳</strong>
+</div>
+<div class="c-card">
+<i class="fa-solid fa-mobile-screen-button"></i>
+<span>شماره همراه (مدیریت)</span>
+<strong>۰۹۱۱۴۵۳۸۷۴۰</strong>
+</div>
+<div class="c-card">
+<i class="fa-brands fa-whatsapp"></i>
+<span>واتس‌اپ و مشاوره آنلاین</span>
+<strong>۰۹۳۹۷۲۳۵۹۷۰</strong>
+</div>
+<div class="c-card">
+<i class="fa-brands fa-instagram"></i>
+<span>صفحه اینستاگرام</span>
+<strong>@stock_khazar</strong>
+</div>
+</div>
   </section>
 
   <!-- فوتر -->
   <footer>
-    <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
+<p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
   </footer>
 
   <!-- دکمه‌های شناور تماس و واتس‌اپ -->
   <div class="floating-buttons">
-    <a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی">
-      <i class="fa-solid fa-phone"></i>
-    </a>
-    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
+<a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی">
+<i class="fa-solid fa-phone"></i>
+</a>
+<a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
   </div>
 
   <!-- اسکریپت اسلایدر خودکار -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const slides = document.querySelectorAll(".slide");
-      const dots = document.querySelectorAll(".dot");
-      let currentIndex = 0;
-      const intervalTime = 3500;
+document.addEventListener("DOMContentLoaded", () => {
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+let currentIndex = 0;
+const intervalTime = 3500;
 
-      function setSlide(index) {
-        slides.forEach(s => s.classList.remove("active"));
-        dots.forEach(d => d.classList.remove("active"));
-        
-        slides[index].classList.add("active");
-        dots[index].classList.add("active");
-      }
+function setSlide(index) {
+slides.forEach(s => s.classList.remove("active"));
+dots.forEach(d => d.classList.remove("active"));
 
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        setSlide(currentIndex);
-      }
+slides[index].classList.add("active");
+dots[index].classList.add("active");
+}
 
-      let slideTimer = setInterval(nextSlide, intervalTime);
+function nextSlide() {
+currentIndex = (currentIndex + 1) % slides.length;
+setSlide(currentIndex);
+}
 
-      dots.forEach((dot, idx) => {
-        dot.addEventListener("click", () => {
-          clearInterval(slideTimer);
-          currentIndex = idx;
-          setSlide(currentIndex);
-          slideTimer = setInterval(nextSlide, intervalTime);
-        });
-      });
-    });
+let slideTimer = setInterval(nextSlide, intervalTime);
+
+dots.forEach((dot, idx) => {
+dot.addEventListener("click", () => {
+clearInterval(slideTimer);
+currentIndex = idx;
+setSlide(currentIndex);
+slideTimer = setInterval(nextSlide, intervalTime);
+});
+});
+});
   </script>
 
 </body>
