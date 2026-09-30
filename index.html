@@ -1,140 +1,135 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه خزر استوک | خرید کالای استوک و اورجینال</title>
-    <!-- آیکون‌های FontAwesome برای جستجو، سبد خرید و تماس -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- فونت وزیرمتن -->
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
+  <!-- آیکون‌های FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/:
+* **نارنجی اصلی کارت**: `#f56e00` (تم انرژی‌بخش و زمینه کارت)
+* **مشکی تیره / فریم دور**: `#151515` (فریم بیرونی کارت و دکمه‌ها)
+* **سفید با حاشیه و سایه برجسته**: برای فونت‌ها و باکس‌ها
+* **اطلاعات تماس واقعی روی کارت**:
+  * تلفن ثابت: `01152331643`
+  * همراه ۱: `09114538740`
+  * همراه ۲: `09397235970`
+  * اینستاگرام: `stock_khazar`
+
+---
+
+### ۱. کدهای کامل و آماده:
+
+#### الف) کد کامل فایل `index.html`:
+این کد را جایگزین تمام محتوای فایل `index.html` کنید:
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
+  <!-- آیکون‌های FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- فونت وزیرمتن -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- نوار بالای سایت (Top Bar) -->
-    <div class="top-bar">
-        <span>فروشگاه خزر استوک | کیفیت، تنوع و خدمات بی‌نظیر در یک‌جا</span>
-    </div>
+  <!-- نوار بالای سایت با شماره‌های تماس کارت -->
+  <div class="top-bar">
+<div class="container top-bar-content">
+<div class="contact-quick">
+<span><i class="fa-solid fa-phone"></i> ۰۱۱-cart-shopping"></i></a>
+</div>
+</div>
+  </header>
 
-    <!-- هدر اصلی -->
-    <header class="main-header">
-        <div class="container header-content">
-            <div class="user-actions">
-                <a href="#" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="#" class="login-btn"><i class="fa-solid fa-arrow-right-to-bracket"></i> ورود | ثبت‌نام</a>
-            </div>
+  <!-- منوی ناوبری اصلی -->
+  <nav class="navbar">
+<div class="container">
+<ul class="nav-links">
+<li><a href="#" class="active"><i class="fa-solid fa-house"></i> صفحه اصلی</a></li>
+<li><a href="#domestic-cars">خودروهای داخلی (ایرانی)</a></li>
+<li><a href="#foreign-cars">خودروهای خارجی</a></li>
+<li><a href="#">قطعات موتوری</a></li>
+<li><a href="#">گیربکس و انتقال قدرت</a></li>
+<li><a href="#">بدنه و روشنایی</a></li>
+<li><a href="#">ارتباط با ما</a></li>
+</ul>
+</div>
+  </nav>
 
-            <div class="search-box">
-                <input type="text" placeholder="جستجو در خزر استوک...">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+  <!-- بنر معرفی برگرفته از کارت ویزیت -->
+  <section class="container hero-section">
+<div class="card-banner">
+<div class="banner-text">
+<h1>بورس لوازم استوک خودروهای سواری و باری</h1>
+<p class="sub-banner">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
+<span class="badge">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و...</span>
+</div>
+</div>
+  </section>
 
-            <div class="logo">
-                <a href="#">
-                    <h2>خزر <span>استوک</span></h2>
-                </a>
-            </div>
-        </div>
-    </header>
+  <!-- ۱. بخش خودروهای داخلی (ایرانی) با زیرمجموعه ایران‌خودرو و سایپا -->
+  <section id="domestic-cars" class="brands-section container">
+<div class="brands-wrapper">
+<div class="section-title-white">
+<h3><i class="fa-solid fa-car"></i> خودروهای داخلی (ایرانی)</h3>
+</div>
 
-    <!-- منوی ناوبری -->
-    <nav class="navbar">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#" class="active">خانه</a></li>
-                <li><a href="#">دسته‌بندی محصولات <i class="fa-solid fa-bars"></i></a></li>
-                <li><a href="#">پیگیری سفارش</a></li>
-                <li><a href="#">همه محصولات</a></li>
-                <li><a href="#">ابزارآلات</a></li>
-                <li><a href="#">لوازم خانگی</a></li>
-                <li><a href="#">دوربین دوچشمی</a></li>
-                <li><a href="#">خرید حضوری</a></li>
-                <li><a href="#">شرایط خرید از ما</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- دسته اول: ایران خودرو -->
+<div class="sub-category-title">
+<span>محصولات ایران‌خودرو (IKCO)</span>
+</div>
+<div class="brands-grid">
+<div class="brand-card">پژو ۲۰۶ / ۲۰۷</div>
+<div class="brand-card">پژو پارس / ۴۰۵</div>
+<div class="brand-card">سمند / سورن / دنا</div>
+<div class="brand-card">رنو تندر ۹۰ (ال۹۰)</div>
+<div class="brand-card">تارا / رانا</div>
+</div>
 
-    <!-- بخش برندهای موجود فروشگاه -->
-    <section class="brands-section container">
-        <div class="brands-wrapper">
-            <h3 class="section-title-white">برند های موجود فروشگاه</h3>
-            <div class="brands-carousel">
-                <div class="brand-card">HONDA</div>
-                <div class="brand-card">PARKSIDE</div>
-                <div class="brand-card">Westinghouse</div>
-                <div class="brand-card">Samsung</div>
-                <div class="brand-card">Huawei</div>
-                <div class="brand-card">Shindaiwa</div>
-            </div>
-        </div>
-    </section>
+<!-- دسته دوم: سایپا -->
+<div class="sub-category-title mt-20">
+<span>محصولات سایپا و پارس‌خودرو</span>
+</div>
+<div class="brands-grid">
+<div class="brand-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
+<div class="brand-card">تیبا / ساینا / کوییک</div>
+<div class="brand-card">وانت نیسان زامیاد</div>
+<div class="brand-card">شاهین</div>
+<div class="brand-card">رنو مگان / ساندرو</div>
+</div>
+</div>
+  </section>
 
-    <!-- بخش جدیدترین محصولات -->
-    <section class="products-section container">
-        <div class="products-wrapper">
-            <div class="section-header-red">
-                <a href="#" class="view-all">مشاهده همه <i class="fa-solid fa-chevron-left"></i></a>
-                <h3>جدیدترین محصولات</h3>
-            </div>
-            
-            <div class="products-grid">
-                <!-- کارت محصول ۱ -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://via.placeholder.com/300x300?text=موتور+برق+Westinghouse" alt="موتور برق">
-                    </div>
-                    <div class="product-info">
-                        <h4>موتور برق و ژنراتور اینورتر Westinghouse</h4>
-                        <span class="price">تماس بگیرید / موجود</span>
-                    </div>
-                </div>
+  <!-- ۲. بخش خودروهای خارجی -->
+  <section id="foreign-cars" class="brands-section container">
+<div class="brands-wrapper foreign-wrapper">
+<div class="section-title-white">
+<h3><i class="fa-solid fa-globe"></i> خودروهای خارجی (استوک اروپایی، ژاپنی، کره‌ای)</h3>
+</div>
+<div class="brands-grid">
+<div class="brand-card">هیوندای (Hyundai)</div>
+<div class="brand-card">کیا (Kia)</div>
+<div class="brand-card">تویوتا (Toyota)</div>
+<div class="brand-card">نیسان ژاپن (Nissan)</div>
+<div class="brand-card">مزدا (Mazda)</div>
+<div class="brand-card">خودروهای چینی (MVM/Chery/JAC)</div>
+</div>
+</div>
+  </section>
 
-                <!-- کارت محصول ۲ -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://via.placeholder.com/300x300?text=عینک+خلبانی+Ray-Ban" alt="عینک ریبن">
-                    </div>
-                    <div class="product-info">
-                        <h4>عینک خلبانی ریبن اورجینال UV400</h4>
-                        <span class="price">۱,۸۵۰,۰۰۰ تومان</span>
-                    </div>
-                </div>
-
-                <!-- کارت محصول ۳ -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://via.placeholder.com/300x300?text=دستگاه+سه+کاره" alt="دستگاه پلوپز و بخارپز">
-                    </div>
-                    <div class="product-info">
-                        <h4>دستگاه ۳ کاره زودپز، پلوپز و سرخ‌کن</h4>
-                        <span class="price">۴,۲۰۰,۰۰۰ تومان</span>
-                    </div>
-                </div>
-
-                <!-- کارت محصول ۴ -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://via.placeholder.com/300x300?text=سرخ+کن+بدون+روغن" alt="سرخ کن">
-                    </div>
-                    <div class="product-info">
-                        <h4>سرخ‌کن هواپز دیجیتال استوک اروپایی</h4>
-                        <span class="price">۳,۴۰۰,۰۰۰ تومان</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- دکمه‌های شناور (تماس و واتس‌اپ) -->
-    <div class="floating-actions">
-        <a href="tel:09120000000" class="float-btn call-btn" title="تماس تلفنی">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-        <a href="https://wa.me/989120000000" class="float-btn whatsapp-btn" title="ارتباط در واتس‌اپ">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
+  <!-- دکمه‌های شناور تماس و واتس‌اپ -->
+  <div class="floating-actions">
+<a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی">
+<i class="fa-solid fa-phone"></i>
+</a>
+<a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+  </div>
 
 </body>
 </html>
