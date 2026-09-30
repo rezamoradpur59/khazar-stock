@@ -14,20 +14,21 @@ body {
   line-height: 1.6;
 }
 
-/* ================== سربرگ و منو بار افقی ================== */
+/* هدر و نوبار */
 .header-container {
   width: 100%;
-  background: #181818;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  border-bottom: 2px solid #f56e00;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,21 +38,19 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  text-decoration: none;
-  order: 2;
 }
 
 .logo-khazar {
   color: #ffffff;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: -0.5px;
+  letter-spacing: 1px;
 }
 
 .logo-stock {
-  background-color: #ffffff;
-  color: #121212;
-  font-size: 20px;
+  background-color: #f56e00;
+  color: #ffffff;
+  font-size: 18px;
   font-weight: 900;
   padding: 2px 10px;
   border-radius: 6px;
@@ -60,8 +59,7 @@ body {
 .nav-bar {
   display: flex;
   align-items: center;
-  gap: 28px;
-  order: 1;
+  gap: 24px;
 }
 
 .nav-item {
@@ -69,46 +67,25 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-weight: 700;
-  transition: all 0.25s ease;
-  position: relative;
-  padding: 6px 0;
+  transition: color 0.25s ease;
 }
 
 .nav-item:hover {
   color: #f56e00;
 }
 
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #f56e00;
-  transition: width 0.3s ease;
-}
-
-.nav-item:hover::after {
-  width: 100%;
-}
-
-/* ================== بخش هیرو و اسلایدر ================== */
+/* بخش معرفی و اسلایدر */
 .hero-section {
   max-width: 1200px;
-  margin: 35px auto;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
-  gap: 35px;
-}
-
-.hero-text {
-  text-align: right;
+  gap: 40px;
 }
 
 .sub-badge {
@@ -119,27 +96,26 @@ body {
   border-radius: 20px;
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 12px;
-  border: 1px solid rgba(245, 110, 0, 0.3);
+  margin-bottom: 15px;
+  border: 1px solid rgba(245, 110, 0, 0.4);
 }
 
 .hero-text h1 {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 900;
   line-height: 1.5;
-  margin-bottom: 10px;
-  color: #ffffff;
+  margin-bottom: 12px;
 }
 
 .highlight-text {
   font-size: 18px;
   color: #f56e00;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .car-models {
-  color: #b0b0b0;
+  color: #a0a0a0;
   font-size: 14px;
   margin-bottom: 25px;
 }
@@ -150,44 +126,47 @@ body {
   flex-wrap: wrap;
 }
 
-.btn-hero-call {
+.btn-call {
   background: #f56e00;
   color: #ffffff;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: background 0.25s ease;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(245, 110, 0, 0.35);
+  transition: background 0.25s;
 }
 
-.btn-hero-call:hover {
+.btn-call:hover {
   background: #d95e00;
 }
 
-.btn-hero-category {
+.btn-category {
   background: transparent;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.25s ease;
+  font-size: 15px;
+  transition: all 0.25s;
 }
 
-.btn-hero-category:hover {
+.btn-category:hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
 }
 
-/* قاب اسلایدر تصاویر */
+/* ساختار اسلایدر */
 .slider-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10.5;
-  min-height: 300px;
+  height: 330px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: #181818;
 }
@@ -203,10 +182,6 @@ body {
   inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1a1a1a;
 }
 
 .slide.active {
@@ -215,30 +190,19 @@ body {
 
 .slide img {
   width: 100%;
-  height:-hero-category {
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: all 0.25s ease;
+  height: 100%;
+  55, 255, 255, 0.1);
+  border-color: #ffffff;
 }
 
-.btn-hero-category:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* قاب اسلایدر تصاویر */
+/* ساختار اسلایدر */
 .slider-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10.5;
-  min-height: 300px;
+  height: 330px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: #181818;
 }
@@ -254,10 +218,6 @@ body {
   inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1a1a1a;
 }
 
 .slide.active {
@@ -268,53 +228,42 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* اسلاید قطعات فنی به صورت تمیز در پس‌زمینه سفید */
 .slide.slide-parts img {
   object-fit: contain;
   background-color: #ffffff;
-  padding: 10px;
-
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 15px;
 }
 
-.dot.active {
-  background: #f56e00;
-  width: 20px;
-  border-radius: 10px;
-}
-
-/* ================== بخش‌های نارنجی دسته‌بندی خودرو ================== */
-.category-section {
-  max-width: 1200px;
-  margin: 30px auto;
-  border-radius: 16px;
-  padding: 25px 30px;
-}
-
-.orange-box {
-  background-color: #f56e00;
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
   color: #ffffff;
+  padding: 25px 15px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
 }
 
-.section-title {
+.slider-dots {
+  position: absolute;
+  top: 15px;
+  left: 15px;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 18px;
+  gap: 6px;
+  z-index:  font-size: 18px;
   font-weight: 900;
   margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
 }
 
 .sub-group {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .sub-group:last-child {
@@ -322,82 +271,88 @@ body {
 }
 
 .group-title {
-  display: inline-block;
+  display: block;
   font-size: 14px;
   font-weight: 800;
   margin-bottom: 12px;
-  color: #ffffff;
-  opacity: 0.95;
 }
 
 .car-grid {
   display: grid;
-  grid-template-columns: repeat
-  max-width: 1200px;
-  margin: 30px auto;
-  border-radius: 16px;
-  padding: 25px 30px;
-}
-
-.orange-box {
-  background-color: #f56e00;
-  color: #ffffff;
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 18px;
-  font-weight: 900;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  padding-bottom: 12px;
-}
-
-.sub-group {
-  margin-bottom: 22px;
-}
-
-.sub-group:last-child {
-  margin-bottom: 0;
-}
-
-.group-title {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: #ffffff;
-  opacity: 0.95;
-}
-
-.car-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
 }
 
 .car-card {
   background-color: #ffffff;
-  color: #121212;
+  color: #1a1a1a;
   padding: 14px 10px;
   border-radius: 10px;
   text-align: center;
   font-weight: 800;
   font-size: 14px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.car-card:hover {
+  transform: translateY(-3px);
+}
+
+/* بخش اطلاعات تماس */
+.contact-section {
+  max-width: 1200px;
+  margin: 45px auto;
+  padding: 0 20px;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-title h2 {
+  font-size: 24px;
+  color: #f56e00;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.contact-title p {
+  color: #a0a0a0;
+  font-size: 14px;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.c-card {
+  background: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.25s;
+}
+
+.c-card:hover {
+  border-color: #f56e00;
 }
 
 .c-card i {
-  font-size: 26px;
+  font-size: 28px;
   color: #f56e00;
 }
 
 .c-card span {
   font-size: 13px;
-  color: #a0a0a0;
+  color: #888;
 }
 
 .c-card strong {
@@ -409,11 +364,12 @@ body {
 /* فوتر */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px 15px;
   background: #0d0d0d;
   color: #777;
   font-size: 13px;
   margin-top: 50px;
+  border-top: 1px solid #222;
 }
 
 /* دکمه‌های شناور */
@@ -436,7 +392,7 @@ footer {
   justify-content: center;
   color: #ffffff;
   font-size: 22px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
   text-decoration: none;
   transition: transform 0.25s ease;
 }
@@ -446,41 +402,37 @@ footer {
 }
 
 .call-btn {
-  background-color: #1a1a1a;
-  border: 2px solid #ffffff;
+  background-color: #f56e00;
 }
 
 .whatsapp-btn {
   background-color: #25d366;
 }
 
-/* ریسپانسیو موبایل */
+/* واکنش‌گرایی در موبایل */
 @media (max-width: 850px) {
   .header-content {
-flex-direction: column-reverse;
-gap: 15px;
+    flex-direction: column;
+    gap: 15px;
   }
-  
+
   .nav-bar {
-width: 100%;
-justify-content: center;
-gap: 16px;
+    gap: 16px;
   }
 
   .hero-container {
-grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .hero-text {
-text-align: center;
+    text-align: center;
   }
 
   .hero-actions {
-justify-content: center;
+    justify-content: center;
   }
 
   .slider-wrapper {
-order: -1;
+    order: -1;
   }
 }
-
