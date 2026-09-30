@@ -1,762 +1,683 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خزر استوک | بورس لوازم خانگی و استوک اروپایی</title>
-    <meta name="description" content="فروشگاه اینترنتی خزر استوک - عرضه مستقیم لوازم خانگی، استوک اروپایی و گجت با تضمین اصالت و سلامت کالا">
-    
-    <!-- کد تایید هویت گوگل سرچ کنسول (کد خود را جایگزین کنید) -->
-    <meta name="google-site-verification" content="کد_تایید_شما_از_سرچ_کنسول" />
-
-    <!-- فونت و آیکون‌ها -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-
-    <style>
-        :root {
-            --primary: #e50914;
-            --primary-dark: #b80710;
-            --secondary: #1e293b;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --accent: #22c55e;
-            --shadow: 0 4px 15px rgba(0,0,0,0.06);
-            --radius: 12px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            direction: rtl;
-            overflow-x: hidden;
-        }
-
-        /* نوار بالای صفحه (Top Bar) */
-        .topbar {
-            background-color: #0f172a;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .topbar span i {
-            color: var(--accent);
-            margin-left: 6px;
-        }
-
-        /* هدر اصلی */
-        header {
-            background-color: #ffffff;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
-        .search-bar {
-            flex-grow: 1;
-            max-width: 550px;
-            position: relative;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 12px 45px 12px 20px;
-            border: 2px solid var(--border);
-            border-radius: 30px;
-            outline: none;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
-        }
-
-        .search-bar i {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .btn-contact-head {
-            background-color: var(--primary);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-contact-head:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* بنر تبلیغاتی اصلی (Hero Banner) */
-        .hero {
-            max-width: 1300px;
-            margin: 25px auto;
-            padding: 0 20px;
-        }
-
-        .hero-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-radius: var(--radius);
-            padding: 45px 40px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero-tag {
-            background: rgba(229, 9, 20, 0.2);
-            color: #ff6b6b;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 15px;
-            border: 1px solid rgba(229, 9, 20, 0.4);
-        }
-
-        .hero-content h1 {
-            font-size: 2.3rem;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .hero-content p {
-            color: #cbd5e1;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .hero-btn {
-            background: var(--primary);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
-        }
-
-        /* بخش ویژگی‌ها */
-        .features {
-            max-width: 1300px;
-            margin: 20px auto 40px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 18px 20px;
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid var(--border);
-        }
-
-        .feature-card i {
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-
-        .feature-card div h4 {
-            font-size: 0.95rem;
-            margin-bottom: 3px;
-        }
-
-        .feature-card div p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* برندها */
-        .brands-section {
-            max-width: 1300px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 10px;
-        }
-
-        .section-header h2 {
-            font-size: 1.35rem;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-header h2::before {
-            content: '';
-            width: 5px;
-            height: 22px;
-            background: var(--primary);
-            border-radius: 3px;
-            display: inline-block;
-        }
-
-        .brands-carousel {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            scrollbar-width: thin;
-        }
-
-        .brand-badge {
-            background: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-            font-weight: 700;
-            color: var(--secondary);
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* لیست محصولات */
-        .products-section {
-            max-width: 1300px;
-            margin: 30px auto 60px;
-            padding: 0 20px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 22px;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border-color: #cbd5e1;
-        }
-
-        .badge-stock {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--primary);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            z-index: 2;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 210px;
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-img img {
-            max-width: 85%;
-            max-height: 85%;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.08);
-        }
-
-        .product-info {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-cat {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-bottom: 6px;
-        }
-
-        .product-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 12px;
-            line-height: 1.5;
-            height: 48px;
-            overflow: hidden;
-        }
-
-        .product-price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-top: auto;
-            padding-top: 12px;
-            border-top: 1px solid var(--border);
-        }
-
-        .price-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .price-val {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .price-val span {
-            font-size: 0.8rem;
-            font-weight: normal;
-            color: var(--text-muted);
-            margin-right: 3px;
-        }
-
-        .card-actions {
-            margin-top: 14px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .btn-order {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 9px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: background 0.2s;
-        }
-
-        .btn-order:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .btn-chat {
-            background-color: #f1f5f9;
-            color: var(--secondary);
-            border: 1px solid var(--border);
-            padding: 9px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .btn-chat:hover {
-            background-color: #e2e8f0;
-        }
-
-        /* دکمه‌های شناور تماس و واتس‌اپ */
-        .floating-buttons {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 999;
-        }
-
-        .float-btn {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.4rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
-
-        .float-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .float-wa {
-            background-color: #25d366;
-        }
-
-        .float-phone {
-            background-color: var(--primary);
-        }
-
-        /* فوتر */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            padding: 50px 20px 25px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .footer-col h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .footer-col p {
-            line-height: 1.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-wrap: wrap;
-            }
-            .search-bar {
-                order: 3;
-                max-width: 100%;
-            }
-            .hero-content h1 {
-                font-size: 1.7rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
+  <meta name="description" content="خزر استوک: مرجع تخصصی و بورس قطعات و لوازم استوک خودروهای داخلی و خارجی با ضمانت اصالت کالا">
+  <meta name="keywords" content="خزر استوک, قطعات استوک خودرو, لوازم استوک ماشین, استوک خودروهای ایرانی و خارجی">
+
+  <!-- کد تایید هویت گوگل سرچ کنسول -->
+  <meta name="google-site-verification" content="کد_تایید_شما_از_گوگل" />
+
+  <!-- فونت وزیرمتن و آیکون‌ها -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* تنظیمات پایه */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      direction: rtl;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ================== سربرگ و منو بار افقی ================== */
+    .header-container {
+      width: 100%;
+      background: #181818;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* لوگوی خزر استوک در سمت چپ با رنگ سفید-مشکی */
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      order: 2;
+    }
+
+    .logo-khazar {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-stock {
+      background-color: #ffffff;
+      color: #121212;
+      font-size: 20px;
+      font-weight: 900;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    /* منوبار افقی با رنگ سفید */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      order: 1;
+    }
+
+    .nav-item {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-item:hover {
+      color: #f56e00;
+    }
+
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f56e00;
+      transition: width 0.3s ease;
+    }
+
+    .nav-item:hover::after {
+      width: 100%;
+    }
+
+    /* ================== بخش هیرو و پوستر متغیر ================== */
+    .hero-section {
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    /* متون سمت راست هیرو */
+    .hero-text {
+      text-align: right;
+    }
+
+    .sub-badge {
+      display: inline-block;
+      background: rgba(245, 110, 0, 0.15);
+      color: #f56e00;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weightnav-item:hover {
+      color: #f56e00;
+    }
+
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f56e00;
+      transition: width 0.3s ease;
+    }
+
+    .nav-item:hover::after {
+      width: 100%;
+    }
+
+    /* ================== بخش هیرو و پوستر متغیر ================== */
+    .hero-section {
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    /* متون سمت راست هیرو */
+    .hero-text {
+      text-align: right;
+    }
+
+    .sub-badge {
+      display: inline-block;
+      background: rgba(245, 110, 0, 0.15);
+      color: #f56e00;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid rgba(245, 110, 0, 0.3);
+    }
+
+    .hero-text h1 {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.5;
+      margin-bottom: weight: 700;
+      transition: all 0.25s ease;
+    }
+
+    .btn-hero-category:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* پوستر متغیر ماشین (اسلایدر) */
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      min-height: 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #1c1c1c;
+    }
+
+    .car-slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slider-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 20px 15px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      color: #ffffff;
+    }
+
+    .slider-overlay .badge {
+      background: #f56e00;
+      color: #ffffff;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .slider-overlay p {
+      font-size: 14px;
+      margin-top: 4px;
+      color: #e0e0e0;
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 15px;
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #f56e00;
+      width: 20px;
+      border-radius: 10px;
+    }
+
+    /* ================== بخش‌های نارنجی دسته‌بندی خودرو ================== */
+    .category-section {
+      max-width: 1200px;
+      margin: 30px auto;
+      border-radius: 16px;
+      padding: 25px 30px;
+    }
+
+    .orange-box {
+      background-color: #f56e00;
+      color: #ffffff;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      padding-bottom: 12px;
+    }
+
+    .sub-group {
+      margin-bottom: 22px;
+    }
+
+    .sub-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .group-title {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #ffffff;
+      opacity: 0.95;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .car-card {
+      background-color: #ffffff;
+      color: #121212;
+      padding: 14px 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ================== بخش تماس با ما ================== */
+    .contact-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 25px;
+      font-size: 22px;
+      color: #f56e00;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .c-card {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .c-card i {
+      font-size: 26px;
+      color: #f56e00;
+    }
+
+    .c-card span {
+      font-size: 13px;
+      color: #a0a0a0;
+    }
+
+    .c-card strong {
+      font-size: 16px;
+      color: #ffffff;
+      direction: ltr;
+    }
+
+    /* فوتر */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d0d0d;
+      color: #777;
+      font-size: 13px;
+      margin-top: 50px;
+    }
+
+    /* ================== دکمه‌های شناور تماس ================== */
+    .floating-buttons {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 22px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      text-decoration: none;
+      transition: transform 0.25s ease;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .call-btn {
+      background-color: #1a1a1a;
+      border: 2px solid #ffffff;
+    }
+
+    .whatsapp-btn {
+      background-color: #25d366;
+    }
+
+    /* ریسپانسیو برای موبایل */
+    @media (max-width: 850px) {
+      .header-content {
+        flex-direction: column-reverse;
+        gap: 15px;
+      }
+      
+      .nav-bar {
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .slider-wrapper {
+        order: -1;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- نوار اعلان بالا -->
-    <div class="topbar">
-        <span><i class="fa-solid fa-truck-fast"></i> ارسال فوری به سراسر کشور | تضمین اصالت و مهلت تست کالا</span>
-        <span>پشتیبانی: ۰۹۱۲۳۴۵۶۷۸۹</span>
+  <!-- هدر و منوبار افقی -->
+  <header class="header-container">
+    <div class="header-content">
+      
+      <!-- لوگو و برند (سمت چپ) -->
+      <a href="#home" class="logo-box">
+        <span class="logo-khazar">خزر</span>
+        <span class="logo-stock">استوک</span>
+      </a>
+
+      <!-- منوبار افقی سفید (سمت راست) -->
+      <nav class="nav-bar">
+        <a href="#home" class="nav-item">صفحه اصلی</a>
+        <a href="#domestic" class="nav-item">خودروهای داخلی</a>
+        <a href="#foreign" class="nav-item">خودروهای خارجی</a>
+        <a href="#contact" class="nav-item">ارتباط با ما</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- بخش هیرو (پوستر متغیر ماشین + متون) -->
+  <section class="hero-section" id="home">
+    <div class="hero-container">
+      
+      <!-- پوستر متغیر تصاویر خودروها -->
+      <div class="slider-wrapper">
+        <div class="car-slider">
+          <div class="slide active">
+            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="خودرو بی‌ام‌و">
+          </div>
+          <div class="slide">
+            <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="خودرو سواری لوکس">
+          </div>
+          <div class="slide">
+            <img src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="موتور و قطعات خودرو">
+          </div>
+          <div class="slide">
+            <img src="https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="ماشین اسپرت">
+          </div>
+          
+          <div class="slider-overlay">
+            <span class="badge">خزر استوک</span>
+            <p>تضمین سلامت و اصالت قطعات خودرو</p>
+          </div>
+
+          <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- متن و معرفی اصلی -->
+      <div class="hero-text">
+        <span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
+        <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
+        <p class="highlight-text">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
+        <p class="car-models">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و انواع خودروهای وارداتی...</p>
+        
+        <div class="hero-actions">
+          <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
+          <a href="#domestic" class="btn-hero-category">مشاهده دسته‌بندی قطعات</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- دسته‌بندی خودروهای داخلی -->
+  <section class="category-section orange-box" id="domestic">
+    <div class="section-title">
+      <i class="fa-solid fa-car-side"></i>
+      <h2>خودروهای داخلی (ایرانی)</h2>
     </div>
 
-    <!-- هدر سایت -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-store"></i>
-                خزر<span>استوک</span>
-            </a>
-
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="جستجوی مدل دستگاه، برند، دسته بندی...">
-            </div>
-
-            <div class="header-actions">
-                <a href="tel:09123456789" class="btn-contact-head">
-                    <i class="fa-solid fa-phone"></i>
-                    تماس با فروشگاه
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- بنر خوش‌آمدگویی -->
-    <section class="hero">
-        <div class="hero-banner">
-            <div class="hero-content">
-                <span class="hero-tag">تخفیفات ویژه پاییزه</span>
-                <h1>بزرگترین مرجع لوازم خانگی و استوک اروپایی</h1>
-                <p>مستقیم از دبی و اروپا، تست شده توسط کادر فنی با گارانتی سلامت کالا و ارسال سریع به تمام نقاط ایران.</p>
-                <a href="#products" class="hero-btn">
-                    مشاهده محصولات
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ویژگی‌ها -->
-    <section class="features">
-        <div class="feature-card">
-            <i class="fa-solid fa-shield-halved"></i>
-            <div>
-                <h4>مهلت تست و ضمانت</h4>
-                <p>۷ روز مهلت تست فنی محصولات</p>
-            </div>
-        </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-box-open"></i>
-            <div>
-                <h4>استوک گرید A++</h4>
-                <p>تست شده و در حد نو</p>
-            </div>
-        </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-headset"></i>
-            <div>
-                <h4>مشاوره تخصصی</h4>
-                <p>پاسخگویی سریع قبل از خرید</p>
-            </div>
-        </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-credit-card"></i>
-            <div>
-                <h4>پرداخت امن</h4>
-                <p>امکان پرداخت در محل یا آنلاین</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش برندها -->
-    <section class="brands-section">
-        <div class="section-header">
-            <h2>برندهای مطرح موجود</h2>
-        </div>
-        <div class="brands-carousel">
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> BOSCH بوش</div>
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> PHILIPS فیلیپس</div>
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> DELONGHI دلونگی</div>
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> DYSON دایسون</div>
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> TEFAL تفال</div>
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> BRAUN براون</div>
-            <div class="brand-badge"><i class="fa-solid fa-check"></i> NINJA نینجا</div>
-        </div>
-    </section>
-
-    <!-- بخش محصولات -->
-    <section class="products-section" id="products">
-        <div class="section-header">
-            <h2>جدیدترین کالاهای فروشگاه</h2>
-        </div>
-
-        <div class="products-grid">
-            <!-- محصول ۱ -->
-            <div class="product-card">
-                <span class="badge-stock">گرید A++</span>
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=400&q=80" alt="اسپرسوساز دلونگی">
-                </div>
-                <div class="product-info">
-                    <span class="product-cat">نوشیدنی‌ساز</span>
-                    <h3 class="product-title">اسپرسوساز تمام اتوماتیک دلونگی مدل Magnifica S</h3>
-                    <div class="product-price-row">
-                        <span class="price-label">قیمت ویژه:</span>
-                        <div class="price-val">۱۴,۵۰۰,۰۰۰ <span>تومان</span></div>
-                    </div>
-                    <div class="card-actions">
-                        <a href="tel:09123456789" class="btn-order"><i class="fa-solid fa-phone"></i> سفارش</a>
-                        <a href="https://wa.me/989123456789" class="btn-chat"><i class="fa-brands fa-whatsapp"></i> واتس‌اپ</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- محصول ۲ -->
-            <div class="product-card">
-                <span class="badge-stock">استوک اروپایی</span>
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&q=80" alt="جاروبرقی بوش">
-                </div>
-                <div class="product-info">
-                    <span class="product-cat">نظافت و شستشو</span>
-                    <h3 class="product-title">جاروبرقی پرقدرت کیسه‌ای بوش سری ۸ آلمان</h3>
-                    <div class="product-price-row">
-                        <span class="price-label">قیمت ویژه:</span>
-                        <div class="price-val">۹,۸۰۰,۰۰۰ <span>تومان</span></div>
-                    </div>
-                    <div class="card-actions">
-                        <a href="tel:09123456789" class="btn-order"><i class="fa-solid fa-phone"></i> سفارش</a>
-                        <a href="https://wa.me/989123456789" class="btn-chat"><i class="fa-brands fa-whatsapp"></i> واتس‌اپ</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- محصول ۳ -->
-            <div class="product-card">
-                <span class="badge-stock">در حد آکبند</span>
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=400&q=80" alt="سرخ کن فیلیپس">
-                </div>
-                <div class="product-info">
-                    <span class="product-cat">پخت و پز</span>
-                    <h3 class="product-title">سرخ کن بدون روغن فیلیپس مدل HD9270 ظرفیت بزرگ</h3>
-                    <div class="product-price-row">
-                        <span class="price-label">قیمت ویژه:</span>
-                        <div class="price-val">۶,۲۰۰,۰۰۰ <span>تومان</span></div>
-                    </div>
-                    <div class="card-actions">
-                        <a href="tel:09123456789" class="btn-order"><i class="fa-solid fa-phone"></i> سفارش</a>
-                        <a href="https://wa.me/989123456789" class="btn-chat"><i class="fa-brands fa-whatsapp"></i> واتس‌اپ</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- محصول ۴ -->
-            <div class="product-card">
-                <span class="badge-stock">استوک نمایشگاهی</span>
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&q=80" alt="مخلوط کن نینجا">
-                </div>
-                <div class="product-info">
-                    <span class="product-cat">آماده‌ساز غذا</span>
-                    <h3 class="product-title">مخلوط‌کن و غذاساز حرفه‌ای نینجا اصل آمریکا</h3>
-                    <div class="product-price-row">
-                        <span class="price-label">قیمت ویژه:</span>
-                        <div class="price-val">۷,۴۰۰,۰۰۰ <span>تومان</span></div>
-                    </div>
-                    <div class="card-actions">
-                        <a href="tel:09123456789" class="btn-order"><i class="fa-solid fa-phone"></i> سفارش</a>
-                        <a href="https://wa.me/989123456789" class="btn-chat"><i class="fa-brands fa-whatsapp"></i> واتس‌اپ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- دکمه‌های شناور -->
-    <div class="floating-buttons">
-        <a href="https://wa.me/989123456789" class="float-btn float-wa" target="_blank" title="ارتباط در واتس‌اپ">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="tel:09123456789" class="float-btn float-phone" title="تماس تلفنی">
-            <i class="fa-solid fa-phone"></i>
-        </a>
+    <!-- ایران خودرو -->
+    <div class="sub-group">
+      <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
+      <div class="car-grid">
+        <div class="car-card">پژو ۲۰۶ / ۲۰۷</div>
+        <div class="car-card">پژو پارس / ۴۰۵</div>
+        <div class="car-card">سمند / سورن / دنا</div>
+        <div class="car-card">رنو تندر ۹۰ (ال۹۰)</div>
+        <div class="car-card">تارا / رانا</div>
+      </div>
     </div>
 
-    <!-- فوتر -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h3>درباره خزر استوک</h3>
-                <p>فروشگاه خزر استوک مرجع عرضه انواع لوازم خانگی و صوتی تصویری استوک اروپایی با بالاترین کیفیت، سلامت تست شده و مناسب‌ترین قیمت در بازار ایران.</p>
-            </div>
-            <div class="footer-col">
-                <h3>اطلاعات تماس</h3>
-                <p><i class="fa-solid fa-location-dot"></i> ارسال مستقیم از انبار مرکزی</p>
-                <p style="margin-top: 8px;"><i class="fa-solid fa-phone"></i> تلفن پشتیبانی: ۰۹۱۲۳۴۵۶۷۸۹</p>
-                <p style="margin-top: 8px;"><i class="fa-solid fa-clock"></i> ساعت پاسخگویی: ۹ صبح الی ۲۱</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© کلیه حقوق برای وب‌سایت «خزر استوک» محفوظ است.</p>
-        </div>
-    </footer>
+    <!-- سایپا و پارس خودرو -->
+    <div class="sub-group">
+      <span class="group-title">محصولات سایپا و پارس‌خودرو</span>
+      <div class="car-grid">
+        <div class="car-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
+        <div class="car-card">تیبا / ساینا / کوییک</div>
+        <div class="car-card">وانت نیسان زامیاد</div>
+        <div class="car-card">شاهین</div>
+        <div class="car-card">رنو مگان / ساندرو</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- دسته‌بندی خودروهای خارجی -->
+  <section class="category-section orange-box" id="foreign">
+    <div class="section-title">
+      <i class="fa-solid fa-globe"></i>
+      <h2>خودروهای خارجی و وارداتی</h2>
+    </div>
+
+    <div class="sub-group">
+      <span class="group-title">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
+      <div class="car-grid">
+        <div class="car-card">هیوندای (سوناتا، آزرا، سانتافه)</div>
+        <div class="car-card">کیا (اسپورتیج، اپتیما، سراتو)</div>
+        <div class="car-card">تویوتا (کمری، کرولا، هایلوکس)</div>
+        <div class="car-card">نیسان (ماکسیما، رونیز، پاترول)</div>
+        <div class="car-card">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
+        <div class="car-card">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- اطلاعات تماس -->
+  <section class="contact-section" id="contact">
+    <h2>اطلاعات تماس و سفارش قطعات</h2>
+    <div class="contact-cards">
+      <div class="c-card">
+        <i class="fa-solid fa-phone-volume"></i>
+        <span>تلفن ثابت فروشگاه</span>
+        <strong>۰۱۱-۵۲۳۳۱۶۴۳</strong>
+      </div>
+      <div class="c-card">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <span>شماره همراه (مدیریت)</span>
+        <strong>۰۹۱۱۴۵۳۸۷۴۰</strong>
+      </div>
+      <div class="c-card">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>واتس‌اپ و مشاوره آنلاین</span>
+        <strong>۰۹۳۹۷۲۳۵۹۷۰</strong>
+      </div>
+      <div class="c-card">
+        <i class="fa-brands fa-instagram"></i>
+        <span>صفحه اینستاگرام</span>
+        <strong>@stock_khazar</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
+  </footer>
+
+  <!-- دکمه‌های شناور تماس و واتس‌اپ -->
+  <div class="floating-buttons">
+    <a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- اسکریپت تعویض اتوماتیک پوستر -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+      let currentIndex = 0;
+      const intervalTime = 3000;
+
+      function setSlide(index) {
+        slides.forEach(s => s.classList.remove("active"));
+        dots.forEach(d => d.classList.remove("active"));
+        
+        if (slides[index] && dots[index]) {
+          slides[index].classList.add("active");
+          dots[index].classList.add("active");
+        }
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        setSlide(currentIndex);
+      }
+
+      let slideTimer = setInterval(nextSlide, intervalTime);
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => {
+          clearInterval(slideTimer);
+          currentIndex = idx;
+          setSlide(currentIndex);
+          slideTimer = setInterval(nextSlide, intervalTime);
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
