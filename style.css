@@ -1,0 +1,301 @@
+:root {
+    --primary-red: #ea2840;      /* تم اصلی قرمز مطابق عکس */
+    --light-bg: #f8f9fa;
+    --card-border: #e8e8e8;
+    --text-dark: #2c3e50;
+    --text-muted: #666666;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: var(--text-dark);
+    direction: rtl;
+}
+
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Top bar */
+.top-bar {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Header */
+.main-header {
+    background-color: #ffffff;
+    padding: 18px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-btn {
+    font-size: 22px;
+    color: #333;
+    text-decoration: none;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #ddd;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.search-box {
+    position: relative;
+    width: 48%;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border-radius: 25px;
+    border: 1px solid #e0e0e0;
+    background-color: #fdfdfd;
+    outline: none;
+    font-size: 13px;
+}
+
+.search-box button {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 16px;
+}
+
+.logo h2 {
+    font-size: 24px;
+    color: #222;
+}
+
+.logo span {
+    color: var(--primary-red);
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+    padding: 12px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-red);
+}
+
+/* Brands Section */
+.brands-section {
+    margin-top: 25px;
+}
+
+.brands-wrapper {
+    background-color: var(--primary-red);
+    border-radius: 12px;
+    padding: 20px 24px 28px 24px;
+}
+
+.section-title-white {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.brands-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+
+.brand-card {
+    flex: 1;
+    min-width: 140px;
+    height: 90px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a425a;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    user-select: none;
+}
+
+/* Products Section */
+.products-section {
+    margin: 25px auto 60px auto;
+}
+
+.products-wrapper {
+    background-color: var(--primary-red);
+    border-radius: 12px;
+    padding: 18px 20px 24px 20px;
+}
+
+.section-header-red {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.section-header-red h3 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.section-header-red .view-all {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-info h4 {
+    font-size: 13.5px;
+    margin: 12px 0 8px 0;
+    color: #333;
+    line-height: 1.4;
+}
+
+.product-info .price {
+    font-size: 14px;
+    color: var(--primary-red);
+    font-weight: 700;
+}
+
+/* Floating Actions */
+.floating-actions {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+}
+
+.float-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+}
+
+.call-btn {
+    background-color: #111111;
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+}
+
+/* واکنش‌گرایی (Responsive) */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .user-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
