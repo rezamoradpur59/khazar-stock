@@ -33,7 +33,6 @@ body {
   justify-content: space-between;
 }
 
-/* لوگوی خزر استوک در سمت چپ با رنگ سفید-مشکی */
 .logo-box {
   display: flex;
   align-items: center;
@@ -58,7 +57,6 @@ body {
   border-radius: 6px;
 }
 
-/* منوبار افقی با رنگ سفید */
 .nav-bar {
   display: flex;
   align-items: center;
@@ -95,7 +93,7 @@ body {
   width: 100%;
 }
 
-/* ================== بخش هیرو و پوستر متغیر ================== */
+/* ================== بخش هیرو و اسلایدر ================== */
 .hero-section {
   max-width: 1200px;
   margin: 35px auto;
@@ -104,12 +102,11 @@ body {
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   align-items: center;
   gap: 35px;
 }
 
-/* متون سمت راست هیرو */
 .hero-text {
   text-align: right;
 }
@@ -182,17 +179,17 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* پوستر متغیر ماشین (اسلایدر) */
+/* قاب اسلایدر تصاویر */
 .slider-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 280px;
+  aspect-ratio: 16 / 10.5;
+  min-height: 300px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #1c1c1c;
+  background: #181818;
 }
 
 .car-slider {
@@ -206,6 +203,61 @@ body {
   inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height:-hero-category {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-hero-category:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* قاب اسلایدر تصاویر */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.5;
+  min-height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #181818;
+}
+
+.car-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
 }
 
 .slide.active {
@@ -219,43 +271,12 @@ body {
   display: block;
 }
 
-.slider-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30px 20px 15px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-  color: #ffffff;
-}
+/* اسلاید قطعات فنی به صورت تمیز در پس‌زمینه سفید */
+.slide.slide-parts img {
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 10px;
 
-.slider-overlay .badge {
-  background: #f56e00;
-  color: #ffffff;
-  font-size: 12px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 700;
-}
-
-.slider-overlay p {
-  font-size: 14px;
-  margin-top: 4px;
-  color: #e0e0e0;
-}
-
-.slider-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 15px;
-  display: flex;
-  gap: 6px;
-  z-index: 10;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   cursor: pointer;
@@ -311,6 +332,48 @@ body {
 
 .car-grid {
   display: grid;
+  grid-template-columns: repeat
+  max-width: 1200px;
+  margin: 30px auto;
+  border-radius: 16px;
+  padding: 25px 30px;
+}
+
+.orange-box {
+  background-color: #f56e00;
+  color: #ffffff;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 12px;
+}
+
+.sub-group {
+  margin-bottom: 22px;
+}
+
+.sub-group:last-child {
+  margin-bottom: 0;
+}
+
+.group-title {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+.car-grid {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 12px;
 }
@@ -324,43 +387,7 @@ body {
   font-weight: 800;
   font-size: 14px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.car-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ================== بخش تماس با ما ================== */
-.contact-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.contact-section h2 {
-  margin-bottom: 25px;
-  font-size: 22px;
-  color: #f56e00;
-}
-
-.contact-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-.c-card {
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  transition: transform  gap: 8px;
 }
 
 .c-card i {
@@ -389,7 +416,7 @@ footer {
   margin-top: 50px;
 }
 
-/* ================== دکمه‌های شناور تماس ================== */
+/* دکمه‌های شناور */
 .floating-buttons {
   position: fixed;
   bottom: 25px;
@@ -427,32 +454,33 @@ footer {
   background-color: #25d366;
 }
 
-/* ریسپانسیو برای موبایل */
+/* ریسپانسیو موبایل */
 @media (max-width: 850px) {
   .header-content {
-    flex-direction: column-reverse;
-    gap: 15px;
+flex-direction: column-reverse;
+gap: 15px;
   }
   
   .nav-bar {
-    width: 100%;
-    justify-content: center;
-    gap: 16px;
+width: 100%;
+justify-content: center;
+gap: 16px;
   }
 
   .hero-container {
-    grid-template-columns: 1fr;
+grid-template-columns: 1fr;
   }
 
   .hero-text {
-    text-align: center;
+text-align: center;
   }
 
   .hero-actions {
-    justify-content: center;
+justify-content: center;
   }
 
   .slider-wrapper {
-    order: -1;
+order: -1;
   }
 }
+
