@@ -21,7 +21,7 @@
         <span class="logo-stock">استوک</span>
       </a>
 
-      <!-- منو بار افقی به رنگ سفید (سمت راست) -->
+      <!-- منوبار افقی سفید (سمت راست) -->
       <nav class="nav-bar">
         <a href="#home" class="nav-item">صفحه اصلی</a>
         <a href="#domestic" class="nav-item">خودروهای داخلی</a>
@@ -32,29 +32,29 @@
     </div>
   </header>
 
-  <!-- بخش هیرو (پوستر متغیر ماشین در سمت چپ + توضیحات در سمت راست) -->
+  <!-- بخش هیرو (پوستر متغیر ماشین در سمت راست/وسط + متون) -->
   <section class="hero-section" id="home">
     <div class="hero-container">
       
-      <!-- پوستر متغیر تصاویر خودروها (سمت چپ) -->
+      <!-- پوستر متغیر تصاویر خودروها (لینک‌های مستقیم و پرسرعت) -->
       <div class="slider-wrapper">
         <div class="car-slider">
           <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="خودرو اسپرت">
+            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="خودرو بی‌ام‌و">
           </div>
           <div class="slide">
-            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" alt="ماشین سواری">
+            <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="خودرو سواری لوکس">
           </div>
           <div class="slide">
-            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80" alt="خودرو لوکس">
+            <img src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="موتور و قطعات خودرو">
           </div>
           <div class="slide">
-            <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1200&q=80" alt="خودرو کلاسیک">
+            <img src="https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="ماشین اسپرت">
           </div>
           
           <div class="slider-overlay">
             <span class="badge">خزر استوک</span>
-            <p>تضمین سلامت و اصالت قطعات استوک</p>
+            <p>تضمین سلامت و اصالت قطعات خودرو</p>
           </div>
 
           <div class="slider-dots">
@@ -66,7 +66,7 @@
         </div>
       </div>
 
-      <!-- متن و معرفی اصلی (سمت راست) -->
+      <!-- متن و معرفی اصلی -->
       <div class="hero-text">
         <span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
         <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
@@ -75,7 +75,7 @@
         
         <div class="hero-actions">
           <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
-          <a href="#domestic" class="btn-hero-category">مشاهده قطعات</a>
+          <a href="#domestic" class="btn-hero-category">مشاهده دسته‌بندی قطعات</a>
         </div>
       </div>
 
@@ -134,7 +134,7 @@
     </div>
   </section>
 
-  <!-- اطلاعات تماس بر اساس کارت ویزیت -->
+  <!-- اطلاعات تماس -->
   <section class="contact-section" id="contact">
     <h2>اطلاعات تماس و سفارش قطعات</h2>
     <div class="contact-cards">
@@ -161,7 +161,7 @@
     </div>
   </section>
 
-  <!-- فوتر سایت -->
+  <!-- فوتر -->
   <footer>
     <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
   </footer>
@@ -176,13 +176,13 @@
     </a>
   </div>
 
-  <!-- اسکریپت کنترل پوستر خودکار (اسلایدر) -->
+  <!-- اسکریپت تعویض اتوماتیک پوستر -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slides = document.querySelectorAll(".slide");
       const dots = document.querySelectorAll(".dot");
       let currentIndex = 0;
-      const intervalTime = 3500; // تغییر عکس هر ۳.۵ ثانیه
+      const intervalTime = 3000;
 
       function setSlide(index) {
         slides.forEach(s => s.classList.remove("active"));
@@ -199,7 +199,6 @@
 
       let slideTimer = setInterval(nextSlide, intervalTime);
 
-      // امکان کلیک روی نقاط اسلایدر
       dots.forEach((dot, idx) => {
         dot.addEventListener("click", () => {
           clearInterval(slideTimer);
