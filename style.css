@@ -456,23 +456,4 @@ footer {
     order: -1;
   }
 }
-/* تنظیمات جدید برای آدرس زیر دکمه تماس */
-.hero-call-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.hero-address-text {
-  color: #cccccc;
-  font-size: 15px;
-  font-weight: 500;
-  margin-top: 5px;
-}
-
-.hero-address-text i {
-  color: #f56e00;
-  margin-left: 5px;
-}
 
