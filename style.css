@@ -469,25 +469,24 @@ footer {
   display: block;
   border-radius: 15px;
 }
-   /* بخش نگهدارنده بنر */
+/* تنظیم بنر به اندازه یک‌چهارم عرض صفحه */
 .banner-section {
-    width: 90%;                /* عرض بنر */
-    max-width: 1100px;         /* در مانیتورهای خیلی بزرگ از این اندازه پهن‌تر نشود */
-    margin-top: 25px;          /* فاصله از بالا */
-    margin-bottom: 25px;       /* فاصله از پایین */
-    margin-right: 5%;          /* فاصله ۵ درصدی از راست */
-    margin-left: 5%;           /* فاصله ۵ درصدی از چپ */
-    border-radius: 14px;       /* گردی گوشه‌ها */
+    width: 25%;                /* دقیقاً یک‌چهارم عرض صفحه */
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 37.5%;       /* ۳۷.۵ درصد از راست */
+    margin-left: 37.5%;        /* ۳۷.۵ درصد از چپ */
+    border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* خود تصویر بنر */
 .banner-img {
-    width: 100%;               /* تصویر تمام عرض کادر بالا را پر کند */
+    width: 100%;               /* تصویر ۱۰۰ درصدِ کادر ۲۵ درصدی را پر می‌کند */
     height: auto;
     display: block;
 }
+
 
     width: 100%;           /* تصویر کل عرض کادر خود را می‌گیرد */
     height: auto;
