@@ -9,7 +9,7 @@
   <meta name="application-name" content="خزر استوک">
   <meta name="google-site-verification" content="GAPGPTMASKTOKENtxaqjr1cngfX0X">
 
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -36,17 +36,17 @@
         <a href="#home" class="nav-item">صفحه اصلی</a>
         <a href="#domestic" class="nav-item">خودروهای داخلی</a>
         <a href="#foreign" class="nav-item">خودروهای خارجی</a>
-        <a href="#contact" class="nav-item">خرید حضوری</a>
+        <a href="#in-person" class="nav-item">خرید حضوری</a>
         <a href="#contact" class="nav-item">ارتباط با ما</a>
       </nav>
     </div>
   </header>
 
-  <!-- بخش هیرو (اسلایدر + معرفی و تماس) -->
+  <!-- بخش هیرو (اسلایدر ۳ تصویر + معرفی و تماس سریع) -->
   <section class="hero-section" id="home">
     <div class="hero-container">
 
-      <!-- اسلایدر ۳ تصویر -->
+      <!-- اسلایدر ۳ تصویر خودرو -->
       <div class="slider-wrapper">
         <div class="car-slider">
           <div class="slide active">
@@ -69,7 +69,7 @@
         </div>
       </div>
 
-      <!-- متن معرفی و دکمه‌های تماس -->
+      <!-- متن معرفی و دکمه‌ها -->
       <div class="hero-text">
         <span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
         <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
@@ -78,17 +78,11 @@
 
         <div class="hero-actions">
           <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
-          <span class="hero-address-text"><i class="fa-solid fa-location-dot"></i> آدرس: نوشهر، خیابان باباطاهر</span>
           <a href="#domestic" class="btn-hero-category">مشاهده دسته‌بندی قطعات</a>
         </div>
       </div>
 
     </div>
-  </section>
-
-  <!-- بنر (هم‌اندازه اسلایدر و وسط‌چین) -->
-  <section class="banner-section">
-    <img src="banner.jpg" alt="بورس لوازم خردار استوک" class="banner-img">
   </section>
 
   <!-- دسته‌بندی خودروهای داخلی -->
@@ -138,7 +132,28 @@
     </div>
   </section>
 
-  <!-- اطلاعات تماس -->
+  <!-- بخش اختصاصی خرید حضوری (انتقال بنر و اطلاعات فروشگاه به اینجا) -->
+  <section class="in-person-section" id="in-person" style="max-width: 1000px; margin: 50px auto; padding: 25px; background: #161616; border: 1px solid #333; border-radius: 16px; text-align: center;">
+    <h2 style="color: #f56e00; margin-bottom: 12px; font-size: 24px;">
+      <i class="fa-solid fa-store" style="margin-left: 8px;"></i>راهنمای خرید حضوری و مراجعه به فروشگاه
+    </h2>
+    <p style="color: #ccc; font-size: 16px; margin-bottom: 25px;">
+      جهت بازدید و دریافت حضوری قطعات استوک، می‌توانید به آدرس مجموعه مراجعه فرمایید:
+    </p>
+
+    <!-- نمایش بنر اختصاصی داخل کادر خرید حضوری -->
+    <div style="max-width: 650px; margin: 0 auto 25px auto; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.6); border: 2px solid #f56e00;">
+      <img src="banner.jpg" alt="فروشگاه خزر استوک" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    <div style="background: rgba(245, 110, 0, 0.1); border: 1px solid #f56e00; border-radius: 10px; padding: 15px; display: inline-block;">
+      <span style="color: #fff; font-size: 17px; font-weight: bold;">
+        <i class="fa-solid fa-location-dot" style="color: #f56e00; margin-left: 6px;"></i>آدرس: نوشهر، خیابان باباطاهر
+      </span>
+    </div>
+  </section>
+
+  <!-- اطلاعات تماس و ارتباط با ما -->
   <section class="contact-section" id="contact">
     <h2>اطلاعات تماس و سفارش قطعات</h2>
     <div class="contact-cards">
@@ -173,41 +188,4 @@
   <!-- دکمه‌های شناور -->
   <div class="floating-buttons">
     <a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="واتس‌اپ"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-
-  <!-- اسکریپت اسلایدر -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const slides = document.querySelectorAll(".slide");
-      const dots = document.querySelectorAll(".dot");
-      let currentIndex = 0;
-      const intervalTime = 3500;
-
-      function setSlide(index) {
-        slides.forEach(s => s.classList.remove("active"));
-        dots.forEach(d => d.classList.remove("active"));
-        if (slides[index]) slides[index].classList.add("active");
-        if (dots[index]) dots[index].classList.add("active");
-      }
-
-      function nextSlide() {
-        if (slides.length === 0) return;
-        currentIndex = (currentIndex + 1) % slides.length;
-        setSlide(currentIndex);
-      }
-
-      let slideTimer = setInterval(nextSlide, intervalTime);
-      dots.forEach((dot, idx) => {
-        dot.addEventListener("click", () => {
-          clearInterval(slideTimer);
-          currentIndex = idx;
-          setSlide(currentIndex);
-          slideTimer = setInterval(nextSlide, intervalTime);
-        });
-      });
-    });
-  </script>
-
-</body>
-</html>
+    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="واتس‌اپ"><i class="fa-brands fa-
