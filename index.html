@@ -11,45 +11,49 @@
   <meta name="google-site-verification" content="GAPGPTMASKTOKENtxaqjr1cngfX0X">
 
   <!-- استایل‌ها و فونت‌ها -->
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "AutoPartsStore",
     "name": "خزر استوک",
     "alternateName": "Khazar Stock",
-    "url": "https://rezamoradpur59.github.io/khazar-stock/"
+    "url": "https://rezamoradpur59.github.io/khazar-stock/",
+    "telephone": "09114538740",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "خیابان باباطاهر",
+      "addressLocality": "نوشهر",
+      "addressRegion": "مازندران",
+      "addressCountry": "IR"
+    }
   }
   </script>
 </head>
 <body>
 
-  <!-- هدر و منوبار -->
+  <!-- هدر و منوبار اصلی -->
   <header class="header-container">
     <div class="header-content">
-      
-      <!-- لوگو و برند -->
       <a href="#home" class="logo-box">
         <span class="logo-khazar">خزر</span>
         <span class="logo-stock">استوک</span>
       </a>
 
-      <!-- منوبار افقی -->
       <nav class="nav-bar">
         <a href="#home" class="nav-item">صفحه اصلی</a>
         <a href="#domestic" class="nav-item">خودروهای داخلی</a>
         <a href="#foreign" class="nav-item">خودروهای خارجی</a>
         <a href="#in-person" class="nav-item">خرید حضوری</a>
-        <a href="#contact" class="nav-item">ارتباط با ما</a>
+        <a href="#contact" class="nav-item">اطلاعات تماس</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- بخش هیرو (اسلایدر ۳ تصویر خودرو + متون و تماس) -->
+  <!-- بخش اصلی هیرو (اسلایدر ۳ تصویر متحرک + توضیحات) -->
   <section class="hero-section" id="home">
     <div class="hero-container">
 
@@ -61,11 +65,11 @@
             <div class="slider-caption">انواع لوازم یدکی و بدنه خودروهای ایرانی</div>
           </div>
           <div class="slide">
-            <img src="car-foreign.jpg" alt="لوازم خودروهای خارجی و وارداتی">
+            <img src="car-foreign.jpg" alt="لوازم استوک خودروهای خارجی و وارداتی">
             <div class="slider-caption">بورس قطعات استوک خودروهای خارجی و وارداتی</div>
           </div>
           <div class="slide">
-            <img src="car-parts.jpg" alt="قطعات فنی، موتور، گیربکس و دینام">
+            <img src="car-parts.jpg" alt="موتور، گیربکس، دینام و استارت استوک">
             <div class="slider-caption">موتور کامل، گیربکس، دینام، استارت و قطعات برقی</div>
           </div>
           <div class="slider-dots">
@@ -76,24 +80,24 @@
         </div>
       </div>
 
-      <!-- متن معرفی و دکمه‌ها -->
+      <!-- متون معرفی فروشگاه -->
       <div class="hero-text">
-        <span class="sub-badge"><i class="fa-solid fa-car"></i> مرکز تخصصی قطعات خودرو</span>
+        <span class="sub-badge"><i class="fa-solid fa-certificate"></i> مرکز تخصصی قطعات خودرو</span>
         <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
         <p class="highlight-text">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
         <p class="car-models">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و انواع خودروهای وارداتی...</p>
 
         <div class="hero-actions">
           <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
-          <a href="#domestic" class="btn-hero-category">مشاهده دسته‌بندی قطعات</a>
+          <a href="#in-person" class="btn-hero-category"><i class="fa-solid fa-location-dot"></i> آدرس و خرید حضوری</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- دسته‌بندی خودروهای داخلی -->
-  <section class="category-section orange-box" id="domestic" style="scroll-margin-top: 90px;">
+  <!-- بخش دسته‌بندی خودروهای داخلی -->
+  <section class="category-section orange-box" id="domestic">
     <div class="section-title">
       <i class="fa-solid fa-car-side"></i>
       <h2>خودروهای داخلی (ایرانی)</h2>
@@ -120,8 +124,8 @@
     </div>
   </section>
 
-  <!-- دسته‌بندی خودروهای خارجی -->
-  <section class="category-section orange-box" id="foreign" style="scroll-margin-top: 90px;">
+  <!-- بخش دسته‌بندی خودروهای خارجی -->
+  <section class="category-section orange-box" id="foreign">
     <div class="section-title">
       <i class="fa-solid fa-globe"></i>
       <h2>خودروهای خارجی و وارداتی</h2>
@@ -139,30 +143,57 @@
     </div>
   </section>
 
-  <!-- بخش اختصاصی خرید حضوری (لینک مستقیم به دکمه منو) -->
-  <section id="in-person" style="max-width: 1000px; margin: 50px auto; padding: 35px 25px; background: #181818; border: 2px solid #f56e00; border-radius: 18px; text-align: center; scroll-margin-top: 90px; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-    <h2 style="color: #f56e00; margin-bottom: 15px; font-size: 26px; font-weight: 800;">
-      <i class="fa-solid fa-store" style="margin-left: 8px;"></i>شرایط و راهنمای خرید حضوری
-    </h2>
-    <p style="color: #ddd; font-size: 16px; margin-bottom: 25px; line-height: 1.8;">
-      مشتریان گرامی می‌توانند جهت رویت مستقیم، کارشناسی سلامت قطعات استوک و تحویل آنی به آدرس فروشگاه مراجعه فرمایند:
-    </p>
-
-    <!-- کادر مشخصات آدرس و ساعت کاری -->
-    <div style="background: #222; border-radius: 12px; padding: 22px; max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; border-right: 4px solid #f56e00;">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; color: #fff; font-weight: bold;">
-        <i class="fa-solid fa-location-dot" style="color: #f56e00; font-size: 22px;"></i>
-        <span>آدرس: استان مازندران، نوشهر، خیابان باباطاهر</span>
+  <!-- ================== بخش اختصاصی خرید حضوری به همراه بنر کامل ================== -->
+  <section class="in-person-section" id="in-person">
+    <div class="in-person-container">
+      <div class="in-person-header">
+        <i class="fa-solid fa-shop"></i>
+        <h2>راهنما و شرایط خرید حضوری</h2>
+        <p>مشتریان گرامی می‌توانند جهت رویت و کارشناسی سلامت قطعات استوک به آدرس فروشگاه مراجعه فرمایند.</p>
       </div>
-      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; color: #bbb; font-size: 14px; border-top: 1px solid #333; padding-top: 12px;">
-        <span><i class="fa-solid fa-clock" style="color: #f56e00; margin-left: 5px;"></i>ساعات کاری: ۹ صبح الی ۲۰ شب</span>
-        <span><i class="fa-solid fa-truck" style="color: #f56e00; margin-left: 5px;"></i>امکان ارسال فوری به سراسر کشور</span>
+
+      <div class="in-person-grid">
+        <!-- بنر / کارت ویزیت فروشگاه -->
+        <div class="banner-box">
+          <img src="banner.jpg" alt="بنر و کارت ویزیت خزر استوک" class="banner-image" onerror="this.src='car-parts.jpg'">
+        </div>
+
+        <!-- کارت جزئیات آدرس و شرایط -->
+        <div class="location-details">
+          <div class="detail-item highlight-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>آدرس فروشگاه:</strong>
+              <p>مازندران، نوشهر، خیابان باباطاهر - فروشگاه خزر استوک</p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong>ساعات کار مجموعه:</strong>
+              <p>شنبه تا پنج‌شنبه: ساعت ۹:۰۰ صبح الی ۲۰:۰۰ شب</p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fa-solid fa-boxes-packing"></i>
+            <div>
+              <strong>خدمات تحویل و ارسال:</strong>
+              <p>تحویل آنی در محل فروشگاه + امکان ارسال با باربری و تیپاکس به سراسر کشور</p>
+            </div>
+          </div>
+
+          <div class="location-actions">
+            <a href="tel:09114538740" class="btn-location-call"><i class="fa-solid fa-phone"></i> تماس و هماهنگی قبل از مراجعه</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- اطلاعات تماس و ارتباط با ما -->
-  <section class="contact-section" id="contact" style="scroll-margin-top: 90px;">
+  <!-- اطلاعات تماس -->
+  <section class="contact-section" id="contact">
     <h2>اطلاعات تماس و سفارش قطعات</h2>
     <div class="contact-cards">
       <div class="c-card">
@@ -193,13 +224,13 @@
     <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
   </footer>
 
-  <!-- دکمه‌های شناور -->
+  <!-- دکمه‌های شناور تماس و واتس‌اپ -->
   <div class="floating-buttons">
-    <a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="واتس‌اپ"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:09114538740" class="float-btn call-btn" title="تماس مستقیم"><i class="fa-solid fa-phone"></i></a>
+    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ"><i class="fa-brands fa-whatsapp"></i></a>
   </div>
 
-  <!-- اسکریپت اسلایدر خودکار -->
+  <!-- اسکریپت اسلایدر -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slides = document.querySelectorAll(".slide");
