@@ -469,52 +469,19 @@ footer {
   display: block;
   border-radius: 15px;
 }
-/* تنظیم بنر به اندازه یک‌چهارم عرض صفحه */
+/* تنظیم بنر: هم‌اندازه با اسلایدر و دقیقاً وسط‌چین */
 .banner-section {
-    width: 50%;                /* دقیقاً یک‌چهارم عرض صفحه */
-    margin-top: 50px;
-    margin-bottom: 25px;
-    margin-right: 50%;       /* ۳۷.۵ درصد از راست */
-    margin-left: 50%;        /* ۳۷.۵ درصد از چپ */
+    width: 90%;                /* در موبایل ۹۰ درصد عرض صفحه */
+    max-width: 800px;          /* حداکثر عرض (دقیقاً برابر با عرض اسلایدر) */
+    margin: 25px auto;         /* فاصله از بالا و پایین + وسط‌چین کامل از چپ و راست */
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .banner-img {
-    width: 100%;               /* تصویر ۱۰۰ درصدِ کادر ۲۵ درصدی را پر می‌کند */
-    height: auto;
+    width: 100%;               /* تصویر تمام فضای بنر را پر می‌کند */
+    height: auto;              /* حفظ تناسب ابعاد تصویر */
     display: block;
-}
-
-
-    width: 100%;           /* تصویر کل عرض کادر خود را می‌گیرد */
-    height: auto;
-    display: block;
-}
-  /* کوچک کردن بنر به یک‌چهارم و وسط‌چین */
-.banner-section {
-    width: 25% !important;
-    max-width: 350px !important;
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
-    margin-right: 37.5% !important;
-    margin-left: 37.5% !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-}
-
-.banner-img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    display: block !important;
-}
-
- 
-
-    order: -1;
-  }
 }
 
