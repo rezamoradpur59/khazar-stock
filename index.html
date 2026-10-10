@@ -5,37 +5,571 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
 
-  <!-- نام رسمی سایت و متاتگ‌های سئو برای گوگل -->
   <meta property="og:site_name" content="خزر استوک">
   <meta name="application-name" content="خزر استوک">
   <meta name="google-site-verification" content="GAPGPTMASKTOKENtxaqjr1cngfX0X">
 
-  <!-- استایل‌ها و فونت‌ها -->
-  <link rel="stylesheet" href="style.css?v=6">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AutoPartsStore",
-    "name": "خزر استوک",
-    "alternateName": "Khazar Stock",
-    "url": "https://rezamoradpur59.github.io/khazar-stock/",
-    "telephone": "09114538740",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "خیابان باباطاهر",
-      "addressLocality": "نوشهر",
-      "addressRegion": "مازندران",
-      "addressCountry": "IR"
+  <style>
+    /* ================== پایه و پس‌زمینه جذاب ================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
-  }
-  </script>
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        linear-gradient(135deg, rgba(14, 15, 18, 0.90) 0%, rgba(24, 25, 32, 0.93) 100%),
+        url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat fixed;
+      color: #ffffff;
+      direction: rtl;
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ================== منوبار ================== */
+    .header-container {
+      width: 100%;
+      background: rgba(18, 18, 22, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid #f56e00;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .logo-khazar {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .logo-stock {
+      background-color: #f56e00;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(245, 110, 0, 0.5);
+    }
+
+    .nav-bar {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: color 0.25s ease;
+      padding: 6px 0;
+    }
+
+    .nav-item:hover {
+      color: #f56e00;
+    }
+
+    /* ================== هیرو ================== */
+    .hero-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      scroll-margin-top: 90px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .hero-text {
+      background: rgba(25, 27, 33, 0.75);
+      backdrop-filter: blur(14px);
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .sub-badge {
+      display: inline-block;
+      background: rgba(245, 110, 0, 0.2);
+      color: #f56e00;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid rgba(245, 110, 0, 0.4);
+    }
+
+    .hero-text h1 {
+      font-size: 28px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .highlight-text {
+      font-size: 17px;
+      color: #f56e00;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .car-models {
+      color: #cccccc;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-call {
+      background: linear-gradient(135deg, #f56e00 0%, #d95e00 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(245, 110, 0, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .btn-hero-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 110, 0, 0.6);
+    }
+
+    .btn-hero-category {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: all 0.25s ease;
+    }
+
+    .btn-hero-category:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ================== اسلایدر ================== */
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(245, 110, 0, 0.35);
+      background: #0d0d0d;
+    }
+
+    .car-slider {
+      position: relative;
+      width: 100%;
+      height: 350px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slider-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      font-weight: bold;
+      z-index: 5;
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 45px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      width: 24px;
+      border-radius: 12px;
+      background: #f56e00;
+    }
+
+    /* ================== دسته‌بندی‌ها ================== */
+    .category-section {
+      max-width: 1200px;
+      margin: 35px auto;
+      border-radius: 18px;
+      padding: 25px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      scroll-margin-top: 90px;
+      background: linear-gradient(135deg, #f56e00 0%, #dc5f00 100%);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 12px;
+    }
+
+    .sub-group {
+      margin-bottom: 22px;
+    }
+
+    .sub-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .group-title {
+      display: inline-block;
+      font-weight: 800;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .car-card {
+      background-color: #ffffff;
+      color: #121212;
+      padding: 14px 10px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ================== بخش خرید حضوری + بنر ================== */
+    .in-person-section {
+      max-width: 1200px;
+      margin: 45px auto;
+      padding: 0 20px;
+      scroll-margin-top: 90px;
+    }
+
+    .in-person-container {
+      background: rgba(22, 24, 29, 0.85);
+      backdrop-filter: blur(14px);
+      border: 2px solid #f56e00;
+      border-radius: 20px;
+      padding: 35px 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .in-person-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .in-person-header i {
+      font-size: 36px;
+      color: #f56e00;
+      margin-bottom: 10px;
+    }
+
+    .in-person-header h2 {
+      font-size: 24px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .in-person-header p {
+      color: #b5b5b5;
+      font-size: 15px;
+    }
+
+    .in-person-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .banner-box {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .banner-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .location-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .highlight-detail {
+      border-right: 4px solid #f56e00;
+    }
+
+    .detail-item i {
+      font-size: 24px;
+      color: #f56e00;
+      margin-top: 3px;
+    }
+
+    .detail-item strong {
+      display: block;
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .detail-item p {
+      color: #cccccc;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .btn-location-call {
+      display: inline-block;
+      background: #f56e00;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .btn-location-call:hover {
+      background: #d95e00;
+    }
+
+    /* ================== تماس با ما ================== */
+    .contact-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+      scroll-margin-top: 90px;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 25px;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .c-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .c-card:hover {
+      border-color: #f56e00;
+      transform: translateY(-3px);
+    }
+
+    .c-card i {
+      font-size: 30px;
+      color: #f56e00;
+    }
+
+    .c-card span {
+      font-size: 13px;
+      color: #b0b0b0;
+    }
+
+    .c-card strong {
+      font-size: 17px;
+      color: #fff;
+    }
+
+    footer {
+      padding: 25px;
+      background: rgba(10, 10, 12, 0.95);
+      color: #888;
+      text-align: center;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ================== دکمه‌های شناور ================== */
+    .floating-buttons {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.25s ease;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .call-btn {
+      background-color: #1a1a1a;
+      border: 2px solid #f56e00;
+    }
+
+    .whatsapp-btn {
+      background-color: #25d366;
+    }
+
+    /* ================== ریسپانسیو ================== */
+    @media (max-width: 850px) {
+      .header-content {
+        flex-direction: column;
+        justify-content: center;
+      }
+      .nav-bar {
+        justify-content: center;
+        gap: 16px;
+      }
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+      .in-person-grid {
+        grid-template-columns: 1fr;
+      }
+      .car-slider {
+        height: 250px;
+      }
+      .nav-item, .logo-khazar, .hero-text h1 {
+        font-size: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- هدر و منوبار اصلی -->
+  <!-- هدر و منوبار -->
   <header class="header-container">
     <div class="header-content">
       <a href="#home" class="logo-box">
@@ -53,11 +587,10 @@
     </div>
   </header>
 
-  <!-- بخش اصلی هیرو (اسلایدر ۳ تصویر متحرک + توضیحات) -->
+  <!-- هیرو: اسلایدر + معرفی -->
   <section class="hero-section" id="home">
     <div class="hero-container">
 
-      <!-- اسلایدر ۳ تصویر خودرو -->
       <div class="slider-wrapper">
         <div class="car-slider">
           <div class="slide active">
@@ -65,203 +598,4 @@
             <div class="slider-caption">انواع لوازم یدکی و بدنه خودروهای ایرانی</div>
           </div>
           <div class="slide">
-            <img src="car-foreign.jpg" alt="لوازم استوک خودروهای خارجی و وارداتی">
-            <div class="slider-caption">بورس قطعات استوک خودروهای خارجی و وارداتی</div>
-          </div>
-          <div class="slide">
-            <img src="car-parts.jpg" alt="موتور، گیربکس، دینام و استارت استوک">
-            <div class="slider-caption">موتور کامل، گیربکس، دینام، استارت و قطعات برقی</div>
-          </div>
-          <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- متون معرفی فروشگاه -->
-      <div class="hero-text">
-        <span class="sub-badge"><i class="fa-solid fa-certificate"></i> مرکز تخصصی قطعات خودرو</span>
-        <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
-        <p class="highlight-text">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
-        <p class="car-models">پژو، سمند، نیسان، ال۹۰، پراید، تیبا، مگان و انواع خودروهای وارداتی...</p>
-
-        <div class="hero-actions">
-          <a href="tel:09114538740" class="btn-hero-call"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
-          <a href="#in-person" class="btn-hero-category"><i class="fa-solid fa-location-dot"></i> آدرس و خرید حضوری</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- بخش دسته‌بندی خودروهای داخلی -->
-  <section class="category-section orange-box" id="domestic">
-    <div class="section-title">
-      <i class="fa-solid fa-car-side"></i>
-      <h2>خودروهای داخلی (ایرانی)</h2>
-    </div>
-    <div class="sub-group">
-      <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
-      <div class="car-grid">
-        <div class="car-card">پژو ۲۰۶ / ۲۰۷</div>
-        <div class="car-card">پژو پارس / ۴۰۵</div>
-        <div class="car-card">سمند / سورن / دنا</div>
-        <div class="car-card">رنو تندر ۹۰ (ال۹۰)</div>
-        <div class="car-card">تارا / رانا</div>
-      </div>
-    </div>
-    <div class="sub-group">
-      <span class="group-title">محصولات سایپا و پارس‌خودرو</span>
-      <div class="car-grid">
-        <div class="car-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
-        <div class="car-card">تیبا / ساینا / کوییک</div>
-        <div class="car-card">وانت نیسان زامیاد</div>
-        <div class="car-card">شاهین</div>
-        <div class="car-card">رنو مگان / ساندرو</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- بخش دسته‌بندی خودروهای خارجی -->
-  <section class="category-section orange-box" id="foreign">
-    <div class="section-title">
-      <i class="fa-solid fa-globe"></i>
-      <h2>خودروهای خارجی و وارداتی</h2>
-    </div>
-    <div class="sub-group">
-      <span class="group-title">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
-      <div class="car-grid">
-        <div class="car-card">هیوندای (سوناتا، آزرا، سانتافه)</div>
-        <div class="car-card">کیا (اسپورتیج، اپتیما، سراتو)</div>
-        <div class="car-card">تویوتا (کمری، کرولا، هایلوکس)</div>
-        <div class="car-card">نیسان (ماکسیما، رونیز، پاترول)</div>
-        <div class="car-card">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
-        <div class="car-card">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================== بخش اختصاصی خرید حضوری به همراه بنر کامل ================== -->
-  <section class="in-person-section" id="in-person">
-    <div class="in-person-container">
-      <div class="in-person-header">
-        <i class="fa-solid fa-shop"></i>
-        <h2>راهنما و شرایط خرید حضوری</h2>
-        <p>مشتریان گرامی می‌توانند جهت رویت و کارشناسی سلامت قطعات استوک به آدرس فروشگاه مراجعه فرمایند.</p>
-      </div>
-
-      <div class="in-person-grid">
-        <!-- بنر / کارت ویزیت فروشگاه -->
-        <div class="banner-box">
-          <img src="banner.jpg" alt="بنر و کارت ویزیت خزر استوک" class="banner-image" onerror="this.src='car-parts.jpg'">
-        </div>
-
-        <!-- کارت جزئیات آدرس و شرایط -->
-        <div class="location-details">
-          <div class="detail-item highlight-detail">
-            <i class="fa-solid fa-location-dot"></i>
-            <div>
-              <strong>آدرس فروشگاه:</strong>
-              <p>مازندران، نوشهر، خیابان باباطاهر - فروشگاه خزر استوک</p>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <i class="fa-solid fa-clock"></i>
-            <div>
-              <strong>ساعات کار مجموعه:</strong>
-              <p>شنبه تا پنج‌شنبه: ساعت ۹:۰۰ صبح الی ۲۰:۰۰ شب</p>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <i class="fa-solid fa-boxes-packing"></i>
-            <div>
-              <strong>خدمات تحویل و ارسال:</strong>
-              <p>تحویل آنی در محل فروشگاه + امکان ارسال با باربری و تیپاکس به سراسر کشور</p>
-            </div>
-          </div>
-
-          <div class="location-actions">
-            <a href="tel:09114538740" class="btn-location-call"><i class="fa-solid fa-phone"></i> تماس و هماهنگی قبل از مراجعه</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- اطلاعات تماس -->
-  <section class="contact-section" id="contact">
-    <h2>اطلاعات تماس و سفارش قطعات</h2>
-    <div class="contact-cards">
-      <div class="c-card">
-        <i class="fa-solid fa-phone-volume"></i>
-        <span>تلفن ثابت فروشگاه</span>
-        <strong>۰۱۱-۵۲۳۳۱۶۴۳</strong>
-      </div>
-      <div class="c-card">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-        <span>شماره همراه (مدیریت)</span>
-        <strong>۰۹۱۱۴۵۳۸۷۴۰</strong>
-      </div>
-      <div class="c-card">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>واتس‌اپ و مشاوره آنلاین</span>
-        <strong>۰۹۳۹۷۲۳۵۹۷۰</strong>
-      </div>
-      <div class="c-card">
-        <i class="fa-brands fa-instagram"></i>
-        <span>صفحه اینستاگرام</span>
-        <strong>@stock_khazar</strong>
-      </div>
-    </div>
-  </section>
-
-  <!-- فوتر -->
-  <footer>
-    <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
-  </footer>
-
-  <!-- دکمه‌های شناور تماس و واتس‌اپ -->
-  <div class="floating-buttons">
-    <a href="tel:09114538740" class="float-btn call-btn" title="تماس مستقیم"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="ارتباط در واتس‌اپ"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-
-  <!-- اسکریپت اسلایدر -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const slides = document.querySelectorAll(".slide");
-      const dots = document.querySelectorAll(".dot");
-      let currentIndex = 0;
-      const intervalTime = 3500;
-
-      function setSlide(index) {
-        slides.forEach(s => s.classList.remove("active"));
-        dots.forEach(d => d.classList.remove("active"));
-        if (slides[index]) slides[index].classList.add("active");
-        if (dots[index]) dots[index].classList.add("active");
-      }
-
-      function nextSlide() {
-        if (slides.length === 0) return;
-        currentIndex = (currentIndex + 1) % slides.length;
-        setSlide(currentIndex);
-      }
-
-      let slideTimer = setInterval(nextSlide, intervalTime);
-      dots.forEach((dot, idx) => {
-        dot.addEventListener("click", () => {
-          clearInterval(slideTimer);
-          currentIndex = idx;
-          setSlide(currentIndex);
-          slideTimer = setInterval(nextSlide, intervalTime);
-        });
-      });
-    });
-  </script>
-
-</body>
-</html>
+            <img src="car-foreign.jpg" alt="لوازم 
