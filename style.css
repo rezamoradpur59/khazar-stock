@@ -471,11 +471,11 @@ footer {
 }
 /* تنظیم بنر به اندازه یک‌چهارم عرض صفحه */
 .banner-section {
-    width: 25%;                /* دقیقاً یک‌چهارم عرض صفحه */
-    margin-top: 25px;
+    width: 50%;                /* دقیقاً یک‌چهارم عرض صفحه */
+    margin-top: 50px;
     margin-bottom: 25px;
-    margin-right: 37.5%;       /* ۳۷.۵ درصد از راست */
-    margin-left: 37.5%;        /* ۳۷.۵ درصد از چپ */
+    margin-right: 50%;       /* ۳۷.۵ درصد از راست */
+    margin-left: 50%;        /* ۳۷.۵ درصد از چپ */
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
