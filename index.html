@@ -736,11 +736,11 @@
         <span>شماره همراه (مدیریت)</span>
         <strong>۰۹۱۱۴۵۳۸۷۴۰</strong>
       </div>
-      <div class="c-card">
+      <a href="https://wa.me/989397235970?text=سلام،%20برای%20استعلام%20قطعه%20پیام%20می‌دهم" target="_blank" class="c-card" style="text-decoration: none;">
         <i class="fa-brands fa-whatsapp"></i>
         <span>واتس‌اپ و مشاوره آنلاین</span>
         <strong>۰۹۳۹۷۲۳۵۹۷۰</strong>
-      </div>
+      </a>
       <div class="c-card">
         <i class="fa-brands fa-instagram"></i>
         <span>صفحه اینستاگرام</span>
@@ -749,17 +749,23 @@
     </div>
   </section>
 
-  <footer>
+   <footer>
     <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
   </footer>
 
+  <!-- دکمه‌های شناور تماس و واتس‌اپ -->
   <div class="floating-buttons">
-    <a href="tel:09114538740" class="float-btn call-btn" title="تماس مستقیم"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://wa.me/989397235970" class="float-btn whatsapp-btn" target="_blank" title="واتس‌اپ"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:09114538740" class="float-btn call-btn" title="تماس تلفنی مستقیم">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/989397235970?text=سلام،%20جهت%20استعلام%20قطعه%20پیام%20می‌دهم" class="float-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" title="چت در واتس‌اپ">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // اسلایدر تصاویر
       const slides = document.querySelectorAll(".slide");
       const dots = document.querySelectorAll(".dot");
       let currentIndex = 0;
