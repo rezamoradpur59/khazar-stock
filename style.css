@@ -1,543 +1,352 @@
-/* ================== تنظیمات پایه و پس‌زمینه جذاب خودرو ================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Vazirmatn', Tahoma, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: 
-    linear-gradient(135deg, rgba(14, 15, 18, 0.92) 0%, rgba(24, 25, 32, 0.94) 100%),
-    url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat fixed;
-  color: #ffffff;
-  direction: rtl;
-  overflow-x: hidden;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* ================== منوبار چسبان ================== */
-.header-container {
-  width: 100%;
-  background: rgba(18, 18, 22, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 2px solid #f56e00;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-box {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-}
-
-.logo-khazar {
-  color: #ffffff;
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.logo-stock {
-  background-color: #f56e00;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 900;
-  padding: 3px 12px;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(245, 110, 0, 0.5);
-}
-
-.nav-bar {
-  display: flex;
-  gap: 24px;
-}
-
-.nav-item {
-  color: #f0f0f0;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 700;
-  transition: all 0.25s ease;
-  position: relative;
-  padding: 6px 0;
-}
-
-.nav-item:hover {
-  color: #f56e00;
-}
-
-/* ================== بخش هیرو ================== */
-.hero-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  scroll-margin-top: 90px;
-}
-
-.hero-container {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 35px;
-  align-items: center;
-}
-
-.hero-text {
-  background: rgba(25, 27, 33, 0.75);
-  backdrop-filter: blur(14px);
-  padding: 30px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-}
-
-.sub-badge {
-  display: inline-block;
-  background: rgba(245, 110, 0, 0.2);
-  color: #f56e00;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  border: 1px solid rgba(245, 110, 0, 0.4);
-}
-
-.hero-text h1 {
-  font-size: 28px;
-  line-height: 1.5;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.highlight-text {
-  font-size: 17px;
-  color: #f56e00;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.car-models {
-  color: #cccccc;
-  font-size: 14px;
-  margin-bottom: 25px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.btn-hero-call {
-  background: linear-gradient(135deg, #f56e00 0%, #d95e00 100%);
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(245, 110, 0, 0.4);
-  transition: all 0.25s ease;
-}
-
-.btn-hero-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 110, 0, 0.6);
-}
-
-.btn-hero-category {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: all 0.25s ease;
-}
-
-.btn-hero-category:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* اسلایدر خودروها */
-.slider-wrapper {
-  position: relative;
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(245, 110, 0, 0.35);
-  background: #0d0d0d;
-}
-
-.car-slider {
-  position: relative;
-  width: 100%;
-  height: 350px;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.slider-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 14px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
-  color: #fff;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.slider-dots {
-  position: absolute;
-  bottom: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 10;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
-  width: 24px;
-  border-radius: 12px;
-  background: #f56e00;
-}
-
-/* ================== بخش‌های دسته‌بندی خودرو ================== */
-.category-section {
-  max-width: 1200px;
-  margin: 35px auto;
-  border-radius: 18px;
-  padding: 25px 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  scroll-margin-top: 90px;
-}
-
-.orange-box {
-  background: linear-gradient(135deg, #f56e00 0%, #dc5f00 100%);
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 12px;
-}
-
-.sub-group {
-  margin-bottom: 22px;
-}
-
-.group-title {
-  display: inline-block;
-  font-weight: 800;
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.car-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-}
-
-.car-card {
-  background-color: #ffffff;
-  color: #121212;
-  padding: 14px 10px;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: 800;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.25s ease;
-}
-
-.car-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* ================== بخش اختصاصی خرید حضوری و بنر ================== */
-.in-person-section {
-  max-width: 1200px;
-  margin: 45px auto;
-  padding: 0 20px;
-  scroll-margin-top: 90px;
-}
-
-.in-person-container {
-  background: rgba(22, 24, 29, 0.85);
-  backdrop-filter: blur(14px);
-  border: 2px solid #f56e00;
-  border-radius: 20px;
-  padding: 35px 25px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-.in-person-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.in-person-header i {
-  font-size: 36px;
-  color: #f56e00;
-  margin-bottom: 10px;
-}
-
-.in-person-header h2 {
-  font-size: 24px;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
-
-.in-person-header p {
-  color: #b5b5b5;
-  font-size: 15px;
-}
-
-.in-person-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
-  align-items: center;
-}
-
-.banner-box {
-  width: 100%;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.banner-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.location-details {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.detail-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.highlight-detail {
-  border-right: 4px solid #f56e00;
-}
-
-.detail-item i {
-  font-size: 24px;
-  color: #f56e00;
-  margin-top: 3px;
-}
-
-.detail-item strong {
-  display: block;
-  font-size: 15px;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.detail-item p {
-  color: #cccccc;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.btn-location-call {
-  display: inline-block;
-  background: #f56e00;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 10px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 5px;
-  transition: all 0.25s ease;
-}
-
-.btn-location-call:hover {
-  background: #d95e00;
-}
-
-/* ================== بخش تماس با ما ================== */
-.contact-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
-  scroll-margin-top: 90px;
-}
-
-.contact-section h2 {
-  margin-bottom: 25px;
-  font-size: 24px;
-  color: #fff;
-}
-
-.contact-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-.c-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 22px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.25s ease;
-}
-
-.c-card:hover {
-  border-color: #f56e00;
-  transform: translateY(-3px);
-}
-
-.c-card i {
-  font-size: 30px;
-  color: #f56e00;
-}
-
-.c-card span {
-  font-size: 13px;
-  color: #b0b0b0;
-}
-
-.c-card strong {
-  font-size: 17px;
-  color: #fff;
-}
-
-/* فوتر */
-footer {
-  padding: 25px;
-  background: rgba(10, 10, 12, 0.95);
-  color: #888;
-  text-align: center;
-  margin-top: 60px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* دکمه‌های شناور */
-.floating-buttons {
-  position: fixed;
-  bottom: 25px;
-  left: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 999;
-}
-
-.float-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: #fff;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.25s ease;
-}
-
-.float-btn:hover {
-  transform: scale(1.1);
-}
-
-.call-btn {
-  background-color: #1a1a1a;
-  border: 2px solid #f56e00;
-}
-
-.whatsapp-btn {
-  background-color: #25d366;
-}
-
-/* ریسپانسیو موبایل */
-@media (max-width: 850px) {
+:root {
+    --primary-orange: #f56e00;       /* رنگ نارنجی شفاف کارت ویزیت خزر استوک */
+    --primary-orange-dark: #d95a00;
+    --dark-bg: #151515;             /* مشکی فریم کارت */
+    --border-dark: #222222;
+    --light-bg: #f5f5f7;
+    --card-white: #ffffff;
+    --text-dark: #1e2022;
+    --text-muted: #555555;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+  }
+  
+  body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    direction: rtl;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  /* نوار بالا */
+  .top-bar {
+    background-color: var(--dark-bg);
+    color: #fff;
+    padding: 8px 0;
+    font-size: 13px;
+    border-bottom: 2px solid var(--primary-orange);
+  }
+  
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .contact-quick {
+    display: flex;
+    gap: 18px;
+    direction: ltr;
+  }
+  
+  .contact-quick span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #ddd;
+  }
+  
+  .insta-quick a {
+    color: #ffaa5b;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* هدر اصلی */
+  .main-header {
+    background-color: #ffffff;
+    padding: 16px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
   .header-content {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .logo h2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--dark-bg);
+    letter-spacing: -0.5px;
+  }
+  
+  .logo span {
+    color: var(--primary-orange);
+  }
+  
+  .logo small {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  
+  /* باکس جستجو */
+  .search-box {
+    position: relative;
+    flex: 1;
+    max-width: 520px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 11px 18px 11px 45px;
+    border-radius: 25px;
+    border: 2px solid #e0e0e0;
+    outline: none;
+    font-size: 13px;
+    transition: border-color 0.2s;
+  }
+  
+  .search-box input:focus {
+    border-color: var(--primary-orange);
+  }
+  
+  .search-box button {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-orange);
+    font-size: 16px;
+  }
+  
+  /* دکمه‌های ورود و سبد */
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .login-btn {
+    display: inline-flex;orange);
+  }
+  
+  .logo small {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  
+  /* باکس جستجو */
+  .search-box {
+    position: relative;
+    flex: 1;
+    max-width: 520px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 11px 18px 11px 45px;
+    border-radius: 25px;
+    border: 2px solid #e0e0e0;
+    outline: none;
+    font-size: 13px;
+    transition: border-color 0.2s;
+  }
+  
+  .search-box input:focus {
+    border-color: var(--primary-orange);
+  }
+  
+  .search-box button {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-orange);
+    font-size: 16px;
+  }
+  
+  /* دکمه‌های ورود و سبد */
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #ccc;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .login-btn:hover {
+    background-color: var(--primary-orange);
+    color: #fff;
+    border-color: var(--primary-orange);
+  }
+  
+  .cart-btn {
+    font-size: 205);
+  }
+  
+  .card-banner h1 {
+    font-size: 26px;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 8px;
+  }
+  
+  .card-banner .sub-banner {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  
+  .card-banner .badge {
+    display: inline-block;
+    background-color: var(--dark-bg);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+  
+  /* بخش برندها و خودروها */
+  .brands-section {
+    margin-top: 30px;
+  }
+  
+  .brands-wrapper {
+    background-color: var(--primary-orange);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  }
+  
+  .foreign-wrapper {
+    background: #25282c; /* زمینه تیره شیک برای خودروهای خارجی با هایلایت نارنجی */
+    border: 2px solid var(--primary-orange);
+  }
+  
+  .section-title-white {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    border-bottom: 2px solid rgba(255,255,255,0.25);
+    padding-bottom: 10px;
+  }
+  
+  .sub-category-title {
+    color: #fff;
+    font-size: 14.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .mt-20 {
+    margin-top: 22px;
+  }
+  
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 12px;
   }
-  .hero-container {
-    grid-template-columns: 1fr;
+  
+  .brand-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--dark-bg);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border-bottom: 3px solid var(--dark-bg);
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+    cursor: pointer;
   }
-  .in-person-grid {
-    grid-template-columns: 1fr;
+  
+  .brand-card:hover {
+    transform: translateY(-3px);
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    border-bottom: 3px solid var(--primary-orange);
   }
-  .car-slider {
-    height: 250px;
+  
+  /* دکمه‌های شناور */
+  .floating-actions {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
   }
-}
+  
+  .float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+  }
+  
+  .float-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .call-btn {
+    background-color: var(--dark-bg);
+    border: 2px solid var(--primary-orange);
+  }
+  
+  .whatsapp-btn {
+    background-color: #25d366;
+  }
+  
+  /* ریسپانسیو موبایل */
+  @media (max-width: 768px) {
+    .header-content {
+  flex-direction: column;
+    }
+    .search-box {
+  width: 100%;
+    }
+    .top-bar-content {
+  justify-content: center;
+  text-align: center;
+    }
+  }
+  
