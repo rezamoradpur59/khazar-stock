@@ -1,23 +1,71 @@
-/* استایل جدید برای کانتینر قطعات */
-.parts-container {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 20px;
-    border: 1px dashed #f56e00;
+/* اصلاح استایل دکمه‌های خودرو در بخش داخلی */
+.category-section .car-grid .car-card {
+  background-color: #ffffff;
+  color: #121212;
+  padding: 14px 10px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  width: 100%;
 }
 
-/* استایل دکمه‌های خودرو که حالا کلیک‌خور هستند */
-.car-card {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font-family: 'Vazirmatn';
-    transition: all 0.3s ease;
+.category-section .car-grid .car-card:hover {
+  transform: translateY(-4px);
+  background-color: #fff3e0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.car-card:active {
-    transform: scale(0.95);
-    background: #f56e00;
-    color: #fff;
+/* استایل کانتینر بازشونده قطعات */
+.dynamic-parts-wrapper {
+  background: rgba(18, 18, 22, 0.92);
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeInParts 0.3s ease-in-out;
+}
+
+@keyframes fadeInParts {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dynamic-parts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 10px;
+}
+
+.dynamic-parts-header h3 {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.close-parts-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.close-parts-btn:hover {
+  background: #f56e00;
 }
