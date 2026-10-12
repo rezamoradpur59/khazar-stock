@@ -591,4 +591,57 @@ footer {
 .call-option:hover span {
   color: #fff;
 }
+.part-card {
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 110, 0, 0.35);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.part-card:hover {
+  transform: translateY(-4px);
+  border-color: #f56e00;
+}
+.part-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.part-meta {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+.part-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 12px;
+  margin-bottom: 14px;
+}
+.orange-price {
+  color: #f56e00;
+  font-size: 16px;
+  font-weight: 800;
+}
+.part-wa-btn {
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  padding: 9px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.part-wa-btn:hover {
+  background: #1ebc57;
+}
 
