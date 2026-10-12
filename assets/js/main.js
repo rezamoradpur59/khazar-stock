@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // =========================
-  // مدیریت پنجره بازشوی تماس
-  // =========================
+  // ============================================================
+  // ۱. مدیریت پنجره بازشوی تماس (پاپ‌آپ انتخاب دو شماره)
+  // ============================================================
   const callBtn = document.getElementById("callToggleBtn");
   const callPopup = document.getElementById("callPopup");
 
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       callPopup.classList.toggle("show");
     });
 
+    // بستن پنجره با کلیک در بیرون از آن
     document.addEventListener("click", (e) => {
       if (!callPopup.contains(e.target) && e.target !== callBtn) {
         callPopup.classList.remove("show");
@@ -18,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =========================
-  // اسلایدر تصاویر
-  // =========================
+  // ============================================================
+  // ۲. اسلایدر تصاویر صفحه اصلی
+  // ============================================================
   const slides = document.querySelectorAll(".slide");
   const dots = document.querySelectorAll(".dot");
   let currentIndex = 0;
@@ -51,11 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =========================
-  // بارگذاری قیمت‌ها از prices.json
-  // =========================
+  // ============================================================
+  // ۳. استعلام و جایگذاری خودکار قیمت‌ها از prices.json
+  // ============================================================
   fetch('prices.json')
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error("فایل قیمت در دسترس نیست");
+      return res.json();
+    })
     .then(data => {
       for (const [key, value] of Object.entries(data)) {
         const el = document.getElementById('price-' + key);
@@ -64,5 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     })
-    .catch(err => console.log('خطا در دریافت قیمت‌ها:', err));
+    .catch(err => {
+      console.log('وضعیت قیمت‌ها: استعلام مستقیم تلفنی');
+      // در صورت لود نشدن قیمت‌ها، متن جایگزین نمایش داده می‌شود
+      ['price-clutch_206', 'price-brake_206'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.innerText === "در حال دریافت...") {
+          el.innerText = "تماس بگیرید";
+        }
+      });
+    });
 });
