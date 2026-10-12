@@ -9,13 +9,13 @@
   <meta name="application-name" content="خزر استوک">
   <meta name="google-site-verification" content="GAPGPTMASKTOKENtxaqjr1cngfX0X">
 
+  <!-- فونت و آیکون‌ها -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- CSS جدا شده (بدون تغییر در گرافیک) -->
+  <!-- اتصال به استایل مجزا -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
   <!-- هدر و منوبار -->
@@ -83,6 +83,7 @@
       <i class="fa-solid fa-car-side"></i>
       <h2>خودروهای داخلی (ایرانی)</h2>
     </div>
+    
     <div class="sub-group">
       <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
       <div class="car-grid">
@@ -93,7 +94,26 @@
         <div class="car-card">تارا / رانا</div>
       </div>
     </div>
-    <div class="sub-group">
+
+    <!-- بخش قطعات و استعلام آنلاین پژو ۲۰۶ / ۲۰۷ -->
+    <div class="parts-grid-display">
+      <div class="part-card">
+        <div class="part-title">دیسک و صفحه ۲۰۶ تیپ ۵</div>
+        <span class="part-price" id="price-clutch_206">در حال دریافت...</span>
+        <a href="https://wa.me/989397235970?text=سلام،%20استعلام%20دیسک%20و%20صفحه%20206" target="_blank" class="part-wa-link">
+          <i class="fa-brands fa-whatsapp"></i> سفارش واتس‌اپ
+        </a>
+      </div>
+      <div class="part-card">
+        <div class="part-title">لنت ترمز جلو ۲۰۶ و ۲۰۷</div>
+        <span class="part-price" id="price-brake_206">در حال دریافت...</span>
+        <a href="https://wa.me/989397235970?text=سلام،%20استعلام%20لنت%20ترمز%20206" target="_blank" class="part-wa-link">
+          <i class="fa-brands fa-whatsapp"></i> سفارش واتس‌اپ
+        </a>
+      </div>
+    </div>
+
+    <div class="sub-group" style="margin-top: 25px;">
       <span class="group-title">محصولات سایپا و پارس‌خودرو</span>
       <div class="car-grid">
         <div class="car-card">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
@@ -202,7 +222,7 @@
     <p>تمامی حقوق محفوظ است © خزر استوک - بورس لوازم استوک خودرو</p>
   </footer>
 
-  <!-- منوی بازشوی انتخاب شماره تلفن -->
+  <!-- منوی بازشوی انتخاب دو شماره (گزینه ۲) -->
   <div id="callPopup" class="call-popup">
     <a href="tel:09114538740" class="call-option">
       <span>مدیریت:</span>
@@ -214,7 +234,7 @@
     </a>
   </div>
 
-  <!-- دکمه‌های شناور تماس و واتس‌اپ -->
+  <!-- دکمه‌های شناور -->
   <div class="floating-buttons">
     <button type="button" id="callToggleBtn" class="float-btn call-btn" title="تماس تلفنی">
       <i class="fa-solid fa-phone"></i>
@@ -224,7 +244,7 @@
     </a>
   </div>
 
-  <!-- JS جدا شده -->
+  <!-- اتصال به جاوااسکریپت مجزا -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
