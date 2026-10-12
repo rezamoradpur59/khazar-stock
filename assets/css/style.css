@@ -6,7 +6,9 @@
   font-family: 'Vazirmatn', Tahoma, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background:
@@ -49,7 +51,11 @@ body {
   text-decoration: none;
 }
 
-.logo-khazar { color: #ffffff; font-size: 26px; font-weight: 900; }
+.logo-khazar {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 900;
+}
 
 .logo-stock {
   background-color: #f56e00;
@@ -61,7 +67,11 @@ body {
   box-shadow: 0 0 10px rgba(245, 110, 0, 0.5);
 }
 
-.nav-bar { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-bar {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
 
 .nav-item {
   color: #f0f0f0;
@@ -72,7 +82,9 @@ body {
   padding: 6px 0;
 }
 
-.nav-item:hover { color: #f56e00; }
+.nav-item:hover {
+  color: #f56e00;
+}
 
 /* ================== هیرو ================== */
 .hero-section {
@@ -130,7 +142,11 @@ body {
   margin-bottom: 25px;
 }
 
-.hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
 
 .btn-hero-call {
   background: linear-gradient(135deg, #f56e00 0%, #d95e00 100%);
@@ -159,7 +175,9 @@ body {
   transition: all 0.25s ease;
 }
 
-.btn-hero-category:hover { background: rgba(255, 255, 255, 0.2); }
+.btn-hero-category:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
 
 /* ================== اسلایدر ================== */
 .slider-wrapper {
@@ -172,10 +190,22 @@ body {
   background: #0d0d0d;
 }
 
-.car-slider { position: relative; width: 100%; height: 350px; }
+.car-slider {
+  position: relative;
+  width: 100%;
+  height: 350px;
+}
 
-.slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease-in-out; }
-.slide.active { opacity: 1; }
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
 
 .slide img {
   width: 100%;
@@ -244,10 +274,20 @@ body {
   padding-bottom: 12px;
 }
 
-.sub-group { margin-bottom: 22px; }
-.sub-group:last-child { margin-bottom: 0; }
+.sub-group {
+  margin-bottom: 22px;
+}
 
-.group-title { display: inline-block; font-weight: 800; margin-bottom: 12px; font-size: 16px; }
+.sub-group:last-child {
+  margin-bottom: 0;
+}
+
+.group-title {
+  display: inline-block;
+  font-weight: 800;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
 
 .car-grid {
   display: grid;
@@ -271,6 +311,69 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* ================== کارت‌های داینامیک قطعات ۲۰۶/۲۰۷ ================== */
+.parts-grid-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.part-card {
+  background: rgba(18, 18, 22, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  padding: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.part-card:hover {
+  transform: translateY(-3px);
+  border-color: #ffffff;
+}
+
+.part-title {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.part-price {
+  color: #f56e00;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 15px;
+  margin: 10px 0 14px 0;
+  display: inline-block;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.part-wa-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: opacity 0.25s ease;
+}
+
+.part-wa-link:hover {
+  opacity: 0.9;
+}
+
 /* ================== بخش خرید حضوری + بنر ================== */
 .in-person-section {
   max-width: 1200px;
@@ -288,15 +391,34 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
-.in-person-header { text-align: center; margin-bottom: 30px; }
+.in-person-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-.in-person-header i { font-size: 36px; color: #f56e00; margin-bottom: 10px; }
+.in-person-header i {
+  font-size: 36px;
+  color: #f56e00;
+  margin-bottom: 10px;
+}
 
-.in-person-header h2 { font-size: 24px; color: #ffffff; margin-bottom: 8px; }
+.in-person-header h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
 
-.in-person-header p { color: #b5b5b5; font-size: 15px; }
+.in-person-header p {
+  color: #b5b5b5;
+  font-size: 15px;
+}
 
-.in-person-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; align-items: center; }
+.in-person-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: center;
+}
 
 .banner-box {
   width: 100%;
@@ -306,9 +428,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.banner-image { width: 100%; height: auto; display: block; }
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-.location-details { display: flex; flex-direction: column; gap: 18px; }
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
 .detail-item {
   display: flex;
@@ -320,13 +450,28 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.highlight-detail { border-right: 4px solid #f56e00; }
+.highlight-detail {
+  border-right: 4px solid #f56e00;
+}
 
-.detail-item i { font-size: 24px; color: #f56e00; margin-top: 3px; }
+.detail-item i {
+  font-size: 24px;
+  color: #f56e00;
+  margin-top: 3px;
+}
 
-.detail-item strong { display: block; font-size: 15px; color: #ffffff; margin-bottom: 4px; }
+.detail-item strong {
+  display: block;
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
 
-.detail-item p { color: #cccccc; font-size: 14px; line-height: 1.6; }
+.detail-item p {
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
 
 .btn-location-call {
   display: inline-block;
@@ -340,7 +485,9 @@ body {
   transition: all 0.25s ease;
 }
 
-.btn-location-call:hover { background: #d95e00; }
+.btn-location-call:hover {
+  background: #d95e00;
+}
 
 /* ================== تماس با ما ================== */
 .contact-section {
@@ -351,7 +498,11 @@ body {
   scroll-margin-top: 90px;
 }
 
-.contact-section h2 { margin-bottom: 25px; font-size: 24px; color: #fff; }
+.contact-section h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #fff;
+}
 
 .contact-cards {
   display: grid;
@@ -372,13 +523,25 @@ body {
   transition: all 0.25s ease;
 }
 
-.c-card:hover { border-color: #f56e00; transform: translateY(-3px); }
+.c-card:hover {
+  border-color: #f56e00;
+  transform: translateY(-3px);
+}
 
-.c-card i { font-size: 30px; color: #f56e00; }
+.c-card i {
+  font-size: 30px;
+  color: #f56e00;
+}
 
-.c-card span { font-size: 13px; color: #b0b0b0; }
+.c-card span {
+  font-size: 13px;
+  color: #b0b0b0;
+}
 
-.c-card strong { font-size: 17px; color: #fff; }
+.c-card strong {
+  font-size: 17px;
+  color: #fff;
+}
 
 footer {
   padding: 25px;
@@ -415,53 +578,89 @@ footer {
   cursor: pointer;
 }
 
-.float-btn:hover { transform: scale(1.1); }
+.float-btn:hover {
+  transform: scale(1.1);
+}
 
-.call-btn { background-color: #1a1a1a; border: 2px solid #f56e00; }
-.whatsapp-btn { background-color: #25d366; }
+.call-btn {
+  background-color: #1a1a1a;
+  border: 2px solid #f56e00;
+}
 
-/* ================== پاپ‌آپ تماس (برای callPopup) ================== */
+.whatsapp-btn {
+  background-color: #25d366;
+}
+
+/* ================== پاپ‌آپ دو شماره تماس ================== */
 .call-popup {
   position: fixed;
   left: 25px;
   bottom: 90px;
   width: 220px;
-  background: rgba(20, 20, 24, 0.92);
+  background: rgba(20, 20, 24, 0.95);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(245, 110, 0, 0.35);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(245, 110, 0, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
   border-radius: 14px;
   padding: 10px;
   display: none;
   z-index: 1000;
 }
 
-.call-popup.show { display: block; }
+.call-popup.show {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .call-option {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   text-decoration: none;
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: 10px;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.call-option + .call-option { margin-top: 8px; }
+.call-option:hover {
+  border-color: #f56e00;
+  background: rgba(245, 110, 0, 0.1);
+}
 
-.call-option span { font-size: 12px; color: #bdbdbd; }
-.call-option strong { font-size: 15px; color: #fff; }
-.call-option:hover { border-color: rgba(245, 110, 0, 0.55); }
+.call-option span {
+  font-size: 12px;
+  color: #bdbdbd;
+}
+
+.call-option strong {
+  font-size: 15px;
+  color: #ffffff;
+}
 
 /* ================== ریسپانسیو ================== */
 @media (max-width: 850px) {
-  .header-content { flex-direction: column; justify-content: center; }
-  .nav-bar { justify-content: center; gap: 16px; }
-  .hero-container { grid-template-columns: 1fr; }
-  .in-person-grid { grid-template-columns: 1fr; }
-  .car-slider { height: 250px; }
-  .nav-item, .logo-khazar, .hero-text h1 { font-size: 90%; }
+  .header-content {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .nav-bar {
+    justify-content: center;
+    gap: 16px;
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+  .in-person-grid {
+    grid-template-columns: 1fr;
+  }
+  .car-slider {
+    height: 250px;
+  }
+  .nav-item, .logo-khazar, .hero-text h1 {
+    font-size: 90%;
+  }
 }
