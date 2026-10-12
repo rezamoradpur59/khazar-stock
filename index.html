@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>خزر استوک | فروشگاه تخصصی قطعات استوک و نو خودرو</title>
   
-  <!-- فونت وزیر متن -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
-    /* ================== متغیرها و تنظیمات کلی ================== */
     :root {
       --primary: #f56e00;
       --primary-hover: #d95e00;
       --bg-dark: #0f1012;
-      --card-bg: rgba(26, 28, 32, 0.75);
+      --card-bg: rgba(26, 28, 32, 0.85);
       --glass-border: rgba(255, 255, 255, 0.08);
       --text-main: #f0f2f5;
       --text-muted: #9aa0a6;
@@ -36,7 +34,7 @@
       overflow-x: hidden;
     }
 
-    /* ================== سربرگ و منو بار افقی (مطابق دستور) ================== */
+    /* سربرگ و منو بار افقی (مطابق دستور) */
     .header-container {
       width: 100%;
       background: #181818;
@@ -55,7 +53,6 @@
       justify-content: space-between;
     }
 
-    /* لوگوی خزر استوک در سمت چپ با رنگ سفید-مشکی */
     .logo-box {
       display: flex;
       align-items: center;
@@ -80,7 +77,6 @@
       border-radius: 6px;
     }
 
-    /* منوبار افقی با رنگ سفید */
     .nav-bar {
       display: flex;
       align-items: center;
@@ -117,13 +113,13 @@
       width: 100%;
     }
 
-    /* ================== بنر هدر ================== */
+    /* بنر اصلی سایت (banner.webp) */
     .top-banner {
       width: 100%;
-      max-height: 260px;
+      max-height: 400px;
       overflow: hidden;
       display: block;
-      border-bottom: 2px solid var(--primary);
+      border-bottom: 3px solid var(--primary);
     }
 
     .top-banner img {
@@ -133,11 +129,11 @@
       display: block;
     }
 
-    /* ================== هیرو اسلایدر ================== */
+    /* اسلایدر تصاویر خودروها */
     .hero-slider {
       position: relative;
       max-width: 1200px;
-      height: 440px;
+      height: 420px;
       margin: 28px auto;
       border-radius: 18px;
       overflow: hidden;
@@ -207,7 +203,7 @@
     .prev-btn { right: 20px; }
     .next-btn { left: 20px; }
 
-    /* ================== کانتینر محصولات و قطعات ================== */
+    /* کانتینر قطعات */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -240,7 +236,6 @@
     .part-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
       padding: 22px;
@@ -301,14 +296,13 @@
     .price-btn:hover {
       background: linear-gradient(135deg, #ff7c12 0%, #e86500 100%);
       transform: scale(1.02);
-      box-shadow: 0 6px 18px rgba(245, 110, 0, 0.35);
     }
 
-    /* ================== مودال جدول لیست قیمت روز ================== */
+    /* مودال جدول لیست قیمت روز (کاملاً داخلی) */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -329,12 +323,6 @@
       border-radius: 18px;
       padding: 26px;
       position: relative;
-      animation: modalFadeIn 0.3s ease;
-    }
-
-    @keyframes modalFadeIn {
-      from { transform: scale(0.94); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     .modal-header {
@@ -357,11 +345,6 @@
       color: var(--text-muted);
       font-size: 24px;
       cursor: pointer;
-      line-height: 1;
-    }
-
-    .modal-close:hover {
-      color: #fff;
     }
 
     .price-notice {
@@ -407,7 +390,7 @@
       color: var(--text-muted);
     }
 
-    /* ================== فوتر و بخش تماس ================== */
+    /* فوتر */
     footer {
       background: #141518;
       border-top: 1px solid var(--glass-border);
@@ -444,10 +427,6 @@
       text-align: right;
     }
 
-    .contact-val:hover {
-      color: var(--primary);
-    }
-
     .copy-text {
       text-align: center;
       font-size: 12px;
@@ -455,53 +434,28 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 20px;
     }
-
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        gap: 14px;
-      }
-      .nav-bar {
-        order: 2;
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .logo-box {
-        order: 1;
-      }
-      .hero-slider {
-        height: 280px;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- ۱. سربرگ و منوبار افقی طبق استایل درخواستی -->
+  <!-- منوبار افقی -->
   <header class="header-container">
     <div class="header-content">
-      
-      <!-- لوگوی خزر استوک در سمت چپ -->
       <a href="#" class="logo-box">
         <span class="logo-khazar">خزر</span>
         <span class="logo-stock">استوک</span>
       </a>
-
-      <!-- منوبار افقی با لینک‌های سفید -->
       <nav class="nav-bar">
         <a href="#home" class="nav-item">صفحه اصلی</a>
-        <a href="#iranian" class="nav-item">قطعات خودرو داخلی</a>
-        <a href="#foreign" class="nav-item">قطعات خودرو خارجی</a>
+        <a href="#parts" class="nav-item">قطعات و قیمت روز</a>
         <a href="#contact" class="nav-item">ارتباط با ما</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- بنر بالای صفحه -->
+  <!-- بنر اصلی سایت (banner.webp) -->
   <div class="top-banner" id="home">
-    <img src="banner.webp" alt="بنر فروشگاه خزر استوک" onerror="this.src='car-parts.jpg'">
+    <img src="banner.webp" alt="بورس لوازم خودرو خزر استوک">
   </div>
 
   <!-- اسلایدر تصاویر خودروها -->
@@ -531,32 +485,29 @@
     <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10094;</button>
   </section>
 
-  <!-- بخش قطعات و استعلام قیمت داخلی -->
-  <main class="container">
-    <h2 class="section-title" id="iranian">قطعات پرمصرف و استعلام قیمت روز</h2>
+  <!-- بخش قطعات و استعلام قیمت -->
+  <main class="container" id="parts">
+    <h2 class="section-title">قطعات پرمصرف و جدول استعلام قیمت روز</h2>
     
     <div class="parts-grid">
-      <!-- کارت ۱ -->
       <article class="part-card">
         <span class="part-badge">سایپا / پراید</span>
         <h3 class="part-title">سرسیلندر لخت پراید انژکتوری</h3>
-        <p class="part-desc">آلومینیومی استاندارد یورو ۲ و ۴، کاملاً آب‌بندی و تست‌شده با ضمانت تست تراشکاری.</p>
-        <button class="price-btn" onclick="openPriceModal('سرسیلندر لخت پراید انژکتوری', 17499000, 'عظام / الدورا شرکتی')">
+        <p class="part-desc">آلومینیومی استاندارد یورو ۲ و ۴، کاملاً آب‌بندی و تست‌شده با ضمانت تراشکاری.</p>
+        <button class="price-btn" onclick="openPriceModal('سرسیلندر لخت پراید انژکتوری', 17499000, 'عظام / شرکتی')">
           🔍 مشاهده لیست قیمت روز قطعه
         </button>
       </article>
 
-      <!-- کارت ۲ -->
       <article class="part-card">
         <span class="part-badge">ایران‌خودرو / پژو ۴۰۵ و پارس</span>
         <h3 class="part-title">سرسیلندر کامل پژو XU7</h3>
-        <p class="part-desc">همراه با میل‌سوپاپ، کاسه‌نمد و سوپاپ آب‌بندی‌شده، آماده نصب با آلیاژ مقاومت بالا.</p>
+        <p class="part-desc">همراه با میل‌سوپاپ، کاسه‌نمد و سوپاپ آب‌بندی‌شده، آماده نصب با آلیاژ عالی.</p>
         <button class="price-btn" onclick="openPriceModal('سرسیلندر کامل پژو XU7', 24800000, 'ایساکو اصل')">
           🔍 مشاهده لیست قیمت روز قطعه
         </button>
       </article>
 
-      <!-- کارت ۳ -->
       <article class="part-card">
         <span class="part-badge">ایران‌خودرو / پژو ۲۰۶</span>
         <h3 class="part-title">گیربکس کامل پژو ۲۰۶ تیپ ۵ (TU5)</h3>
@@ -566,7 +517,6 @@
         </button>
       </article>
 
-      <!-- کارت ۴ -->
       <article class="part-card">
         <span class="part-badge">سایپا / تیبا و کوییک</span>
         <h3 class="part-title">موتور کامل تیبا و ساینا (M15)</h3>
@@ -578,7 +528,7 @@
     </div>
   </main>
 
-  <!-- مودال داخلی استعلام و جدول قیمت -->
+  <!-- مودال جدول قیمت داخلی -->
   <div class="modal-overlay" id="priceModal" onclick="closeModalOutside(event)">
     <div class="modal-content">
       <div class="modal-header">
@@ -587,7 +537,7 @@
       </div>
 
       <div class="price-notice">
-        ⚡ <strong>سیستم یکپارچه قیمت‌گذاری خزر استوک:</strong> نرخ‌ها به صورت روزانه از مراکز اصلی بازار استعلام شده و با اعمال ۵٪ تضمین اصالت، کارشناسی و ارسال محاسبه گردیده‌اند.
+        ⚡ <strong>سیستم قیمت‌گذاری خزر استوک:</strong> نرخ‌ها هر روز به‌روزرسانی شده و با احتساب ۵٪ کارمزد کارشناسی و انبارداری محاسبه می‌شوند.
       </div>
 
       <table class="price-table">
@@ -607,7 +557,7 @@
             <td id="modalBasePrice">- تومان</td>
           </tr>
           <tr>
-            <td>افزایش قانونی و تضمین فنی (+۵٪)</td>
+            <td>افزایش تعرفه انبارداری و خدمات (+۵٪)</td>
             <td id="modalMarkup">- تومان</td>
           </tr>
           <tr>
@@ -624,7 +574,7 @@
     </div>
   </div>
 
-  <!-- فوتر و اطلاعات تماس رسمی -->
+  <!-- فوتر و اطلاعات تماس -->
   <footer id="contact">
     <div class="footer-grid">
       <div class="contact-item">
@@ -645,9 +595,8 @@
     </div>
   </footer>
 
-  <!-- اسکریپت‌های اسلایدر و جدول قیمت داخلی -->
   <script>
-    // تنظیم تاریخ روز به صورت شمسی خودکار
+    // تاریخ شمسی خودکار
     const todayShamsi = new Intl.DateTimeFormat('fa-IR', { 
       year: 'numeric', 
       month: 'long', 
@@ -656,7 +605,7 @@
 
     document.getElementById('currentDateDisplay').textContent = 'تاریخ استعلام: ' + todayShamsi;
 
-    // اسلایدر خودکار و دستی
+    // اسلایدر
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
 
@@ -672,11 +621,9 @@
       showSlide(currentSlide);
     }
 
-    setInterval(() => {
-      moveSlide(1);
-    }, 5500);
+    setInterval(() => { moveSlide(1); }, 5500);
 
-    // محاسبه قیمت داخلی با اعمال ۵ درصد افزایش بدون خروج از صفحه
+    // محاسبه قیمت با احتساب ۵٪ افزایش داخلی بدون لینک به بیرون
     function openPriceModal(partName, basePrice, brand) {
       const markup = Math.round(basePrice * 0.05);
       const finalPrice = basePrice + markup;
