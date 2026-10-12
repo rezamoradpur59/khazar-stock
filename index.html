@@ -34,7 +34,7 @@
       overflow-x: hidden;
     }
 
-    /* سربرگ و منو بار افقی دقیقاً مطابق درخواست */
+    /* سربرگ و منو بار افقی */
     .header-container {
       width: 100%;
       background: #181818;
@@ -113,27 +113,196 @@
       width: 100%;
     }
 
-    /* بنر اصلی سایت (banner.webp) درست زیر هدر */
-    .top-banner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 20px auto;
+    /* ================== استایل بنر ارسالی شما ================== */
+    .banner-section {
+      width: 90%;                /* در موبایل ۹۰ درصد عرض صفحه */
+      max-width: 800px;          /* حداکثر عرض (دقیقاً برابر با عرض اسلایدر) */
+      margin: 25px auto;         /* فاصله از بالا و پایین + وسط‌چین کامل از چپ و راست */
       border-radius: 14px;
       overflow: hidden;
-      display: block;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .top-banner img {
+    .banner-img {
+      width: 100%;               /* تصویر تمام فضای بنر را پر می‌کند */
+      height: auto;              /* حفظ تناسب ابعاد تصویر */
+      display: block;
+    }
+
+    /* ================== بخش هیرو و پوستر متغیر ================== */
+    .hero-section {
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    /* متون سمت راست هیرو */
+    .hero-text {
+      text-align: right;
+    }
+
+    .sub-badge {
+      display: inline-block;
+      background: rgba(245, 110, 0, 0.15);
+      color: #f56e00;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid rgba(245, 110, 0, 0.3);
+    }
+
+    .hero-text h1 {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .highlight-text {
+      font-size: 18px;
+      color: #f56e00;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .car-models {
+      color: #b0b0b0;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-call {
+      background: #f56e00;
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.25s ease;
+    }
+
+    .btn-hero-call:hover {
+      background: #d95e00;
+    }
+
+    .btn-hero-category {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.25s ease;
+    }
+
+    .btn-hero-category:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* پوستر متغیر ماشین (اسلایدر) */
+    .slider-wrapper {
+      position: relative;
       width: 100%;
-      height: auto;
-      max-height: 420px;
+      aspect-ratio: 16 / 10;
+      min-height: 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #1c1c1c;
+    }
+
+    .car-slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    /* کانتینر قطعات */
+    .slider-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 20px 15px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      color: #ffffff;
+    }
+
+    .slider-overlay .badge {
+      background: #f56e00;
+      color: #ffffff;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .slider-overlay p {
+      font-size: 14px;
+      margin-top: 4px;
+      color: #e0e0e0;
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 15px;
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #f56e00;
+      width: 20px;
+      border-radius: 10px;
+    }
+
+    /* بخش قطعات و گرید */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -364,11 +533,17 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 20px;
     }
+
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- سربرگ و منوبار افقی -->
+  <!-- ۱. سربرگ و منوبار افقی -->
   <header class="header-container">
     <div class="header-content">
       <a href="#" class="logo-box">
@@ -383,14 +558,65 @@
     </div>
   </header>
 
-  <!-- بنر اصلی سایت (banner.webp) -->
-  <div class="top-banner" id="home">
-    <img src="banner.webp" alt="بورس لوازم خودرو خزر استوک">
-  </div>
+  <!-- بنر اضافه شده (دقیقاً وسط‌چین با استایل ارسالی) -->
+  <section class="banner-section" id="home">
+    <img src="banner.webp" alt="بنر خزر استوک" class="banner-img">
+  </section>
 
-  <!-- بخش قطعات و استعلام قیمت -->
+  <!-- ۲. بخش هیرو و پوستر متغیر (دقیقاً دست‌نخورده) -->
+  <section class="hero-section">
+    <div class="hero-container">
+      
+      <!-- متون سمت راست هیرو -->
+      <div class="hero-text">
+        <span class="sub-badge">مرکز تخصصی خودرو</span>
+        <h1>بورس لوازم استوک خودروهای ایرانی و خارجی</h1>
+        <div class="highlight-text">تأمین مستقیم لوازم یدکی با تضمین اصالت و سلامت</div>
+        <p class="car-models">انواع سرسیلندر، موتور کامل، گیربکس و ادوات بدنه با فاکتور رسمی و ارسال فوری به سراسر کشور.</p>
+        <div class="hero-actions">
+          <a href="#parts" class="btn-hero-call">مشاهده قطعات و استعلام قیمت</a>
+          <a href="https://wa.me/989390189270" target="_blank" class="btn-hero-category">مشاوره در واتس‌اپ</a>
+        </div>
+      </div>
+
+      <!-- پوستر متغیر ماشین (اسلایدر) -->
+      <div class="slider-wrapper">
+        <div class="car-slider" id="carSlider">
+          <div class="slide active">
+            <img src="car-iran.jpg" alt="قطعات خودروهای ایرانی">
+            <div class="slider-overlay">
+              <span class="badge">خودروهای ایرانی</span>
+              <p>تأمین موتور، سیلندر و قطعات موتوری پراید، پژو و سمند</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="car-foreign.jpg" alt="قطعات خودروهای خارجی">
+            <div class="slider-overlay">
+              <span class="badge">خودروهای خارجی</span>
+              <p>گیربکس و قطعات تخصصی استوک اروپایی و آسیایی</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="car-parts.jpg" alt="لوازم یدکی خودرو">
+            <div class="slider-overlay">
+              <span class="badge">لوازم یدکی و جانبی</span>
+              <p>ارسال سریع به تمام شهرهای کشور با ضمانت تست</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+          <span class="dot active" onclick="currentSlide(0)"></span>
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ۳. بخش قطعات پرمصرف و جدول قیمت روز -->
   <main class="container" id="parts">
-    <h2 class="section-title">قطعات پرمصرف و جدول استعلام قیمت روز</h2>
+    <h2 class="section-title">قطعات پرمصرف و استعلام قیمت روز</h2>
     
     <div class="parts-grid">
       <article class="part-card">
@@ -431,7 +657,7 @@
     </div>
   </main>
 
-  <!-- مودال جدول قیمت داخلی -->
+  <!-- ۴. مودال جدول قیمت داخلی -->
   <div class="modal-overlay" id="priceModal" onclick="closeModalOutside(event)">
     <div class="modal-content">
       <div class="modal-header">
@@ -440,7 +666,7 @@
       </div>
 
       <div class="price-notice">
-        ⚡ <strong>سیستم قیمت‌گذاری خزر استوک:</strong> نرخ‌ها هر روز به‌روزرسانی شده و با احتساب ۵٪ کارمزد کارشناسی و انبارداری محاسبه می‌شوند.
+        ⚡ <strong>سیستم قیمت‌گذاری خزر استوک:</strong> نرخ‌ها به صورت روزانه از مراکز اصلی استعلام شده و با احتساب ۵٪ کارمزد کارشناسی و انبارداری محاسبه گردیده‌اند.
       </div>
 
       <table class="price-table">
@@ -477,7 +703,7 @@
     </div>
   </div>
 
-  <!-- فوتر و اطلاعات تماس -->
+  <!-- ۵. فوتر و راه‌های ارتباطی -->
   <footer id="contact">
     <div class="footer-grid">
       <div class="contact-item">
@@ -498,6 +724,7 @@
     </div>
   </footer>
 
+  <!-- اسکریپت‌ها -->
   <script>
     // تاریخ شمسی خودکار
     const todayShamsi = new Intl.DateTimeFormat('fa-IR', { 
@@ -508,7 +735,33 @@
 
     document.getElementById('currentDateDisplay').textContent = 'تاریخ استعلام: ' + todayShamsi;
 
-    // محاسبه قیمت با احتساب ۵٪ افزایش داخلی بدون لینک به بیرون
+    // اسلایدر پوستر متغیر
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlides(n) {
+      if (n >= slides.length) slideIndex = 0;
+      if (n < 0) slideIndex = slides.length - 1;
+      
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+
+      slides[slideIndex].classList.add('active');
+      dots[slideIndex].classList.add('active');
+    }
+
+    function currentSlide(n) {
+      slideIndex = n;
+      showSlides(slideIndex);
+    }
+
+    setInterval(() => {
+      slideIndex++;
+      showSlides(slideIndex);
+    }, 5000);
+
+    // محاسبه قیمت داخلی با احتساب ۵٪ افزایش
     function openPriceModal(partName, basePrice, brand) {
       const markup = Math.round(basePrice * 0.05);
       const finalPrice = basePrice + markup;
