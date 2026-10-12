@@ -1,25 +1,40 @@
-<!-- خودروهای داخلی -->
-<section class="category-section" id="domestic">
+  <!-- خودروهای داخلی -->
+  <section class="category-section" id="domestic">
     <div class="section-title">
-        <i class="fa-solid fa-car-side"></i>
-        <h2>خودروهای داخلی (ایرانی)</h2>
+      <i class="fa-solid fa-car-side"></i>
+      <h2>خودروهای داخلی (ایرانی)</h2>
     </div>
     
     <div class="sub-group">
-        <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
-        <div class="car-grid">
-            <!-- اضافه کردن data-car برای تعامل با JS -->
-            <button class="car-card" onclick="showParts('206')">پژو ۲۰۶ / ۲۰۷</button>
-            <button class="car-card" onclick="showParts('405')">پژو پارس / ۴۰۵</button>
-            <button class="car-card" onclick="showParts('samand')">سمند / سورن / دنا</button>
-        </div>
+      <span class="group-title">محصولات ایران‌خودرو (IKCO)</span>
+      <div class="car-grid">
+        <button type="button" class="car-card" onclick="showCarParts('206')">پژو ۲۰۶ / ۲۰۷</button>
+        <button type="button" class="car-card" onclick="showCarParts('405')">پژو پارس / ۴۰۵</button>
+        <button type="button" class="car-card" onclick="showCarParts('samand')">سمند / سورن / دنا</button>
+        <button type="button" class="car-card" onclick="showCarParts('tandar')">رنو تندر ۹۰ (ال۹۰)</button>
+        <button type="button" class="car-card" onclick="showCarParts('tara')">تارا / رانا</button>
+      </div>
     </div>
 
-    <!-- کانتینر قطعات: ابتدا پنهان است و با کلیک روی دکمه ظاهر می‌شود -->
-    <div id="parts-container" class="parts-container" style="display: none;">
-        <h3 id="selected-car-title" style="margin-bottom: 15px; color: #fff;">قطعات موجود برای: ...</h3>
-        <div class="parts-grid-display" id="parts-list">
-            <!-- قطعات اینجا توسط JS لود می‌شوند -->
-        </div>
+    <!-- کانتینر قطعات پویا که مستقیماً زیر دکمه‌ها باز می‌شود -->
+    <div id="dynamic-parts-container" class="dynamic-parts-wrapper" style="display: none;">
+      <div class="dynamic-parts-header">
+        <h3 id="dynamic-car-title">قطعات و لوازم استوک</h3>
+        <button type="button" class="close-parts-btn" onclick="closeParts()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="parts-grid-display" id="dynamic-parts-list">
+        <!-- قطعات از طریق جاوااسکریپت اینجا قرار می‌گیرند -->
+      </div>
     </div>
-</section>
+
+    <div class="sub-group" style="margin-top: 25px;">
+      <span class="group-title">محصولات سایپا و پارس‌خودرو</span>
+      <div class="car-grid">
+        <button type="button" class="car-card" onclick="showCarParts('pride')">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</button>
+        <button type="button" class="car-card" onclick="showCarParts('tiba')">تیبا / ساینا / کوییک</button>
+        <button type="button" class="car-card" onclick="showCarParts('nissan')">وانت نیسان زامیاد</button>
+        <button type="button" class="car-card" onclick="showCarParts('shahin')">شاهین</button>
+        <button type="button" class="car-card" onclick="showCarParts('megane')">رنو مگان / ساندرو</button>
+      </div>
+    </div>
+  </section>
