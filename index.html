@@ -100,6 +100,7 @@
     .nav-link:hover {
       color: var(--primary-orange);
     }
+
     /* ================= 2. بنر شاخص بالای صفحه ================= */
     .top-banner-wrapper {
       width: 100%;
@@ -111,9 +112,9 @@
     }
 
     .top-banner-img {
-      width: 32%;                /* اندازه بنر در دسکتاپ (حدود یک‌سوم صفحه برای خوانایی عالی) */
-      max-width: 380px;          /* حداکثر عرض در مانیتورهای بزرگ */
-      min-width: 250px;          /* حداقل عرض برای موبایل */
+      width: 32%;
+      max-width: 380px;
+      min-width: 250px;
       height: auto;
       object-fit: contain;
       border-radius: 14px;
@@ -341,7 +342,9 @@
       font-size: 13.5px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      border: 2px solid transparent;
+      user-select: none;
     }
 
     .car-pill:hover {
@@ -350,8 +353,14 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
     }
 
-    /* ================= 5. بخش ساختار فلوچارت قطعات (پژو ۲۰۶ / ۲۰۷ و سایرین) ================= */
-    .flowchart-section {
+    .car-pill.selected-car {
+      border-color: #121316;
+      background: #fff8f2;
+      box-shadow: 0 0 0 3px rgba(18, 19, 22, 0.45);
+    }
+
+    /* ================= 5. ساختار درختی زیربخش‌های خودرو (دقیقاً مطابق شکل پیوست) ================= */
+    .hierarchy-section {
       max-width: 1200px;
       margin: 45px auto 25px;
       padding: 0 20px;
@@ -360,6 +369,8 @@
     .section-headline {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 10px;
       font-size: 22px;
       font-weight: 900;
@@ -369,28 +380,252 @@
     .section-sub {
       color: var(--text-gray);
       font-size: 13.5px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
-    /* فیلتر تب‌های فلوچارت */
-    .flowchart-tabs {
+    /* بوم ساختار درختی مطابق تصویر پیوست */
+    .tree-canvas {
+      background: #0c0d10;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 32px 18px 28px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.75);
+      direction: ltr; /* جهت چیدمان دقیق شاخه‌ها از چپ به راست مانند تصویر پیوست */
+    }
+
+    .tree-diagram {
+      min-width: 820px;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* استایل گره‌های سه‌بعدی آبی-سفید دقیقاً مشابه تصویر پیوست */
+    .diagram-node {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 128px;
+      min-height: 62px;
+      padding: 10px 16px;
+      background: #eef4fb;
+      color: #111111;
+      border: 2.5px solid #5a9bd5;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      direction: rtl;
+      user-select: none;
+    }
+
+    /* لایه پشتی آبی‌رنگ مطابق گرافیک تصویر پیوست */
+    .diagram-node::before {
+      content: '';
+      position: absolute;
+      top: -9px;
+      left: -9px;
+      width: 100%;
+      height: 100%;
+      background: #5b9bd5;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      z-index: -1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      transition: background 0.2s;
+    }
+
+    .diagram-node:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary-orange);
+    }
+
+    .diagram-node.active-node {
+      border-color: var(--primary-orange);
+      background: #ffffff;
+      box-shadow: 0 0 18px rgba(245, 110, 0, 0.65);
+    }
+
+    .diagram-node.active-node::before {
+      background: var(--primary-orange);
+    }
+
+    .diagram-node.root-vehicle-node {
+      min-width: 165px;
+      min-height: 70px;
+      font-size: 16.5px;
+      font-weight: 900;
+    }
+
+    .diagram-node .node-price-tag {
+      display: block;
+      font-size: 10.5px;
+      color: #d95300;
+      font-weight: 800;
+      margin-top: 3px;
+    }
+
+    /* خطوط اتصال آبی‌رنگ بین شاخه‌ها مطابق تصویر */
+    .v-line {
+      width: 3px;
+      height: 22px;
+      background: #4a7ebb;
+      margin: 0 auto;
+    }
+
+    /* ردیف سطح دوم: سیستم‌های اصلی */
+    .systems-row {
+      display: grid;
+      grid-template-columns: 2fr 3fr 1fr 1fr 1fr;
+      width: 100%;
+      position: relative;
+      padding-top: 22px;
+    }
+
+    /* خط افقی بالای سطح دوم */
+    .systems-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 12.5%;
+      right: 6.2%;
+      height: 3px;
+      background: #4a7ebb;
+    }
+
+    .sys-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 0 6px;
+    }
+
+    .sys-col::before {
+      content: '';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 22px;
+      background: #4a7ebb;
+    }
+
+    /* زیرشاخه‌های گیربکس (دیسک و صفحه | چرخ دنده) */
+    .sub-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      position: relative;
+      padding-top: 22px;
       gap: 10px;
+    }
+
+    .sub-row-2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 25%;
+      right: 25%;
+      height: 3px;
+      background: #4a7ebb;
+    }
+
+    /* زیرشاخه‌های موتور (میل لنگ | پمپ سوخت | کارتر) */
+    .sub-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+      position: relative;
+      padding-top: 22px;
+      gap: 10px;
+    }
+
+    .sub-row-3::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 16.66%;
+      right: 16.66%;
+      height: 3px;
+      background: #4a7ebb;
+    }
+
+    .sub-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .sub-col::before {
+      content: '';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 22px;
+      background: #4a7ebb;
+    }
+
+    /* نوار وضعیت قیمت پویا */
+    .dynamic-ticker-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      gap: 12px;
       background: var(--bg-secondary);
-      padding: 12px 16px;
+      padding: 12px 18px;
       border-radius: 14px;
       border: 1px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+
+    .ticker-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background: #00e676;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px #00e676;
+      animation: pulseLive 1.6s infinite;
+    }
+
+    @keyframes pulseLive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.25); }
+    }
+
+    .filter-pills-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .tab-btn {
       background: rgba(255, 255, 255, 0.05);
       color: #fff;
       border: 1px solid var(--border-color);
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.25s;
@@ -432,6 +667,8 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 12px;
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
     .badge-model {
@@ -452,7 +689,7 @@
     }
 
     .part-title {
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 800;
       color: #fff;
       margin-bottom: 8px;
@@ -461,9 +698,27 @@
     .part-info {
       font-size: 12.8px;
       color: var(--text-gray);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       min-height: 42px;
       line-height: 1.6;
+    }
+
+    .live-card-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 230, 118, 0.08);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      padding: 8px 12px;
+      border-radius: 9px;
+      margin-bottom: 14px;
+      font-size: 12.5px;
+    }
+
+    .live-card-price strong {
+      color: #00e676;
+      font-size: 14px;
+      font-weight: 900;
     }
 
     .btn-view-price {
@@ -653,7 +908,7 @@
       font-size: 12.5px;
     }
 
-    /* ================= 8. مودال محاسبه ۵٪ قیمت (داخلی بدون لینک بیرون) ================= */
+    /* ================= 8. مودال محاسبه قیمت دینامیک (+۵٪) ================= */
     .price-modal-overlay {
       position: fixed;
       inset: 0;
@@ -674,7 +929,7 @@
       background: #18191f;
       border: 1px solid var(--primary-orange);
       width: 100%;
-      max-width: 620px;
+      max-width: 640px;
       border-radius: 18px;
       padding: 24px;
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
@@ -715,8 +970,38 @@
       padding: 10px 14px;
       font-size: 12.5px;
       border-radius: 6px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       color: #e5e5e5;
+    }
+
+    .dynamic-controls {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .control-group label {
+      display: block;
+      font-size: 12px;
+      color: var(--text-gray);
+      margin-bottom: 5px;
+    }
+
+    .control-group select,
+    .control-group input {
+      width: 100%;
+      background: #121316;
+      color: #fff;
+      border: 1px solid var(--border-color);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .price-calc-table {
@@ -747,6 +1032,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
       font-size: 12px;
       color: var(--text-gray);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -847,6 +1134,7 @@
       .hero-grid { grid-template-columns: 1fr; }
       .inperson-grid { grid-template-columns: 1fr; }
       .slider-box { height: 230px; }
+      .dynamic-controls { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -864,14 +1152,14 @@
         <a href="#home" class="nav-link">صفحه اصلی</a>
         <a href="#domestic" class="nav-link">خودروهای داخلی</a>
         <a href="#foreign" class="nav-link">خودروهای خارجی</a>
-        <a href="#flowchart-sec" class="nav-link">فلوچارت قطعات</a>
+        <a href="#parts-breakdown-sec" class="nav-link">بخش‌های قطعات</a>
         <a href="#in-person" class="nav-link">خرید حضوری</a>
         <a href="#contact" class="nav-link">اطلاعات تماس</a>
       </nav>
     </div>
   </header>
 
-  <!-- 2. بنر شاخص بالای صفحه (با فال‌بک خودکار به banner.jpg و car-parts.jpg) -->
+  <!-- 2. بنر شاخص بالای صفحه -->
   <div class="top-banner-wrapper" id="home">
     <img 
       src="banner.webp" 
@@ -916,14 +1204,14 @@
 
         <div class="hero-buttons">
           <a href="tel:09114538740" class="btn-orange"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
-          <a href="#flowchart-sec" class="btn-outline"><i class="fa-solid fa-sitemap"></i> جدول استعلام قطعات</a>
+          <a href="#parts-breakdown-sec" class="btn-outline"><i class="fa-solid fa-sitemap"></i> جدول استعلام قطعات</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 4. باکس نارنجی خودروهای داخلی (مطابق گرافیک تصویر ارسالی شما) -->
+  <!-- 4. باکس نارنجی خودروهای داخلی (با قابلیت کلیک روی تک‌تک خودروها) -->
   <section class="orange-category-box" id="domestic">
     <div class="cat-title-row">
       <i class="fa-solid fa-car-side"></i>
@@ -931,29 +1219,29 @@
     </div>
 
     <div class="cat-group">
-      <span class="cat-group-label">محصولات ایران‌خودرو (IKCO)</span>
+      <span class="cat-group-label">محصولات ایران‌خودرو (IKCO) — جهت مشاهده زیربخش‌ها روی خودرو کلیک کنید</span>
       <div class="car-items-grid">
-        <div class="car-pill" onclick="filterFlowchart('peugeot')">پژو ۲۰۶ / ۲۰۷</div>
-        <div class="car-pill" onclick="filterFlowchart('peugeot')">پژو پارس / ۴۰۵</div>
-        <div class="car-pill" onclick="filterFlowchart('peugeot')">سمند / سورن / دنا</div>
-        <div class="car-pill">رنو تندر ۹۰ (ال۹۰)</div>
-        <div class="car-pill">تارا / رانا</div>
+        <div class="car-pill selected-car" onclick="selectVehicle('peugeot206', this)">پژو ۲۰۶ / ۲۰۷</div>
+        <div class="car-pill" onclick="selectVehicle('pars405', this)">پژو پارس / ۴۰۵</div>
+        <div class="car-pill" onclick="selectVehicle('samand', this)">سمند / سورن / دنا</div>
+        <div class="car-pill" onclick="selectVehicle('l90', this)">رنو تندر ۹۰ (ال۹۰)</div>
+        <div class="car-pill" onclick="selectVehicle('tara', this)">تارا / رانا</div>
       </div>
     </div>
 
     <div class="cat-group">
-      <span class="cat-group-label">محصولات سایپا و پارس‌خودرو</span>
+      <span class="cat-group-label">محصولات سایپا و پارس‌خودرو — جهت مشاهده زیربخش‌ها روی خودرو کلیک کنید</span>
       <div class="car-items-grid">
-        <div class="car-pill">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
-        <div class="car-pill">تیبا / ساینا / کوییک</div>
-        <div class="car-pill">وانت نیسان زامیاد</div>
-        <div class="car-pill">شاهین</div>
-        <div class="car-pill">رنو مگان / ساندرو</div>
+        <div class="car-pill" onclick="selectVehicle('pride', this)">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
+        <div class="car-pill" onclick="selectVehicle('tiba', this)">تیبا / ساینا / کوییک</div>
+        <div class="car-pill" onclick="selectVehicle('zamyad', this)">وانت نیسان زامیاد</div>
+        <div class="car-pill" onclick="selectVehicle('shahin', this)">شاهین</div>
+        <div class="car-pill" onclick="selectVehicle('megane', this)">رنو مگان / ساندرو</div>
       </div>
     </div>
   </section>
 
-  <!-- 5. باکس نارنجی خودروهای خارجی و وارداتی (مطابق تصویر) -->
+  <!-- 5. باکس نارنجی خودروهای خارجی و وارداتی (با قابلیت کلیک روی تک‌تک خودروها) -->
   <section class="orange-category-box" id="foreign">
     <div class="cat-title-row">
       <i class="fa-solid fa-globe"></i>
@@ -961,143 +1249,182 @@
     </div>
 
     <div class="cat-group">
-      <span class="cat-group-label">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
+      <span class="cat-group-label">برندهای ژاپنی، کره‌ای، چینی و اروپایی — جهت مشاهده زیربخش‌ها روی خودرو کلیک کنید</span>
       <div class="car-items-grid">
-        <div class="car-pill">هیوندای (سوناتا، آزرا، سانتافه)</div>
-        <div class="car-pill">کیا (اسپورتیج، اپتیما، سراتو)</div>
-        <div class="car-pill">تویوتا (کمری، کرولا، هایلوکس)</div>
-        <div class="car-pill">نیسان (ماکسیما، رونیز، پاترول)</div>
-        <div class="car-pill">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
-        <div class="car-pill">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
+        <div class="car-pill" onclick="selectVehicle('hyundai', this)">هیوندای (سوناتا، آزرا، سانتافه)</div>
+        <div class="car-pill" onclick="selectVehicle('kia', this)">کیا (اسپورتیج، اپتیما، سراتو)</div>
+        <div class="car-pill" onclick="selectVehicle('toyota', this)">تویوتا (کمری، کرولا، هایلوکس)</div>
+        <div class="car-pill" onclick="selectVehicle('nissan', this)">نیسان (ماکسیما، رونیز، پاترول)</div>
+        <div class="car-pill" onclick="selectVehicle('mazda', this)">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
+        <div class="car-pill" onclick="selectVehicle('chinese', this)">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
       </div>
     </div>
   </section>
 
-  <!-- 6. پیاده‌سازی زیرمجموعه‌سازی و فلوچارت قطعات (پژو ۲۰۶/۲۰۷ پیوست) -->
-  <section class="flowchart-section" id="flowchart-sec">
+  <!-- 6. بخش زیرمجموعه‌سازی درختی اختصاصی برای هر خودرو (دقیقاً مطابق شکل پیوست بدون ذکر واژه فلوچارت) -->
+  <section class="hierarchy-section" id="parts-breakdown-sec">
     <div class="section-headline">
-      <i class="fa-solid fa-network-wired" style="color: var(--primary-orange);"></i>
-      <h2>دسته‌بندی و استعلام قیمت قطعات بر اساس فلوچارت فنی (پژو ۲۰۶ / ۲۰۷)</h2>
+      <div>
+        <i class="fa-solid fa-sitemap" style="color: var(--primary-orange);"></i>
+        <span id="selectedVehicleHeadline">زیربخش‌ها و قیمت روز قطعات: پژو ۲۰۶ / ۲۰۷</span>
+      </div>
     </div>
-    <p class="section-sub">تفکیک زیرشاخه‌ها طبق دیاگرام مهندسی: گیربکس (چرخ دنده‌ها، دیسک و صفحه)، موتور (میل‌لنگ، پمپ سوخت، کارتر)، جلوبندی و سیستم برقی</p>
+    <p class="section-sub">روی هر یک از بخش‌ها یا زیرقطعات زیر کلیک کنید تا لیست و قیمت روز دینامیک همان بخش نمایش داده شود:</p>
 
-    <!-- تب‌های انتخاب زیرمجموعه فلوچارت -->
-    <div class="flowchart-tabs">
-      <button class="tab-btn active" onclick="filterCat('all', this)"><i class="fa-solid fa-border-all"></i> همه قطعات فلوچارت</button>
-      <button class="tab-btn" onclick="filterCat('gearbox', this)"><i class="fa-solid fa-gears"></i> گیربکس (دنده‌ها و صفحه)</button>
-      <button class="tab-btn" onclick="filterCat('engine', this)"><i class="fa-solid fa-oil-can"></i> موتور (میل‌لنگ، کارتر، پمپ)</button>
-      <button class="tab-btn" onclick="filterCat('suspension', this)"><i class="fa-solid fa-wrench"></i> جلوبندی و تعلیق</button>
-      <button class="tab-btn" onclick="filterCat('electric', this)"><i class="fa-solid fa-bolt"></i> سیستم برقی</button>
+    <!-- نمودار درختی دقیقاً مطابق تصویر پیوست -->
+    <div class="tree-canvas">
+      <div class="tree-diagram">
+        <!-- گره ریشه: نام خودروی انتخاب شده -->
+        <div class="diagram-node root-vehicle-node active-node" id="treeRootNode" onclick="selectTreeSubpart('all', this)">
+          <span id="treeRootTitle">پژو ۲۰۶/۲۰۷</span>
+        </div>
+        <div class="v-line"></div>
+
+        <!-- سطح دوم: ۵ شاخه اصلی دقیقاً مطابق تصویر (گیربکس | موتور | جلوبندی | بدنه و تعلیق | سیستم برقی) -->
+        <div class="systems-row">
+
+          <!-- ستون ۱: گیربکس و زیرشاخه‌های آن -->
+          <div class="sys-col">
+            <div class="diagram-node" data-node="gearbox" onclick="selectTreeSubpart('gearbox', this)">
+              <div>
+                گیربکس
+                <span class="node-price-tag" id="nodePrice_gearbox"></span>
+              </div>
+            </div>
+            <div class="v-line"></div>
+
+            <!-- زیرشاخه‌های گیربکس: دیسک و صفحه | چرخ دنده -->
+            <div class="sub-row-2">
+              <div class="sub-col">
+                <div class="diagram-node" data-node="clutch" onclick="selectTreeSubpart('clutch', this)">
+                  <div>
+                    دیسک و صفحه
+                    <span class="node-price-tag" id="nodePrice_clutch"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sub-col">
+                <div class="diagram-node" data-node="gear" onclick="selectTreeSubpart('gear', this)">
+                  <div>
+                    چرخ دنده
+                    <span class="node-price-tag" id="nodePrice_gear"></span>
+                  </div>
+                </div>
+                <div class="v-line"></div>
+
+                <!-- زیرشاخه‌های چرخ دنده: یک | دو -->
+                <div class="sub-row-2">
+                  <div class="sub-col">
+                    <div class="diagram-node" data-node="gear1" onclick="selectTreeSubpart('gear1', this)">
+                      <div>
+                        یک
+                        <span class="node-price-tag" id="nodePrice_gear1"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub-col">
+                    <div class="diagram-node" data-node="gear2" onclick="selectTreeSubpart('gear2', this)">
+                      <div>
+                        دو
+                        <span class="node-price-tag" id="nodePrice_gear2"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ستون ۲: موتور و زیرشاخه‌های آن (میل لنگ | پمپ سوخت | کارتر) -->
+          <div class="sys-col">
+            <div class="diagram-node" data-node="engine" onclick="selectTreeSubpart('engine', this)">
+              <div>
+                موتور
+                <span class="node-price-tag" id="nodePrice_engine"></span>
+              </div>
+            </div>
+            <div class="v-line"></div>
+
+            <div class="sub-row-3">
+              <div class="sub-col">
+                <div class="diagram-node" data-node="crankshaft" onclick="selectTreeSubpart('crankshaft', this)">
+                  <div>
+                    میل لنگ
+                    <span class="node-price-tag" id="nodePrice_crankshaft"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="sub-col">
+                <div class="diagram-node" data-node="fuelpump" onclick="selectTreeSubpart('fuelpump', this)">
+                  <div>
+                    پمپ سوخت
+                    <span class="node-price-tag" id="nodePrice_fuelpump"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="sub-col">
+                <div class="diagram-node" data-node="oilpan" onclick="selectTreeSubpart('oilpan', this)">
+                  <div>
+                    کارتر
+                    <span class="node-price-tag" id="nodePrice_oilpan"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ستون ۳: جلوبندی -->
+          <div class="sys-col">
+            <div class="diagram-node" data-node="suspension" onclick="selectTreeSubpart('suspension', this)">
+              <div>
+                جلوبندی
+                <span class="node-price-tag" id="nodePrice_suspension"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ستون ۴: باکس چهارم مطابق شکل (بدنه و تعلیق) -->
+          <div class="sys-col">
+            <div class="diagram-node" data-node="bodypart" onclick="selectTreeSubpart('bodypart', this)">
+              <div>
+                بدنه و اکسل
+                <span class="node-price-tag" id="nodePrice_bodypart"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ستون ۵: سیستم برقی -->
+          <div class="sys-col">
+            <div class="diagram-node" data-node="electric" onclick="selectTreeSubpart('electric', this)">
+              <div>
+                سیستم برقی
+                <span class="node-price-tag" id="nodePrice_electric"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
-    <!-- گرید کارت‌های قطعات زیرمجموعه -->
-    <div class="parts-card-grid">
-
-      <!-- زیرمجموعه گیربکس: گیربکس کامل -->
-      <article class="part-box" data-cat="gearbox">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">گیربکس کامل</span>
-        </div>
-        <h3 class="part-title">گیربکس کامل پژو ۲۰۶ تیپ ۵ (TU5)</h3>
-        <p class="part-info">استوک اروپایی درجه یک، پوسته فابریک، دنده‌ریز بدون زوزه، تست‌شده روی استند.</p>
-        <button class="btn-view-price" onclick="openPriceModal('گیربکس کامل پژو ۲۰۶ تیپ ۵', 31500000, 'فرانسه استوک گرید A')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه گیربکس: چرخ دنده یک و دو (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="gearbox">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">گیربکس / چرخ دنده یک و دو</span>
-        </div>
-        <h3 class="part-title">مجموعه چرخ‌دنده ۱ و ۲ + دنده برنجی</h3>
-        <p class="part-info">چرخ‌دنده‌های سخت‌کاری‌شده فابریک، شفت ورودی و خروجی بدون رد سایش یا لقی.</p>
-        <button class="btn-view-price" onclick="openPriceModal('چرخ دنده یک و دو ۲۰۶', 4850000, 'ایساکو خط تولید')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه گیربکس: دیسک و صفحه (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="gearbox">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">گیربکس / دیسک و صفحه</span>
-        </div>
-        <h3 class="part-title">کیت کلاچ (دیسک، صفحه و بلبرینگ)</h3>
-        <p class="part-info">شتاب‌گیری عالی بدون لرزش، فنر دوبل اصل والئو مناسب انواع پژو ۲۰۶ و ۲۰۷ تیپ ۵.</p>
-        <button class="btn-view-price" onclick="openPriceModal('کیت کلاچ والئو فرانسه', 6900000, 'Valeo اورجینال')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه موتور: میل‌لنگ (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="engine">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">موتور / میل لنگ</span>
-        </div>
-        <h3 class="part-title">میل‌لنگ استاندارد موتور TU5</h3>
-        <p class="part-info">سایز صفر استاندارد بدون خط و تابیدگی، بالانس دقیق شرکتی همراه با تست یاتاقان.</p>
-        <button class="btn-view-price" onclick="openPriceModal('میل‌لنگ TU5 پژو ۲۰۶', 9200000, 'ایساکو شرکتی')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه موتور: پمپ سوخت (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="engine">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">موتور / پمپ سوخت</span>
-        </div>
-        <h3 class="part-title">مجموعه پمپ بنزین و درجه باک کامل</h3>
-        <p class="part-info">فشار خروجی پایدار ۴ بار، مغزی بوش اصل با سنسور سنجش شناور بنزین کالیبره شده.</p>
-        <button class="btn-view-price" onclick="openPriceModal('پمپ بنزین کامل پژو ۲۰۶', 3450000, 'Bosch آلمان')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه موتور: کارتر (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="engine">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">موتور / کارتر</span>
-        </div>
-        <h3 class="part-title">کارتر روغن آلومینیومی موتور TU5</h3>
-        <p class="part-info">پوسته سالم بدون جوشکاری یا رزوه خراب، آب‌بندی دقیق همراه با پیچ تخلیه فابریک.</p>
-        <button class="btn-view-price" onclick="openPriceModal('کارتر روغن پژو ۲۰۶', 2300000, 'فرانسه استوک')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه جلوبندی (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="suspension">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">جلوبندی و تعلیق</span>
-        </div>
-        <h3 class="part-title">کیت کامل طبق، سیبک و کمک‌فنر جلو</h3>
-        <p class="part-info">طبق بوش فلزی تقویتی، بدون گیجی فرمان و کوبش، کمک فنر فابریک گازی روغنی.</p>
-        <button class="btn-view-price" onclick="openPriceModal('مجموعه کامل جلوبندی ۲۰۶', 7800000, 'امیرنیا شرکتی')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
-      <!-- زیرمجموعه سیستم برقی (دقیقاً بر اساس فلوچارت) -->
-      <article class="part-box" data-cat="electric">
-        <div class="part-tags">
-          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
-          <span class="badge-system">سیستم برقی</span>
-        </div>
-        <h3 class="part-title">کامپیوتر موتور (ECU) و یونیت BSI</h3>
-        <p class="part-info">برند بوش فرانسه ME7.4.4 و Valeo، تست‌شده روی تستر دیاگ، بدون خطای سنسوری.</p>
-        <button class="btn-view-price" onclick="openPriceModal('ایسیو ECU بوش ۲۰۶', 16500000, 'Bosch فرانسه')">
-          🔍 مشاهده لیست قیمت روز قطعه
-        </button>
-      </article>
-
+    <!-- نوار قیمت پویا و فیلتر سریع زیربخش‌ها -->
+    <div class="dynamic-ticker-bar">
+      <div class="ticker-info">
+        <span class="live-dot"></span>
+        <span id="liveMarketStatus">بروزرسانی پویا و لحظه‌ای قیمت‌ها فعال است (نرخ پایه + ۵٪ خدمات و انبارداری)</span>
+      </div>
+      <div class="filter-pills-bar">
+        <button class="tab-btn active" onclick="selectTreeSubpart('all', null, this)"><i class="fa-solid fa-border-all"></i> همه زیربخش‌ها</button>
+        <button class="tab-btn" onclick="selectTreeSubpart('gearbox_group', null, this)"><i class="fa-solid fa-gears"></i> گیربکس و دنده‌ها</button>
+        <button class="tab-btn" onclick="selectTreeSubpart('engine_group', null, this)"><i class="fa-solid fa-oil-can"></i> موتور و متعلقات</button>
+        <button class="tab-btn" onclick="selectTreeSubpart('suspension', null, this)"><i class="fa-solid fa-wrench"></i> جلوبندی</button>
+        <button class="tab-btn" onclick="selectTreeSubpart('electric', null, this)"><i class="fa-solid fa-bolt"></i> سیستم برقی</button>
+      </div>
     </div>
+
+    <!-- گرید کارت‌های قطعات که به صورت پویا برای هر خودرو پر می‌شود -->
+    <div class="parts-card-grid" id="dynamicPartsGrid"></div>
   </section>
 
   <!-- 7. راهنما و شرایط خرید حضوری (دقیقاً با باکس و بنر مطابق عکس ارسالی) -->
@@ -1194,7 +1521,7 @@
     تمامی حقوق مادی و معنوی محفوظ است © خزر استوک — مرکز پخش قطعات نو و استوک
   </footer>
 
-  <!-- 9. مودال جدول استعلام قیمت روز با محاسبه ۵٪ افزایش -->
+  <!-- 9. مودال جدول استعلام قیمت دینامیک روز با محاسبه ۵٪ افزایش -->
   <div class="price-modal-overlay" id="priceModal" onclick="closeModalOnBg(event)">
     <div class="modal-box">
       <div class="modal-head">
@@ -1203,4 +1530,544 @@
       </div>
 
       <div class="modal-note">
-        ⚡ <strong>سیستم قیمت‌گذاری خزر استوک:</strong> نرخ‌ها به صورت روزانه 
+        ⚡ <strong>سیستم قیمت‌گذاری پویا (Dynamic Pricing) خزر استوک:</strong> نرخ‌ها به صورت لحظه‌ای بر اساس گرید قطعه، ضریب روز بازار و ۵٪ کارمزد کارشناسی و بسته‌بندی انبارداری محاسبه می‌شوند.
+      </div>
+
+      <!-- کنترل‌های قیمت دینامیک (گرید قطعه و تعداد) -->
+      <div class="dynamic-controls">
+        <div class="control-group">
+          <label for="gradeSelect">انتخاب گرید و وضعیت قطعه (تأثیر مستقیم روی قیمت):</label>
+          <select id="gradeSelect" onchange="recalculateDynamicModal()">
+            <option value="1">استوک اصلی گرید A+ (در حد نو - تست‌شده)</option>
+            <option value="0.88">استوک استاندارد گرید B (سالم و اقتصادی - ۱۲٪ ارزان‌تر)</option>
+            <option value="1.18">اورجینال آکبند / شرکتی (+۱۸٪)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="qtyInput">تعداد درخواستی:</label>
+          <input type="number" id="qtyInput" value="1" min="1" max="20" oninput="recalculateDynamicModal()">
+        </div>
+      </div>
+
+      <table class="price-calc-table">
+        <thead>
+          <tr>
+            <th>مشخصه فنی</th>
+            <th>شرح و محاسبه دینامیک</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>خودرو و اصالت برند قطعه</td>
+            <td id="modalBrandText">-</td>
+          </tr>
+          <tr>
+            <td>قیمت پایه واحد (بر اساس گرید و ضریب روز)</td>
+            <td id="modalBaseNum">- تومان</td>
+          </tr>
+          <tr>
+            <td>تعرفه کارشناسی، تست و انبارداری (+۵٪)</td>
+            <td id="modalFeeNum">- تومان</td>
+          </tr>
+          <tr>
+            <td><strong>قیمت نهایی قابل تسویه (با احتساب تعداد)</strong></td>
+            <td class="final-num" id="modalFinalNum">- تومان</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="modal-foot">
+        <span id="currentDateFa">تاریخ استعلام: امروز</span>
+        <span style="color: #00e676; font-weight: 700;">وضعیت: آماده تحویل در انبار</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- منوی پاپ‌آپ انتخاب شماره تماس -->
+  <div id="phonePopup" class="popup-phones">
+    <a href="tel:09114538740" class="phone-opt">
+      <span>مدیریت:</span>
+      <strong>09114538740</strong>
+    </a>
+    <a href="tel:09390189270" class="phone-opt">
+      <span>پشتیبانی / مشاوره:</span>
+      <strong>09390189270</strong>
+    </a>
+    <a href="tel:01152331643" class="phone-opt">
+      <span>دفتر مرکزی:</span>
+      <strong>011-52331643</strong>
+    </a>
+  </div>
+
+  <!-- دکمه‌های شناور در گوشه پایین صفحه -->
+  <div class="floating-actions">
+    <button type="button" id="phoneToggleBtn" class="float-icon btn-float-phone" title="تماس تلفنی">
+      <i class="fa-solid fa-phone"></i>
+    </button>
+    <a href="https://wa.me/989390189270?text=سلام،%20جهت%20استعلام%20قطعه%20پیام%20می‌دهم" class="float-icon btn-float-wa" target="_blank" rel="noopener noreferrer" title="واتس‌اپ">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="https://eitaa.com" class="float-icon btn-float-eitaa" target="_blank" rel="noopener noreferrer" title="ایتا">
+      ایتا
+    </a>
+  </div>
+
+  <!-- اسکریپت‌های تعاملی، ساختار درختی برای همه خودروها و قیمت دینامیک -->
+  <script>
+    // بانک اطلاعاتی کامل تمام ۱۶ گروه خودروی داخلی و خارجی موجود در صفحه
+    const VEHICLES_DB = {
+      peugeot206: {
+        name: "پژو ۲۰۶ / ۲۰۷",
+        shortName: "پژو ۲۰۶/۲۰۷",
+        engineCode: "TU5 / TU3",
+        origin: "فرانسه / ایساکو",
+        factor: 1.0
+      },
+      pars405: {
+        name: "پژو پارس / ۴۰۵",
+        shortName: "پژو پارس/۴۰۵",
+        engineCode: "XU7 / ELX",
+        origin: "فرانسه / شرکتی",
+        factor: 0.96
+      },
+      samand: {
+        name: "سمند / سورن / دنا",
+        shortName: "سمند/سورن/دنا",
+        engineCode: "EF7 ملی / توربو",
+        origin: "ایساکو / آلمان",
+        factor: 1.08
+      },
+      l90: {
+        name: "رنو تندر ۹۰ (ال۹۰)",
+        shortName: "رنو تندر ۹۰",
+        engineCode: "K4M رنو",
+        origin: "رنو فرانسه / رومانی",
+        factor: 1.25
+      },
+      tara: {
+        name: "تارا / رانا",
+        shortName: "تارا / رانا",
+        engineCode: "TU5P پلاس",
+        origin: "ایساکو اورجینال",
+        factor: 1.15
+      },
+      pride: {
+        name: "پراید (۱۳۱ / ۱۳۲ / ۱۱۱)",
+        shortName: "پراید ۱۳۱/۱۱۱",
+        engineCode: "M13 یورو ۴",
+        origin: "سایپا یدک / کره‌ای",
+        factor: 0.58
+      },
+      tiba: {
+        name: "تیبا / ساینا / کوییک",
+        shortName: "تیبا/ساینا/کوییک",
+        engineCode: "M15 سایپا",
+        origin: "سایپا شرکتی",
+        factor: 0.72
+      },
+      zamyad: {
+        name: "وانت نیسان زامیاد",
+        shortName: "نیسان زامیاد",
+        engineCode: "Z24 انژکتور",
+        origin: "ژاپن / زامیاد اصلی",
+        factor: 1.12
+      },
+      shahin: {
+        name: "شاهین",
+        shortName: "شاهین G",
+        engineCode: "M15 TC توربو",
+        origin: "سایپا اورجینال",
+        factor: 1.28
+      },
+      megane: {
+        name: "رنو مگان / ساندرو",
+        shortName: "مگان / ساندرو",
+        engineCode: "K4M / F4R",
+        origin: "رنو فرانسه استوک",
+        factor: 1.65
+      },
+      hyundai: {
+        name: "هیوندای (سوناتا، آزرا، سانتافه)",
+        shortName: "هیوندای وارداتی",
+        engineCode: "GDI / MPI V6",
+        origin: "جنیون پارتس کره",
+        factor: 3.1
+      },
+      kia: {
+        name: "کیا (اسپورتیج، اپتیما، سراتو)",
+        shortName: "کیا وارداتی",
+        engineCode: "Theta II / DOHC",
+        origin: "موبیس کره استوک",
+        factor: 2.95
+      },
+      toyota: {
+        name: "تویوتا (کمری، کرولا، هایلوکس)",
+        shortName: "تویوتا وارداتی",
+        engineCode: "VVT-i ژاپن",
+        origin: "تویوتا ژاپن استوک",
+        factor: 3.4
+      },
+      nissan: {
+        name: "نیسان (ماکسیما، رونیز، پاترول)",
+        shortName: "نیسان وارداتی",
+        engineCode: "VQ30 / KA24",
+        origin: "نیسان ژاپن اصلی",
+        factor: 2.85
+      },
+      mazda: {
+        name: "مزدا (مزدا ۳۲۳، مزدا ۳)",
+        shortName: "مزدا ۳۲۳ / ۳",
+        engineCode: "LF / ZM ژاپن",
+        origin: "مزدا ژاپن استوک",
+        factor: 2.45
+      },
+      chinese: {
+        name: "خودروهای چینی (ام‌وی‌ام، جک، چری)",
+        shortName: "ام‌وی‌ام / جک / چری",
+        engineCode: "ACTECO / VVT",
+        origin: "چری / جک وارداتی",
+        factor: 1.75
+      }
+    };
+
+    // قالب استاندارد زیربخش‌های درختی (دقیقاً مطابق گره‌های شکل پیوست)
+    const TREE_SUBPARTS_TEMPLATE = [
+      {
+        key: "gearbox",
+        group: "gearbox_group",
+        systemBadge: "گیربکس کامل",
+        titlePrefix: "گیربکس کامل",
+        basePrice: 31500000,
+        desc: "پوسته و دنده‌ها کاملاً فابریک، بدون زوزه و تقه، تست‌شده روی استند با ضمانت سلامت."
+      },
+      {
+        key: "clutch",
+        group: "gearbox_group",
+        systemBadge: "گیربکس / دیسک و صفحه",
+        titlePrefix: "کیت دیسک و صفحه کلاچ",
+        basePrice: 6900000,
+        desc: "شتاب‌گیری عالی بدون لرزش، فنر دوبل تقویت‌شده همراه با بلبرینگ کلاچ اصلی."
+      },
+      {
+        key: "gear",
+        group: "gearbox_group",
+        systemBadge: "گیربکس / چرخ دنده",
+        titlePrefix: "مجموعه چرخ‌دنده‌های گیربکس",
+        basePrice: 8400000,
+        desc: "شفت ورودی و خروجی همراه با دنده‌های سخت‌کاری‌شده فابریک بدون خوردگی."
+      },
+      {
+        key: "gear1",
+        group: "gearbox_group",
+        systemBadge: "گیربکس / چرخ دنده / یک",
+        titlePrefix: "چرخ‌دنده یک + کشویی و برنجی دنده ۱",
+        basePrice: 2650000,
+        desc: "دنده یک فابریک با زاویه دندانه استاندارد و دنده برنجی بدون رد سایش."
+      },
+      {
+        key: "gear2",
+        group: "gearbox_group",
+        systemBadge: "گیربکس / چرخ دنده / دو",
+        titlePrefix: "چرخ‌دنده دو + برنجی دنده ۲",
+        basePrice: 2850000,
+        desc: "دنده دو اصلی استوک اروپایی، جا رفتن نرم بدون قژقژ در معکوس."
+      },
+      {
+        key: "engine",
+        group: "engine_group",
+        systemBadge: "موتور کامل",
+        titlePrefix: "موتور کامل و بلوک سیلندر",
+        basePrice: 54000000,
+        desc: "موتور استوک در حد صفر با تراکم استاندارد، سرسیلندر پلمپ و برگه کارشناسی."
+      },
+      {
+        key: "crankshaft",
+        group: "engine_group",
+        systemBadge: "موتور / میل لنگ",
+        titlePrefix: "میل‌لنگ استاندارد فابریک",
+        basePrice: 9200000,
+        desc: "سایز صفر استاندارد بدون خط و تابیدگی، بالانس دقیق کارخانه‌ای با تست یاتاقان."
+      },
+      {
+        key: "fuelpump",
+        group: "engine_group",
+        systemBadge: "موتور / پمپ سوخت",
+        titlePrefix: "مجموعه کامل پمپ سوخت و شناور",
+        basePrice: 3450000,
+        desc: "فشار خروجی پایدار و استاندارد، مغزی اصلی با سنسور سطح سوخت کالیبره."
+      },
+      {
+        key: "oilpan",
+        group: "engine_group",
+        systemBadge: "موتور / کارتر",
+        titlePrefix: "کارتر روغن موتور فابریک",
+        basePrice: 2300000,
+        desc: "پوسته سالم بدون جوشکاری یا قوری، رزوه پیچ تخلیه کاملاً سالم و آب‌بندی دقیق."
+      },
+      {
+        key: "suspension",
+        group: "suspension",
+        systemBadge: "جلوبندی",
+        titlePrefix: "مجموعه کامل جلوبندی، طبق و کمک‌فنر",
+        basePrice: 7800000,
+        desc: "شامل طبق، سیبک، میل موج‌گیر و کمک‌فنرهای جلو تست‌شده بدون روغن‌زدگی."
+      },
+      {
+        key: "bodypart",
+        group: "bodypart",
+        systemBadge: "بدنه و اکسل",
+        titlePrefix: "اکسل عقب و قطعات شاسی و بدنه",
+        basePrice: 12400000,
+        desc: "اکسل کامل، رام زیر موتور و قطعات بدنه فابریک بدون رنگ و ضربه."
+      },
+      {
+        key: "electric",
+        group: "electric",
+        systemBadge: "سیستم برقی",
+        titlePrefix: "کامپیوتر موتور (ECU)، دینام و استارت",
+        basePrice: 16500000,
+        desc: "یونیت برق و ایسیو تست‌شده با دستگاه دیاگ، سیم‌کشی و سنسورهای اصلی."
+      }
+    ];
+
+    let currentVehicleKey = "peugeot206";
+    let currentFilterKey = "all";
+    let dynamicMarketPulse = 1.0; // ضریب نوسان لحظه‌ای بازار برای قیمت دینامیک
+    let activeModalPart = null;
+
+    // محاسبه قیمت پایه پویا بر اساس خودرو، ضریب روز و نوسان لحظه‌ای
+    function getDynamicBasePrice(rawBase, vehicleFactor) {
+      const todaySeed = new Date().getDate(); // تغییر جزئی خودکار روزانه
+      const dailyFactor = 1 + ((todaySeed % 5) - 2) * 0.005;
+      const computed = rawBase * vehicleFactor * dailyFactor * dynamicMarketPulse;
+      return Math.round(computed / 50000) * 50000;
+    }
+
+    // انتخاب خودرو با کلیک روی هر کدام از دکمه‌های خودروهای داخلی یا خارجی
+    function selectVehicle(vehicleKey, pillElement) {
+      if (!VEHICLES_DB[vehicleKey]) return;
+      currentVehicleKey = vehicleKey;
+      currentFilterKey = "all";
+
+      // هایلایت شدن دکمه خودروی انتخاب شده
+      document.querySelectorAll('.car-pill').forEach(el => el.classList.remove('selected-car'));
+      if (pillElement) {
+        pillElement.classList.add('selected-car');
+      }
+
+      // ریست کردن حالت فعال گره‌های درخت به گره ریشه خودرو
+      document.querySelectorAll('.diagram-node').forEach(n => n.classList.remove('active-node'));
+      const rootNode = document.getElementById('treeRootNode');
+      if (rootNode) rootNode.classList.add('active-node');
+
+      // ریست کردن تب‌ها
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const firstTab = document.querySelector('.tab-btn');
+      if (firstTab) firstTab.classList.add('active');
+
+      renderVehicleHierarchy();
+
+      // هدایت نرم به بخش نمودار درختی همان خودرو
+      const section = document.getElementById('parts-breakdown-sec');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // فیلتر کردن با کلیک روی هر گره از نمودار درختی (گیربکس، دیسک و صفحه، چرخ دنده، یک، دو، موتور، میل لنگ و...)
+    function selectTreeSubpart(filterKey, nodeEl, tabBtnEl) {
+      currentFilterKey = filterKey;
+
+      if (nodeEl) {
+        document.querySelectorAll('.diagram-node').forEach(n => n.classList.remove('active-node'));
+        nodeEl.classList.add('active-node');
+      }
+
+      if (tabBtnEl) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        tabBtnEl.classList.add('active');
+      }
+
+      renderPartsCards();
+    }
+
+    // رندر کردن نمودار درختی و قیمت‌های روی گره‌ها برای خودروی انتخاب شده
+    function renderVehicleHierarchy() {
+      const car = VEHICLES_DB[currentVehicleKey];
+      document.getElementById('selectedVehicleHeadline').textContent = 'زیربخش‌ها و قیمت روز قطعات: ' + car.name;
+      document.getElementById('treeRootTitle').textContent = car.shortName;
+
+      // بروزرسانی قیمت دینامیک روی تک‌تک گره‌های نمودار درختی
+      TREE_SUBPARTS_TEMPLATE.forEach(item => {
+        const dynBase = getDynamicBasePrice(item.basePrice, car.factor);
+        const dynFinal = Math.round(dynBase * 1.05); // با احتساب ۵٪
+        const priceSpan = document.getElementById('nodePrice_' + item.key);
+        if (priceSpan) {
+          priceSpan.textContent = (dynFinal / 1000000).toFixed(1).replace('.', '/') + ' م.ت';
+        }
+      });
+
+      renderPartsCards();
+    }
+
+    // ساخت کارت‌های قطعات بر اساس خودرو و شاخه انتخاب شده
+    function renderPartsCards() {
+      const car = VEHICLES_DB[currentVehicleKey];
+      const grid = document.getElementById('dynamicPartsGrid');
+      if (!grid) return;
+
+      const filtered = TREE_SUBPARTS_TEMPLATE.filter(item => {
+        if (currentFilterKey === 'all') return true;
+        if (currentFilterKey === 'gearbox_group' || currentFilterKey === 'engine_group') {
+          return item.group === currentFilterKey;
+        }
+        if (currentFilterKey === 'gearbox') {
+          return item.group === 'gearbox_group';
+        }
+        if (currentFilterKey === 'engine') {
+          return item.group === 'engine_group';
+        }
+        if (currentFilterKey === 'gear') {
+          return item.key === 'gear' || item.key === 'gear1' || item.key === 'gear2';
+        }
+        return item.key === currentFilterKey;
+      });
+
+      grid.innerHTML = filtered.map(item => {
+        const dynBase = getDynamicBasePrice(item.basePrice, car.factor);
+        const dynFinal = dynBase + Math.round(dynBase * 0.05);
+        const fullTitle = item.titlePrefix + ' ' + car.shortName + ' (' + car.engineCode + ')';
+        const brandLabel = car.origin + ' — موتور ' + car.engineCode;
+
+        return `
+          <article class="part-box">
+            <div>
+              <div class="part-tags">
+                <span class="badge-model">${car.name}</span>
+                <span class="badge-system">${item.systemBadge}</span>
+              </div>
+              <h3 class="part-title">${fullTitle}</h3>
+              <p class="part-info">${item.desc}</p>
+            </div>
+            <div>
+              <div class="live-card-price">
+                <span>قیمت روز (+۵٪):</span>
+                <strong>${dynFinal.toLocaleString('fa-IR')} تومان</strong>
+              </div>
+              <button class="btn-view-price" onclick="openPriceModal('${fullTitle.replace(/'/g, "\\'")}', ${dynBase}, '${brandLabel.replace(/'/g, "\\'")}')">
+                🔍 استعلام و محاسبه قیمت پویا
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // باز کردن مودال محاسبه قیمت دینامیک روز قطعه (+۵٪ کارمزد)
+    function openPriceModal(partName, basePrice, brand) {
+      activeModalPart = { partName, basePrice, brand };
+      document.getElementById('gradeSelect').value = "1";
+      document.getElementById('qtyInput').value = "1";
+      recalculateDynamicModal();
+      document.getElementById('priceModal').classList.add('active');
+    }
+
+    // محاسبه لحظه‌ای درون مودال بر اساس گرید، تعداد و ۵٪ کارمزد
+    function recalculateDynamicModal() {
+      if (!activeModalPart) return;
+      const gradeFactor = parseFloat(document.getElementById('gradeSelect').value || "1");
+      const qty = Math.max(1, parseInt(document.getElementById('qtyInput').value || "1", 10));
+
+      const unitBase = Math.round((activeModalPart.basePrice * gradeFactor) / 10000) * 10000;
+      const unitFee = Math.round(unitBase * 0.05);
+      const totalFinal = (unitBase + unitFee) * qty;
+
+      document.getElementById('modalTitle').textContent = activeModalPart.partName;
+      document.getElementById('modalBrandText').textContent = activeModalPart.brand;
+      document.getElementById('modalBaseNum').textContent = unitBase.toLocaleString('fa-IR') + ' تومان';
+      document.getElementById('modalFeeNum').textContent = unitFee.toLocaleString('fa-IR') + ' تومان (+۵٪)';
+      document.getElementById('modalFinalNum').textContent = totalFinal.toLocaleString('fa-IR') + ' تومان (' + qty.toLocaleString('fa-IR') + ' عدد)';
+    }
+
+    function closeModal() {
+      document.getElementById('priceModal').classList.remove('active');
+    }
+
+    function closeModalOnBg(e) {
+      if (e.target.id === 'priceModal') {
+        closeModal();
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // تاریخ شمسی
+      try {
+        const today = new Intl.DateTimeFormat('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
+        document.getElementById('currentDateFa').textContent = 'تاریخ استعلام: ' + today;
+      } catch (e) {
+        document.getElementById('currentDateFa').textContent = 'تاریخ استعلام: امروز';
+      }
+
+      // رندر اولیه برای پژو ۲۰۶/۲۰۷
+      renderVehicleHierarchy();
+
+      // بروزرسانی دینامیک ضریب بازار هر ۱۲ ثانیه برای نمایش زنده قیمت‌ها
+      setInterval(() => {
+        const delta = (Math.random() - 0.5) * 0.008; // نوسان ملایم روزانه
+        dynamicMarketPulse = Math.max(0.985, Math.min(1.015, dynamicMarketPulse + delta));
+        renderVehicleHierarchy();
+        const nowTime = new Date().toLocaleTimeString('fa-IR');
+        const statusEl = document.getElementById('liveMarketStatus');
+        if (statusEl) {
+          statusEl.textContent = 'قیمت دینامیک بروزرسانی شد (آخرین استعلام خودکار: ' + nowTime + ' | نرخ پایه + ۵٪)';
+        }
+      }, 12000);
+
+      // اسلایدر خودکار هیرو
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".ind-dot");
+      let curIdx = 0;
+      const interval = 3600;
+
+      function showSlide(index) {
+        slides.forEach(s => s.classList.remove("active"));
+        dots.forEach(d => d.classList.remove("active"));
+        if (slides[index]) slides[index].classList.add("active");
+        if (dots[index]) dots[index].classList.add("active");
+      }
+
+      function nextSlide() {
+        if (!slides.length) return;
+        curIdx = (curIdx + 1) % slides.length;
+        showSlide(curIdx);
+      }
+
+      let timer = setInterval(nextSlide, interval);
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          clearInterval(timer);
+          curIdx = i;
+          showSlide(curIdx);
+          timer = setInterval(nextSlide, interval);
+        });
+      });
+
+      // باز و بسته شدن پاپ‌آپ شماره‌ها
+      const phoneBtn = document.getElementById("phoneToggleBtn");
+      const phonePopup = document.getElementById("phonePopup");
+
+      phoneBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        phonePopup.classList.toggle("show");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!phonePopup.contains(e.target) && e.target !== phoneBtn) {
+          phonePopup.classList.remove("show");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
