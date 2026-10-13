@@ -1040,104 +1040,39 @@
       padding-top: 10px;
     }
 
-    /* ================= 9. دکمه‌های شناور (تماس، واتس‌اپ، ایتا) ================= */
-    .floating-actions {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 2000;
-    }
+    <!-- منوی پاپ‌آپ انتخاب شماره تماس (شماره‌ها مخفی و لینک شده) -->
+  <div id="phonePopup" class="popup-phones">
+    <a href="tel:09114538740" class="phone-opt">
+      <span>مدیریت:</span>
+      <strong>تماس مستقیم</strong>
+    </a>
+    <a href="https://eitaa.com/09390189270" target="_blank" class="phone-opt">
+      <span>ایتا:</span>
+      <strong>پیام به پشتیبانی</strong>
+    </a>
+    <a href="https://ble.ir/09390189270" target="_blank" class="phone-opt">
+      <span>بله:</span>
+      <strong>پیام به پشتیبانی</strong>
+    </a>
+  </div>
 
-    .float-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-      transition: transform 0.25s;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-    }
-
-    .float-icon:hover {
-      transform: scale(1.1);
-    }
-
-    .btn-float-phone {
-      background: #191b22;
-      border: 2px solid var(--primary-orange);
-      color: var(--primary-orange);
-    }
-    .btn-float-phone:hover {
-      background: var(--primary-orange);
-      color: #fff;
-    }
-
-    .btn-float-wa {
-      background: #25d366;
-    }
-
-    .btn-float-eitaa {
-      background: #e66000;
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-    .popup-phones {
-      position: fixed;
-      bottom: 90px;
-      left: 25px;
-      background: #181920;
-      border: 1px solid var(--primary-orange);
-      border-radius: 12px;
-      padding: 12px;
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-      z-index: 2100;
-      min-width: 210px;
-    }
-
-    .popup-phones.show {
-      display: flex;
-    }
-
-    .phone-opt {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 10px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 8px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 13px;
-    }
-
-    .phone-opt:hover {
-      background: rgba(245, 110, 0, 0.15);
-      color: var(--primary-orange);
-    }
-
-    @media (max-width: 850px) {
-      .header-inner { flex-direction: column; gap: 12px; }
-      .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .inperson-grid { grid-template-columns: 1fr; }
-      .slider-box { height: 230px; }
-      .dynamic-controls { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
+  <!-- دکمه‌های شناور در گوشه پایین صفحه -->
+  <div class="floating-actions">
+    <button type="button" id="phoneToggleBtn" class="float-icon btn-float-phone" title="تماس تلفنی">
+      <i class="fa-solid fa-phone"></i>
+    </button>
+    <a href="https://wa.me/989390189270" class="float-icon btn-float-wa" target="_blank" rel="noopener noreferrer" title="واتس‌اپ">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <!-- دکمه ایتا با لینک اختصاصی به شماره -->
+    <a href="https://eitaa.com/09390189270" class="float-icon btn-float-eitaa" style="background:#e66000;" target="_blank" rel="noopener noreferrer" title="ایتا">
+      <i class="fa-solid fa-paper-plane"></i>
+    </a>
+    <!-- دکمه بله با لینک اختصاصی به شماره -->
+    <a href="https://ble.ir/09390189270" class="float-icon btn-float-bale" style="background:#00a3ff;" target="_blank" rel="noopener noreferrer" title="بله">
+      بله
+    </a>
+  </div>
 <body>
 
   <!-- 1. منوبار ثابت -->
