@@ -221,3 +221,834 @@
     }
 
     .hero-intro h1 {
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .hero-intro .subtitle {
+      color: var(--primary-orange);
+      font-weight: 700;
+      font-size: 15.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero-intro .desc {
+      color: var(--text-gray);
+      font-size: 13.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-orange {
+      background: linear-gradient(135deg, var(--primary-orange), var(--primary-dark-orange));
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 13.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(245, 110, 0, 0.4);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-orange:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 13.5px;
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ================= 4. بخش‌های دسته‌بندی با گرافیک نارنجی مطابق عکس ================= */
+    .orange-category-box {
+      max-width: 1200px;
+      margin: 25px auto;
+      background: linear-gradient(135deg, #f56e00 0%, #db5e00 100%);
+      border-radius: 18px;
+      padding: 24px 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .cat-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .cat-group {
+      margin-bottom: 20px;
+    }
+
+    .cat-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .cat-group-label {
+      display: block;
+      color: #fff;
+      font-size: 14.5px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .car-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+
+    .car-pill {
+      background: #ffffff;
+      color: #151515;
+      padding: 12px 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13.5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .car-pill:hover {
+      transform: translateY(-3px);
+      background: #f8f8f8;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ================= 5. بخش ساختار فلوچارت قطعات (پژو ۲۰۶ / ۲۰۷ و سایرین) ================= */
+    .flowchart-section {
+      max-width: 1200px;
+      margin: 45px auto 25px;
+      padding: 0 20px;
+    }
+
+    .section-headline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      color: var(--text-gray);
+      font-size: 13.5px;
+      margin-bottom: 22px;
+    }
+
+    /* فیلتر تب‌های فلوچارت */
+    .flowchart-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      background: var(--bg-secondary);
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary-orange);
+      border-color: var(--primary-orange);
+      color: #fff;
+    }
+
+    /* گرید کارت‌های قطعات */
+    .parts-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 22px;
+    }
+
+    .part-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .part-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary-orange);
+    }
+
+    .part-tags {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .badge-model {
+      background: rgba(245, 110, 0, 0.15);
+      color: var(--primary-orange);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .badge-system {
+      background: rgba(255, 255, 255, 0.06);
+      color: #9cb0c7;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .part-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .part-info {
+      font-size: 12.8px;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      min-height: 42px;
+      line-height: 1.6;
+    }
+
+    .btn-view-price {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-orange), var(--primary-dark-orange));
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(245, 110, 0, 0.35);
+    }
+
+    .btn-view-price:hover {
+      transform: scale(1.02);
+    }
+
+    /* ================= 6. بخش راهنما و شرایط خرید حضوری (دقیقاً مطابق اسکرین‌شات) ================= */
+    .inperson-wrapper {
+      max-width: 1200px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .inperson-card {
+      background: var(--bg-secondary);
+      border: 2px solid var(--primary-orange);
+      border-radius: 20px;
+      padding: 32px 26px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .inperson-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .inperson-header i {
+      font-size: 32px;
+      color: var(--primary-orange);
+      margin-bottom: 8px;
+    }
+
+    .inperson-header h2 {
+      font-size: 22px;
+      color: #ffffff;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .inperson-header p {
+      color: var(--text-gray);
+      font-size: 13.5px;
+    }
+
+    .inperson-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .inperson-banner-box {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      background: #111;
+    }
+
+    .inperson-banner-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .inperson-details {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .detail-row.accent {
+      border-right: 4px solid var(--primary-orange);
+    }
+
+    .detail-row i {
+      font-size: 22px;
+      color: var(--primary-orange);
+      margin-top: 3px;
+    }
+
+    .detail-row strong {
+      display: block;
+      font-size: 14.5px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .detail-row p {
+      color: var(--text-gray);
+      font-size: 13.5px;
+    }
+
+    /* ================= 7. اطلاعات تماس و فوتر ================= */
+    .contact-container {
+      max-width: 1200px;
+      margin: 45px auto 20px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .contact-container h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .contact-cards-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-tile {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.25s;
+    }
+
+    .contact-tile:hover {
+      border-color: var(--primary-orange);
+      transform: translateY(-3px);
+      background: rgba(245, 110, 0, 0.08);
+    }
+
+    .contact-tile i {
+      font-size: 28px;
+      color: var(--primary-orange);
+    }
+
+    .contact-tile span {
+      font-size: 12.5px;
+      color: var(--text-gray);
+    }
+
+    .contact-tile strong {
+      font-size: 15px;
+      font-weight: 800;
+      direction: ltr;
+    }
+
+    footer {
+      background: #0e0f12;
+      border-top: 1px solid var(--border-color);
+      padding: 26px 20px;
+      margin-top: 50px;
+      text-align: center;
+      color: var(--text-gray);
+      font-size: 12.5px;
+    }
+
+    /* ================= 8. مودال محاسبه ۵٪ قیمت (داخلی بدون لینک بیرون) ================= */
+    .price-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2500;
+      padding: 16px;
+    }
+
+    .price-modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #18191f;
+      border: 1px solid var(--primary-orange);
+      width: 100%;
+      max-width: 620px;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+      animation: modalIn 0.25s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+    }
+
+    .modal-head h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-gray);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .modal-note {
+      background: rgba(245, 110, 0, 0.12);
+      border-right: 4px solid var(--primary-orange);
+      padding: 10px 14px;
+      font-size: 12.5px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      color: #e5e5e5;
+    }
+
+    .price-calc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 18px;
+      font-size: 13.5px;
+    }
+
+    .price-calc-table th, .price-calc-table td {
+      padding: 11px 12px;
+      text-align: right;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .price-calc-table th {
+      color: var(--text-gray);
+      font-weight: 700;
+    }
+
+    .price-calc-table td.final-num {
+      color: #00e676;
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .modal-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-gray);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+
+    /* ================= 9. دکمه‌های شناور (تماس، واتس‌اپ، ایتا) ================= */
+    .floating-actions {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2000;
+    }
+
+    .float-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      transition: transform 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .float-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-float-phone {
+      background: #191b22;
+      border: 2px solid var(--primary-orange);
+      color: var(--primary-orange);
+    }
+    .btn-float-phone:hover {
+      background: var(--primary-orange);
+      color: #fff;
+    }
+
+    .btn-float-wa {
+      background: #25d366;
+    }
+
+    .btn-float-eitaa {
+      background: #e66000;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .popup-phones {
+      position: fixed;
+      bottom: 90px;
+      left: 25px;
+      background: #181920;
+      border: 1px solid var(--primary-orange);
+      border-radius: 12px;
+      padding: 12px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      z-index: 2100;
+      min-width: 210px;
+    }
+
+    .popup-phones.show {
+      display: flex;
+    }
+
+    .phone-opt {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .phone-opt:hover {
+      background: rgba(245, 110, 0, 0.15);
+      color: var(--primary-orange);
+    }
+
+    @media (max-width: 850px) {
+      .header-inner { flex-direction: column; gap: 12px; }
+      .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .inperson-grid { grid-template-columns: 1fr; }
+      .slider-box { height: 230px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. منوبار ثابت -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#home" class="logo-container">
+        <span class="logo-text-white">خزر</span>
+        <span class="logo-badge-orange">استوک</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home" class="nav-link">صفحه اصلی</a>
+        <a href="#domestic" class="nav-link">خودروهای داخلی</a>
+        <a href="#foreign" class="nav-link">خودروهای خارجی</a>
+        <a href="#flowchart-sec" class="nav-link">فلوچارت قطعات</a>
+        <a href="#in-person" class="nav-link">خرید حضوری</a>
+        <a href="#contact" class="nav-link">اطلاعات تماس</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. بنر شاخص بالای صفحه (با فال‌بک خودکار به banner.jpg و car-parts.jpg) -->
+  <div class="top-banner-wrapper" id="home">
+    <img 
+      src="banner.webp" 
+      alt="بورس لوازم خودرو خزر استوک" 
+      class="top-banner-img"
+      onerror="if(this.src.indexOf('banner.jpg')===-1){this.src='banner.jpg';}else{this.src='car-parts.jpg';}"
+    >
+  </div>
+
+  <!-- 3. هیرو سکشن: اسلایدر ۳ تصویر + کارت معرفی -->
+  <section class="hero-section">
+    <div class="hero-grid">
+
+      <!-- اسلایدر تعاملی و خودکار -->
+      <div class="slider-box">
+        <div class="slide active">
+          <img src="car-iran.jpg" alt="لوازم استوک خودروهای ایرانی" onerror="this.src='banner.webp'">
+          <div class="slide-caption">انواع لوازم یدکی و بدنه خودروهای ایرانی</div>
+        </div>
+        <div class="slide">
+          <img src="car-foreign.jpg" alt="لوازم استوک خودروهای خارجی و وارداتی" onerror="this.src='banner.webp'">
+          <div class="slide-caption">بورس قطعات استوک خودروهای خارجی و وارداتی</div>
+        </div>
+        <div class="slide">
+          <img src="car-parts.jpg" alt="موتور، گیربکس و قطعات استوک" onerror="this.src='banner.webp'">
+          <div class="slide-caption">موتور کامل، گیربکس، دیسک و صفحه، جلوبندی و قطعات برقی</div>
+        </div>
+        
+        <div class="slider-indicators">
+          <span class="ind-dot active"></span>
+          <span class="ind-dot"></span>
+          <span class="ind-dot"></span>
+        </div>
+      </div>
+
+      <!-- متن و معرفی خزر استوک -->
+      <div class="hero-intro">
+        <span class="intro-badge"><i class="fa-solid fa-certificate"></i> مرکز تخصصی قطعات خودرو</span>
+        <h1>بورس لوازم استوک خودروهای سواری و باری</h1>
+        <p class="subtitle">ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
+        <p class="desc">پژو ۲۰۶/۲۰۷، پارس، سمند، تندر ۹۰، پراید، تیبا، نیسان، هیوندای، کیا و تویوتا با ضمانت اصالت و تست سلامت فنی.</p>
+
+        <div class="hero-buttons">
+          <a href="tel:09114538740" class="btn-orange"><i class="fa-solid fa-phone"></i> تماس مستقیم: ۰۹۱۱۴۵۳۸۷۴۰</a>
+          <a href="#flowchart-sec" class="btn-outline"><i class="fa-solid fa-sitemap"></i> جدول استعلام قطعات</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. باکس نارنجی خودروهای داخلی (مطابق گرافیک تصویر ارسالی شما) -->
+  <section class="orange-category-box" id="domestic">
+    <div class="cat-title-row">
+      <i class="fa-solid fa-car-side"></i>
+      <h2>خودروهای داخلی (ایرانی)</h2>
+    </div>
+
+    <div class="cat-group">
+      <span class="cat-group-label">محصولات ایران‌خودرو (IKCO)</span>
+      <div class="car-items-grid">
+        <div class="car-pill" onclick="filterFlowchart('peugeot')">پژو ۲۰۶ / ۲۰۷</div>
+        <div class="car-pill" onclick="filterFlowchart('peugeot')">پژو پارس / ۴۰۵</div>
+        <div class="car-pill" onclick="filterFlowchart('peugeot')">سمند / سورن / دنا</div>
+        <div class="car-pill">رنو تندر ۹۰ (ال۹۰)</div>
+        <div class="car-pill">تارا / رانا</div>
+      </div>
+    </div>
+
+    <div class="cat-group">
+      <span class="cat-group-label">محصولات سایپا و پارس‌خودرو</span>
+      <div class="car-items-grid">
+        <div class="car-pill">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</div>
+        <div class="car-pill">تیبا / ساینا / کوییک</div>
+        <div class="car-pill">وانت نیسان زامیاد</div>
+        <div class="car-pill">شاهین</div>
+        <div class="car-pill">رنو مگان / ساندرو</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. باکس نارنجی خودروهای خارجی و وارداتی (مطابق تصویر) -->
+  <section class="orange-category-box" id="foreign">
+    <div class="cat-title-row">
+      <i class="fa-solid fa-globe"></i>
+      <h2>خودروهای خارجی و وارداتی</h2>
+    </div>
+
+    <div class="cat-group">
+      <span class="cat-group-label">برندهای ژاپنی، کره‌ای، چینی و اروپایی</span>
+      <div class="car-items-grid">
+        <div class="car-pill">هیوندای (سوناتا، آزرا، سانتافه)</div>
+        <div class="car-pill">کیا (اسپورتیج، اپتیما، سراتو)</div>
+        <div class="car-pill">تویوتا (کمری، کرولا، هایلوکس)</div>
+        <div class="car-pill">نیسان (ماکسیما، رونیز، پاترول)</div>
+        <div class="car-pill">مزدا (مزدا ۳۲۳، مزدا ۳)</div>
+        <div class="car-pill">خودروهای چینی (ام‌وی‌ام، جک، چری)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. پیاده‌سازی زیرمجموعه‌سازی و فلوچارت قطعات (پژو ۲۰۶/۲۰۷ پیوست) -->
+  <section class="flowchart-section" id="flowchart-sec">
+    <div class="section-headline">
+      <i class="fa-solid fa-network-wired" style="color: var(--primary-orange);"></i>
+      <h2>دسته‌بندی و استعلام قیمت قطعات بر اساس فلوچارت فنی (پژو ۲۰۶ / ۲۰۷)</h2>
+    </div>
+    <p class="section-sub">تفکیک زیرشاخه‌ها طبق دیاگرام مهندسی: گیربکس (چرخ دنده‌ها، دیسک و صفحه)، موتور (میل‌لنگ، پمپ سوخت، کارتر)، جلوبندی و سیستم برقی</p>
+
+    <!-- تب‌های انتخاب زیرمجموعه فلوچارت -->
+    <div class="flowchart-tabs">
+      <button class="tab-btn active" onclick="filterCat('all', this)"><i class="fa-solid fa-border-all"></i> همه قطعات فلوچارت</button>
+      <button class="tab-btn" onclick="filterCat('gearbox', this)"><i class="fa-solid fa-gears"></i> گیربکس (دنده‌ها و صفحه)</button>
+      <button class="tab-btn" onclick="filterCat('engine', this)"><i class="fa-solid fa-oil-can"></i> موتور (میل‌لنگ، کارتر، پمپ)</button>
+      <button class="tab-btn" onclick="filterCat('suspension', this)"><i class="fa-solid fa-wrench"></i> جلوبندی و تعلیق</button>
+      <button class="tab-btn" onclick="filterCat('electric', this)"><i class="fa-solid fa-bolt"></i> سیستم برقی</button>
+    </div>
+
+    <!-- گرید کارت‌های قطعات زیرمجموعه -->
+    <div class="parts-card-grid">
+
+      <!-- زیرمجموعه گیربکس: گیربکس کامل -->
+      <article class="part-box" data-cat="gearbox">
+        <div class="part-tags">
+          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
+          <span class="badge-system">گیربکس کامل</span>
+        </div>
+        <h3 class="part-title">گیربکس کامل پژو ۲۰۶ تیپ ۵ (TU5)</h3>
+        <p class="part-info">استوک اروپایی درجه یک، پوسته فابریک، دنده‌ریز بدون زوزه، تست‌شده روی استند.</p>
+        <button class="btn-view-price" onclick="openPriceModal('گیربکس کامل پژو ۲۰۶ تیپ ۵', 31500000, 'فرانسه استوک گرید A')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
+
+      <!-- زیرمجموعه گیربکس: چرخ دنده یک و دو (دقیقاً بر اساس فلوچارت) -->
+      <article class="part-box" data-cat="gearbox">
+        <div class="part-tags">
+          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
+          <span class="badge-system">گیربکس / چرخ دنده یک و دو</span>
+        </div>
+        <h3 class="part-title">مجموعه چرخ‌دنده ۱ و ۲ + دنده برنجی</h3>
+        <p class="part-info">چرخ‌دنده‌های سخت‌کاری‌شده فابریک، شفت ورودی و خروجی بدون رد سایش یا لقی.</p>
+        <button class="btn-view-price" onclick="openPriceModal('چرخ دنده یک و دو ۲۰۶', 4850000, 'ایساکو خط تولید')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
+
+      <!-- زیرمجموعه گیربکس: دیسک و صفحه (دقیقاً بر اساس فلوچارت) -->
+      <article class="part-box" data-cat="gearbox">
+        <div class="part-tags">
+          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
+          <span class="badge-system">گیربکس / دیسک و صفحه</span>
+        </div>
+        <h3 class="part-title">کیت کلاچ (دیسک، صفحه و بلبرینگ)</h3>
+        <p class="part-info">شتاب‌گیری عالی بدون لرزش، فنر دوبل اصل والئو مناسب انواع پژو ۲۰۶ و ۲۰۷ تیپ ۵.</p>
+        <button class="btn-view-price" onclick="openPriceModal('کیت کلاچ والئو فرانسه', 6900000, 'Valeo اورجینال')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
+
+      <!-- زیرمجموعه موتور: میل‌لنگ (دقیقاً بر اساس فلوچارت) -->
+      <article class="part-box" data-cat="engine">
+        <div class="part-tags">
+          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
+          <span class="badge-system">موتور / میل لنگ</span>
+        </div>
+        <h3 class="part-title">میل‌لنگ استاندارد موتور TU5</h3>
+        <p class="part-info">سایز صفر استاندارد بدون خط و تابیدگی، بالانس دقیق شرکتی همراه با تست یاتاقان.</p>
+        <button class="btn-view-price" onclick="openPriceModal('میل‌لنگ TU5 پژو ۲۰۶', 9200000, 'ایساکو شرکتی')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
+
+      <!-- زیرمجموعه موتور: پمپ سوخت (دقیقاً بر اساس فلوچارت) -->
+      <article class="part-box" data-cat="engine">
+        <div class="part-tags">
+          <span class="badge-model">پژو ۲۰۶ / ۲۰۷</span>
+          <span class="badge-system">موتور / پمپ سوخت</span>
+        </div>
+        <h3 class="part-title">مجموعه پمپ بنزین و درجه باک کامل</h3>
+        <p class="part-info">فشار خروجی پایدار ۴ بار، مغزی بوش اصل با سنسور سنجش شناور بنزین کالیبره شده.</p>
+        <button class="btn-view-price" onclick="openPriceModal('پمپ بنزین کامل پژو ۲۰۶', 3450000, 'Bosch آلمان
