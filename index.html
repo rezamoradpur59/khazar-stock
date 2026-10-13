@@ -100,20 +100,22 @@
     .nav-link:hover {
       color: var(--primary-orange);
     }
-
     /* ================= 2. بنر شاخص بالای صفحه ================= */
     .top-banner-wrapper {
-      max-width: 800px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: 25px auto 15px;
       padding: 0 15px;
-      text-align: center;
     }
 
     .top-banner-img {
-      width: 100%;
+      width: 32%;                /* اندازه بنر در دسکتاپ (حدود یک‌سوم صفحه برای خوانایی عالی) */
+      max-width: 380px;          /* حداکثر عرض در مانیتورهای بزرگ */
+      min-width: 250px;          /* حداقل عرض برای موبایل */
       height: auto;
-      max-height: 280px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 14px;
       border: 1px solid var(--border-color);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
