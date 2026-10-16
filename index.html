@@ -1,206 +1,536 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
-    <style>
-        :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --accent-color: #ff9800;
-            --border-color: #333;
-        }
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        header, section, footer {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        h1, h2, h3 {
-            color: var(--accent-color);
-        }
-        .top-banner-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 25px auto 15px;
-            padding: 0 15px;
-        }
-        .top-banner-img {
-            width: 32%;
-            max-width: 380px;
-            min-width: 250px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            display: block;
-        }
-        .car-btn {
-            background: #2a2a2a;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            padding: 12px 20px;
-            margin: 8px 0;
-            width: 100%;
-            text-align: right;
-            font-size: 1.1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .car-btn:hover {
-            background: var(--accent-color);
-            color: #000;
-        }
-        .flowchart-box {
-            display: none;
-            background: #181818;
-            border-right: 3px solid var(--accent-color);
-            padding: 15px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-        }
-        .tree-branch {
-            margin-right: 15px;
-            padding: 6px 0;
-            border-bottom: 1px dashed #333;
-        }
-        .price-tag {
-            color: #4caf50;
-            font-weight: bold;
-            float: left;
-        }
-        ul { padding-right: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خزر استوک | بورس لوازم خودرو</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #f56e00;
+      --primary-hover: #d95e00;
+      --bg-dark: #0f1012;
+      --card-bg: rgba(26, 28, 32, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f0f2f5;
+      --text-muted: #9aa0a6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* سربرگ و منو بار افقی دقیقاً مطابق درخواست */
+    .header-container {
+      width: 100%;
+      background: #181818;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      order: 2;
+    }
+
+    .logo-khazar {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-stock {
+      background-color: #ffffff;
+      color: #121212;
+      font-size: 20px;
+      font-weight: 900;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      order: 1;
+    }
+
+    .nav-item {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-item:hover {
+      color: #f56e00;
+    }
+
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f56e00;
+      transition: width 0.3s ease;
+    }
+
+    .nav-item:hover::after {
+      width: 100%;
+    }
+
+    /* بنر اصلی سایت (banner.webp) درست زیر هدر */
+    .top-banner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px auto;
+      border-radius: 14px;
+      overflow: hidden;
+      display: block;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .top-banner img {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* کانتینر قطعات */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 40px 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 6px;
+      height: 28px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .parts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .part-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .part-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(245, 110, 0, 0.5);
+    }
+
+    .part-badge {
+      align-self: flex-start;
+      background: rgba(245, 110, 0, 0.15);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .part-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .part-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      min-height: 40px;
+    }
+
+    .price-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f56e00 0%, #d45900 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(245, 110, 0, 0.25);
+    }
+
+    .price-btn:hover {
+      background: linear-gradient(135deg, #ff7c12 0%, #e86500 100%);
+      transform: scale(1.02);
+    }
+
+    /* مودال جدول قیمت داخلی */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #181a1f;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      width: 100%;
+      max-width: 650px;
+      border-radius: 18px;
+      padding: 26px;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .modal-header h3 {
+      font-size: 19px;
+      color: #fff;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .price-notice {
+      background: rgba(245, 110, 0, 0.1);
+      border-right: 4px solid var(--primary);
+      padding: 10px 14px;
+      font-size: 13px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      color: #e5e5e5;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .price-table th, .price-table td {
+      padding: 12px 14px;
+      text-align: right;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .price-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .price-table td.final-price {
+      color: #00e676;
+      font-weight: 800;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* فوتر */
+    footer {
+      background: #141518;
+      border-top: 1px solid var(--glass-border);
+      padding: 40px 20px 24px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .copy-text {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="top-banner-wrapper">
-        <img src="banner.jpg" alt="خزر استوک" class="top-banner-img">
+  <!-- سربرگ و منوبار افقی -->
+  <header class="header-container">
+    <div class="header-content">
+      <a href="#" class="logo-box">
+        <span class="logo-khazar">خزر</span>
+        <span class="logo-stock">استوک</span>
+      </a>
+      <nav class="nav-bar">
+        <a href="#home" class="nav-item">صفحه اصلی</a>
+        <a href="#parts" class="nav-item">قطعات و قیمت روز</a>
+        <a href="#contact" class="nav-item">ارتباط با ما</a>
+      </nav>
     </div>
+  </header>
 
-    <header>
-        <h1>خزر استوک</h1>
-        <p>بورس لوازم استوک خودروهای سواری و باری | ایرانی و خارجی (اروپایی، ژاپنی، کره‌ای)</p>
-        <p><strong>تماس مستقیم مدیریت:</strong> ۰۹۱۱۴۵۳۸۷۴۰</p>
-    </header>
+  <!-- بنر اصلی سایت (banner.webp) -->
+  <div class="top-banner" id="home">
+    <img src="banner.webp" alt="بورس لوازم خودرو خزر استوک">
+  </div>
 
-    <section>
-        <h2>دسته‌بندی و استعلام قیمت قطعات خودروها</h2>
-        <p>جهت مشاهده زیربخش‌ها و قیمت دینامیک روز روی خودروی مورد نظر کلیک کنید:</p>
+  <!-- بخش قطعات و استعلام قیمت -->
+  <main class="container" id="parts">
+    <h2 class="section-title">قطعات پرمصرف و جدول استعلام قیمت روز</h2>
+    
+    <div class="parts-grid">
+      <article class="part-card">
+        <span class="part-badge">سایپا / پراید</span>
+        <h3 class="part-title">سرسیلندر لخت پراید انژکتوری</h3>
+        <p class="part-desc">آلومینیومی استاندارد یورو ۲ و ۴، کاملاً آب‌بندی و تست‌شده با ضمانت تراشکاری.</p>
+        <button class="price-btn" onclick="openPriceModal('سرسیلندر لخت پراید انژکتوری', 17499000, 'عظام / شرکتی')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
 
-        <!-- پژو ۲۰۶ / ۲۰۷ -->
-        <button class="car-btn" onclick="toggleCarTree('car-206')">پژو ۲۰۶ / ۲۰۷</button>
-        <div id="car-206" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong>
-                <div style="margin-right:20px; margin-top:5px;">
-                    <div>میل‌لنگ استاندارد <span class="price-tag">۲,۵۰۰,۰۰۰ تومان</span></div>
-                    <div>پمپ بنزین کامل <span class="price-tag">۱,۲۰۰,۰۰۰ تومان</span></div>
-                    <div>کارتر روغن آلومینیومی <span class="price-tag">۸۰۰,۰۰۰ تومان</span></div>
-                </div>
-            </div>
-            <div class="tree-branch"><strong>گیربکس:</strong>
-                <div style="margin-right:20px; margin-top:5px;">
-                    <div>کیت دیسک و صفحه <span class="price-tag">۴,۰۰۰,۰۰۰ تومان</span></div>
-                    <div>چرخ‌دنده ۱ و ۲ <span class="price-tag">۱,۱۰۰,۰۰۰ تومان</span></div>
-                </div>
-            </div>
-            <div class="tree-branch"><strong>جلوبندی:</strong> کیت کامل طبق و کمک‌فنر <span class="price-tag">۳,۲۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>سیستم برقی:</strong> کامپیوتر موتور (ECU) <span class="price-tag">۶,۵۰۰,۰۰۰ تومان</span></div>
-        </div>
+      <article class="part-card">
+        <span class="part-badge">ایران‌خودرو / پژو ۴۰۵ و پارس</span>
+        <h3 class="part-title">سرسیلندر کامل پژو XU7</h3>
+        <p class="part-desc">همراه با میل‌سوپاپ، کاسه‌نمد و سوپاپ آب‌بندی‌شده، آماده نصب با آلیاژ عالی.</p>
+        <button class="price-btn" onclick="openPriceModal('سرسیلندر کامل پژو XU7', 24800000, 'ایساکو اصل')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
 
-        <!-- پژو پارس / ۴۰۵ -->
-        <button class="car-btn" onclick="toggleCarTree('car-pars')">پژو پارس / ۴۰۵ (موتور XU7)</button>
-        <div id="car-pars" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong>
-                <div style="margin-right:20px; margin-top:5px;">
-                    <div>سرسیلندر کامل تراش‌نخورده <span class="price-tag">۵,۸۰۰,۰۰۰ تومان</span></div>
-                    <div>میل‌سوپاپ <span class="price-tag">۹۵۰,۰۰۰ تومان</span></div>
-                </div>
-            </div>
-            <div class="tree-branch"><strong>گیربکس:</strong> پوسته و شفت کامل <span class="price-tag">۴,۵۰۰,۰۰۰ تومان</span></div>
-        </div>
+      <article class="part-card">
+        <span class="part-badge">ایران‌خودرو / پژو ۲۰۶</span>
+        <h3 class="part-title">گیربکس کامل پژو ۲۰۶ تیپ ۵ (TU5)</h3>
+        <p class="part-desc">استوک اروپایی تمیز، بدون زوزه، همراه با دنده‌ریز فابریک و پوسته بدون ترک.</p>
+        <button class="price-btn" onclick="openPriceModal('گیربکس کامل پژو ۲۰۶ تیپ ۵', 31500000, 'فرانسه استوک گرید A')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
 
-        <!-- سمند / سورن / دنا -->
-        <button class="car-btn" onclick="toggleCarTree('car-samand')">سمند / سورن / دنا (EF7)</button>
-        <div id="car-samand" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong> مجموعه‌اویل‌پمپ و بوش پیستون <span class="price-tag">۳,۴۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>سیستم برقی:</strong> یونیت مالتی‌پلکس و دسته‌سیم <span class="price-tag">۲,۹۰۰,۰۰۰ تومان</span></div>
-        </div>
+      <article class="part-card">
+        <span class="part-badge">سایپا / تیبا و کوییک</span>
+        <h3 class="part-title">موتور کامل تیبا و ساینا (M15)</h3>
+        <p class="part-desc">دارای مدارک کامل قانونی و شماره‌گذاری رسمی، استاندارد شرکتی سایپا یدک.</p>
+        <button class="price-btn" onclick="openPriceModal('موتور کامل تیبا و ساینا (M15)', 48200000, 'سایپا یدک شرکتی')">
+          🔍 مشاهده لیست قیمت روز قطعه
+        </button>
+      </article>
+    </div>
+  </main>
 
-        <!-- رنو تندر ۹۰ -->
-        <button class="car-btn" onclick="toggleCarTree('car-l90')">رنو تندر ۹۰ (ال۹۰)</button>
-        <div id="car-l90" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong> واشر سرسیلندر اصلی و تسمه تایم <span class="price-tag">۱,۸۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>گیربکس:</strong> گیربکس دستی فرانسوی استوک <span class="price-tag">۹,۰۰۰,۰۰۰ تومان</span></div>
-        </div>
+  <!-- مودال جدول قیمت داخلی -->
+  <div class="modal-overlay" id="priceModal" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalPartName">لیست قیمت روز قطعه</h3>
+        <button class="modal-close" onclick="closePriceModal()">&times;</button>
+      </div>
 
-        <!-- پراید -->
-        <button class="car-btn" onclick="toggleCarTree('car-pride')">پراید (۱۳۱ / ۱۳۲ / ۱۱۱)</button>
-        <div id="car-pride" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong> نیم‌موتور کامل پراید <span class="price-tag">۴,۲۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>گیربکس:</strong> دیسک و صفحه والئو <span class="price-tag">۱,۷۰۰,۰۰۰ تومان</span></div>
-        </div>
+      <div class="price-notice">
+        ⚡ <strong>سیستم قیمت‌گذاری خزر استوک:</strong> نرخ‌ها هر روز به‌روزرسانی شده و با احتساب ۵٪ کارمزد کارشناسی و انبارداری محاسبه می‌شوند.
+      </div>
 
-        <!-- تیبا / ساینا / کوییک -->
-        <button class="car-btn" onclick="toggleCarTree('car-tiba')">تیبا / ساینا / کوییک</button>
-        <div id="car-tiba" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong> پمپ هیدرولیک فرمان و دینام <span class="price-tag">۲,۶۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>جلوبندی:</strong> جعبه فرمان کامل <span class="price-tag">۳,۱۰۰,۰۰۰ تومان</span></div>
-        </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>مشخصه</th>
+            <th>شرح و محاسبه</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>برند و استاندارد فنی</td>
+            <td id="modalBrand">-</td>
+          </tr>
+          <tr>
+            <td>قیمت پایه روز بازار</td>
+            <td id="modalBasePrice">- تومان</td>
+          </tr>
+          <tr>
+            <td>افزایش تعرفه انبارداری و خدمات (+۵٪)</td>
+            <td id="modalMarkup">- تومان</td>
+          </tr>
+          <tr>
+            <td><strong>قیمت نهایی قابل پرداخت</strong></td>
+            <td class="final-price" id="modalFinalPrice">- تومان</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <!-- وانت نیسان زامیاد -->
-        <button class="car-btn" onclick="toggleCarTree('car-nissan')">وانت نیسان زامیاد</button>
-        <div id="car-nissan" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong> میل‌لنگ و شاتون کاربراتور/انژکتور <span class="price-tag">۶,۰۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>دیفرانسیل:</strong> کله‌گاوی و پلوس عقب <span class="price-tag">۷,۵۰۰,۰۰۰ تومان</span></div>
-        </div>
+      <div class="modal-footer">
+        <span id="currentDateDisplay">تاریخ استعلام: امروز</span>
+        <span>وضعیت موجودی: آماده تحویل در انبار</span>
+      </div>
+    </div>
+  </div>
 
-        <!-- محصولات خارجی (هیوندای و کیا) -->
-        <button class="car-btn" onclick="toggleCarTree('car-foreign')">هیوندای / کیا (وارداتی)</button>
-        <div id="car-foreign" class="flowchart-box">
-            <div class="tree-branch"><strong>موتور:</strong> بلوک سیلندر و اویل‌پمپ سانتافه/اسپورتیج <span class="price-tag">۲۲,۰۰۰,۰۰۰ تومان</span></div>
-            <div class="tree-branch"><strong>گیربکس:</strong> گیربکس اتوماتیک ۶ دنده استوک <span class="price-tag">۴۵,۰۰۰,۰۰۰ تومان</span></div>
-        </div>
-    </section>
+  <!-- فوتر و اطلاعات تماس -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="contact-item">
+        <span class="contact-label">تماس با مدیریت</span>
+        <a href="tel:09114538740" class="contact-val">0911 453 8740</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">مشاوره و واتس‌اپ</span>
+        <a href="https://wa.me/989390189270" target="_blank" class="contact-val">0939 018 9270</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">شماره تلفن ثابت دفتر</span>
+        <a href="tel:01152331643" class="contact-val">011-52331643</a>
+      </div>
+    </div>
+    <div class="copy-text">
+      تمامی حقوق مادی و معنوی محفوظ است © خزر استوک — مرکز پخش قطعات نو و استوک
+    </div>
+  </footer>
 
-    <section>
-        <h2>آدرس و راه ارتباطی</h2>
-        <p><strong>آدرس فروشگاه و انبار خزر استوک:</strong> مازندران، نوشهر، خیابان باباطاهر</p>
-        <p><strong>تلفن ثابت:</strong> ۰۱۱-۵۲۳۳۱۶۴۳ | <strong>همراه مدیریت:</strong> ۰۹۱۱۴۵۳۸۷۴۰</p>
-    </section>
+  <script>
+    // تاریخ شمسی خودکار
+    const todayShamsi = new Intl.DateTimeFormat('fa-IR', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    }).format(new Date());
 
-    <footer>
-        <p style="text-align: center; margin: 0;">کلیه حقوق مادی و معنوی برای «خزر استوک» محفوظ است.</p>
-    </footer>
+    document.getElementById('currentDateDisplay').textContent = 'تاریخ استعلام: ' + todayShamsi;
 
-    <script>
-        function toggleCarTree(carId) {
-            const box = document.getElementById(carId);
-            if (box.style.display === "block") {
-                box.style.display = "none";
-            } else {
-                // بستن سایر باکس‌ها برای تمیزی صفحه
-                document.querySelectorAll('.flowchart-box').forEach(el => el.style.display = 'none');
-                box.style.display = "block";
-            }
-        }
-    </script>
+    // محاسبه قیمت با احتساب ۵٪ افزایش داخلی بدون لینک به بیرون
+    function openPriceModal(partName, basePrice, brand) {
+      const markup = Math.round(basePrice * 0.05);
+      const finalPrice = basePrice + markup;
 
+      document.getElementById('modalPartName').textContent = partName;
+      document.getElementById('modalBrand').textContent = brand;
+      document.getElementById('modalBasePrice').textContent = basePrice.toLocaleString('fa-IR') + ' تومان';
+      document.getElementById('modalMarkup').textContent = markup.toLocaleString('fa-IR') + ' تومان (+۵٪)';
+      document.getElementById('modalFinalPrice').textContent = finalPrice.toLocaleString('fa-IR') + ' تومان';
+
+      document.getElementById('priceModal').classList.add('active');
+    }
+
+    function closePriceModal() {
+      document.getElementById('priceModal').classList.remove('active');
+    }
+
+    function closeModalOutside(event) {
+      if (event.target.id === 'priceModal') {
+        closePriceModal();
+      }
+    }
+  </script>
 </body>
 </html>
