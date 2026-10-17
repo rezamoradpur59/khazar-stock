@@ -1,1 +1,631 @@
+/* ==========================================================================
+   خزر استوک - استایل جامع و واکنش‌گرا (Responsive)
+   ========================================================================== */
+
+:root {
+  --primary: #f56e00;
+  --primary-hover: #d95e00;
+  --bg-dark: #0f1012;
+  --card-bg: rgba(26, 28, 32, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #f0f2f5;
+  --text-muted: #9aa0a6;
+  --whatsapp: #25d366;
+  --bale: #1ea396;
+  --eitaa: #e67e22;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image: 
+    linear-gradient(135deg, rgba(14, 15, 18, 0.94) 0%, rgba(22, 24, 30, 0.96) 100%),
+    url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-main);
+  direction: rtl;
+  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ================== هدر و منو ================== */
+.header-container {
+  width: 100%;
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-khazar {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.logo-stock {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 3px 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(245, 110, 0, 0.5);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-item {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-item:hover {
+  color: var(--primary);
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* ================== کانتینر اصلی ================== */
+.main-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================== بنر ================== */
+.banner-section {
+  width: 100%;
+  max-width: 850px;
+  margin: 30px auto 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--glass-border);
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================== اسلایدر تصاویر خودروها ================== */
+.slider-wrapper {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto 40px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(245, 110, 0, 0.35);
+  background: #111;
+}
+
+.car-slider {
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slider-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.92));
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+  z-index: 5;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: var(--primary);
+  width: 26px;
+  border-radius: 12px;
+}
+
+/* ================== کارت‌های قطعات و استعلام قیمت ================== */
+.section-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 30px 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+.section-title::before {
+  content: '';
+  width: 5px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  margin-bottom: 50px;
+}
+
+.part-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.part-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 110, 0, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.part-badge {
+  align-self: flex-start;
+  background: rgba(245, 110, 0, 0.15);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  border: 1px solid rgba(245, 110, 0, 0.3);
+}
+
+.part-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.part-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  min-height: 42px;
+}
+
+.price-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #f56e00 0%, #d45900 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(245, 110, 0, 0.3);
+}
+
+.price-btn:hover {
+  background: linear-gradient(135deg, #ff7c12 0%, #e86500 100%);
+  transform: translateY(-2px);
+}
+
+/* ================== مودال استعلام قیمت روز (+۵٪) ================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 16px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #181a1f;
+  border: 1px solid rgba(245, 110, 0, 0.4);
+  width: 100%;
+  max-width: 580px;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+  color: #fff;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 26px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+.price-notice {
+  background: rgba(245, 110, 0, 0.12);
+  border-right: 4px solid var(--primary);
+  padding: 10px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  color: #f0f0f0;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.price-table th, .price-table td {
+  padding: 12px 14px;
+  text-align: right;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.price-table td.final-price {
+  color: #00e676;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.modal-order-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.modal-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: opacity 0.2s;
+}
+
+.modal-action-btn:hover {
+  opacity: 0.9;
+}
+
+.btn-whatsapp-action { background-color: var(--whatsapp); }
+.btn-call-action { background-color: var(--primary); }
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+/* ================== بخش ارتباط و پیام‌رسان‌ها ================== */
+.contact-section {
+  background: rgba(22, 24, 29, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 30px 20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.contact-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.25s ease;
+}
+
+.channel-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.channel-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.ch-wa .channel-icon { background: var(--whatsapp); }
+.ch-bale .channel-icon { background: var(--bale); }
+.ch-eitaa .channel-icon { background: var(--eitaa); }
+.ch-call .channel-icon { background: var(--primary); }
+
+.channel-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.channel-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  direction: ltr;
+}
+
+/* ================== فوتر ================== */
+footer {
+  background: #141518;
+  border-top: 1px solid var(--glass-border);
+  padding: 35px 20px 25px;
+}
+
+.footer-grid {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.contact-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  direction: ltr;
+  transition: color 0.2s;
+}
+
+.contact-val:hover {
+  color: var(--primary);
+}
+
+.copy-text {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 18px;
+}
+
+/* ================== دکمه‌های شناور دسترسی سریع ================== */
+.floating-actions {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+
+.float-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.float-btn:hover {
+  transform: scale(1.12);
+}
+
+.float-call { background-color: var(--primary); }
+.float-wa { background-color: var(--whatsapp); }
+
+/* ================== مدیا کوئری‌های واکنش‌گرایی (Mobile & Tablet) ================== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .nav-bar {
+    gap: 16px;
+    font-size: 14px;
+  }
+  
+  .car-slider {
+    height: 240px;
+  }
+  
+  .parts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-order-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-actions {
+    bottom: 16px;
+    left: 16px;
+  }
+  
+  .float-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+}
 
