@@ -2,212 +2,303 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>خزر استوک | بورس لوازم استوک خودروهای سواری و باری</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خزر استوک | بورس لوازم و قطعات یدکی خودرو</title>
+  
+  <!-- فونت وزیر متن -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-  <!-- فونت وزیر متن و فونت‌آوسام -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --primary-orange: #f56e00;
-      --primary-dark-orange: #dc5f00;
-      --bg-main: #121316;
-      --bg-secondary: #1a1c22;
-      --card-bg: rgba(28, 30, 36, 0.95);
-      --border-color: rgba(255, 255, 255, 0.12);
-      --text-light: #ffffff;
-      --text-gray: #b0b4bc;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-main);
-      color: var(--text-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* استایل‌های اصلی پاپ‌آپ و دکمه‌های شناور */
-    .floating-actions {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 2000;
-    }
-
-    .float-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-      transition: transform 0.25s, background-color 0.25s;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .float-icon:hover {
-      transform: scale(1.1);
-    }
-
-    .btn-float-phone {
-      background: #191b22;
-      border: 2px solid var(--primary-orange);
-      color: var(--primary-orange);
-      font-size: 20px;
-    }
-    .btn-float-phone:hover {
-      background: var(--primary-orange);
-      color: #fff;
-    }
-
-    .btn-float-wa { background: #25d366; }
-    .btn-float-eitaa { background: #e66000; }
-    .btn-float-bale { background: #00a693; }
-
-    .popup-phones {
-      position: fixed;
-      bottom: 90px;
-      left: 25px;
-      background: #181920;
-      border: 1px solid var(--primary-orange);
-      border-radius: 12px;
-      padding: 12px;
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-      z-index: 2100;
-      min-width: 210px;
-    }
-
-    .popup-phones.show {
-      display: flex;
-    }
-
-    .phone-opt {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 8px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 13px;
-      cursor: pointer;
-      border: none;
-      transition: background 0.2s;
-    }
-
-    .phone-opt:hover {
-      background: rgba(245, 110, 0, 0.15);
-      color: var(--primary-orange);
-    }
-
-    /* ریسپانسیو موبایل */
-    @media (max-width: 850px) {
-      .header-inner { flex-direction: column; gap: 12px; }
-      .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
-      .floating-actions { bottom: 15px; left: 15px; gap: 10px; }
-      .float-icon { width: 44px; height: 44px; font-size: 14px; }
-      .popup-phones { bottom: 75px; left: 15px; min-width: 190px; }
-    }
-  </style>
+  <!-- اتصال به استایل مستقل -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- هدر ثابت سایت -->
-  <header style="background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 15px 20px; position: sticky; top: 0; z-index: 1000;">
-    <div class="header-inner" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <h1 style="color: var(--primary-orange); font-size: 22px;">خزر استوک</h1>
-      <nav class="nav-links" style="display: flex; gap: 20px; font-size: 14px;">
-        <a href="#parts" style="color: #fff; text-decoration: none;">قطعات و خودروها</a>
-        <a href="#contact" style="color: #fff; text-decoration: none;">تماس با ما</a>
+  <!-- هدر و نوبار سایت -->
+  <header class="header-container">
+    <div class="header-content">
+      <a href="#" class="logo-box">
+        <span class="logo-khazar">خزر</span>
+        <span class="logo-stock">استوک</span>
+      </a>
+      <nav class="nav-bar">
+        <a href="#home" class="nav-item">صفحه اصلی</a>
+        <a href="#parts" class="nav-item">قطعات و قیمت روز</a>
+        <a href="#contact" class="nav-item">تماس و سفارش</a>
       </nav>
     </div>
   </header>
 
-  <!-- محتوای اصلی صفحه -->
-  <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center;">
-    <h2 style="font-size: 28px; margin-bottom: 15px;">سامانه جامع استعلام لوازم استوک خودرو</h2>
-    <p style="color: var(--text-gray); margin-bottom: 30px;">جهت استعلام قطعات، قیمت روز با احتساب ۵٪ کارمزد و دسته‌بندی خودروها از منوی زیر استفاده کنید.</p>
+  <main class="main-wrapper">
+    <!-- بخش بنر اصلی -->
+    <section class="banner-section" id="home">
+      <img src="banner.webp" alt="بورس لوازم خودرو خزر استوک" class="banner-img">
+    </section>
+
+    <!-- اسلایدر تصاویر خودروها -->
+    <div class="slider-wrapper">
+      <div class="car-slider" id="carSlider">
+        <div class="slide active">
+          <img src="car-iran.jpg" alt="قطعات خودروهای ایرانی">
+          <div class="slider-caption">تأمین موتور، سیلندر و گیربکس خودروهای ایرانی (ایران‌خودرو و سایپا)</div>
+        </div>
+        <div class="slide">
+          <img src="car-foreign.jpg" alt="قطعات خودروهای خارجی">
+          <div class="slider-caption">لوازم استوک و مصرفی گرید A خودروهای وارداتی و چینی</div>
+        </div>
+        <div class="slide">
+          <img src="car-parts.jpg" alt="لوازم یدکی خودرو">
+          <div class="slider-caption">بورس قطعات یدکی با ضمانت فیزیکی و امکان ارسال سراسری</div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <span class="dot active" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+      </div>
+    </div>
+
+    <!-- جدول و لیست قطعات با استعلام دینامیک قیمت روز -->
+    <section id="parts">
+      <h2 class="section-title">قطعات پرمصرف و جدول استعلام قیمت روز</h2>
+      <div class="parts-grid">
+
+        <!-- کارت ۱: پراید -->
+        <article class="part-card">
+          <span class="part-badge">سایپا / پراید</span>
+          <h3 class="part-title">سرسیلندر لخت پراید انژکتوری</h3>
+          <p class="part-desc">آلومینیومی استاندارد یورو ۲ و ۴، کاملاً آب‌بندی و تست‌شده با ضمانت تراشکاری.</p>
+          <button class="price-btn" onclick="openPriceModal('سرسیلندر لخت پراید انژکتوری', 17499000, 'عظام / شرکتی')">
+            🔍 مشاهده لیست قیمت روز قطعه
+          </button>
+        </article>
+
+        <!-- کارت ۲: پژو XU7 -->
+        <article class="part-card">
+          <span class="part-badge">ایران‌خودرو / پژو ۴۰۵ و پارس</span>
+          <h3 class="part-title">سرسیلندر کامل پژو XU7</h3>
+          <p class="part-desc">همراه با میل‌سوپاپ، کاسه‌نمد و سوپاپ آب‌بندی‌شده، آماده نصب با آلیاژ عالی.</p>
+          <button class="price-btn" onclick="openPriceModal('سرسیلندر کامل پژو XU7', 24800000, 'ایساکو اصل')">
+            🔍 مشاهده لیست قیمت روز قطعه
+          </button>
+        </article>
+
+        <!-- کارت ۳: پژو ۲۰۶ TU5 -->
+        <article class="part-card">
+          <span class="part-badge">ایران‌خودرو / پژو ۲۰۶</span>
+          <h3 class="part-title">گیربکس کامل پژو ۲۰۶ تیپ ۵ (TU5)</h3>
+          <p class="part-desc">استوک اروپایی تمیز، بدون زوزه، همراه با دنده‌ریز فابریک و پوسته بدون ترک.</p>
+          <button class="price-btn" onclick="openPriceModal('گیربکس کامل پژو ۲۰۶ تیپ ۵ (TU5)', 31500000, 'فرانسه استوک گرید A')">
+            🔍 مشاهده لیست قیمت روز قطعه
+          </button>
+        </article>
+
+        <!-- کارت ۴: تیبا و ساینا -->
+        <article class="part-card">
+          <span class="part-badge">سایپا / تیبا و کوییک</span>
+          <h3 class="part-title">موتور کامل تیبا و ساینا (M15)</h3>
+          <p class="part-desc">دارای مدارک کامل قانونی و شماره‌گذاری رسمی، استاندارد شرکتی سایپا یدک.</p>
+          <button class="price-btn" onclick="openPriceModal('موتور کامل تیبا و ساینا (M15)', 48200000, 'سایپا یدک شرکتی')">
+            🔍 مشاهده لیست قیمت روز قطعه
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- بخش ارتباط، پیام‌رسان‌ها و آدرس حضوری -->
+    <section class="contact-section" id="contact">
+      <h2 style="font-size: 20px; font-weight: 800; color: #fff;">ارتباط مستقیم با واحد فروش و پشتیبانی خزر استوک</h2>
+      <p style="color: var(--text-muted); font-size: 13.5px; margin-top: 6px;">
+        مازندران، نوشهر، خیابان باباطاهر — ارسال قطعه به سراسر کشور
+      </p>
+
+      <div class="contact-channels-grid">
+        <!-- واتساپ -->
+        <a href="https://wa.me/989390189270" target="_blank" class="channel-card ch-wa">
+          <div class="channel-icon">💬</div>
+          <div class="channel-title">واتس‌اپ (WhatsApp)</div>
+          <div class="channel-sub">0939 018 9270</div>
+        </a>
+
+        <!-- بله -->
+        <a href="https://ble.ir/khazar_stock" target="_blank" class="channel-card ch-bale">
+          <div class="channel-icon">⚡</div>
+          <div class="channel-title">پیام‌رسان بله</div>
+          <div class="channel-sub">0939 018 9270</div>
+        </a>
+
+        <!-- ایتا -->
+        <a href="https://eitaa.com/khazar_stock" target="_blank" class="channel-card ch-eitaa">
+          <div class="channel-icon">🚀</div>
+          <div class="channel-title">پیام‌رسان ایتا</div>
+          <div class="channel-sub">0939 018 9270</div>
+        </a>
+
+        <!-- تماس تلفنی -->
+        <a href="tel:09114538740" class="channel-card ch-call">
+          <div class="channel-icon">📞</div>
+          <div class="channel-title">تماس با مدیریت</div>
+          <div class="channel-sub">0911 453 8740</div>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <!-- پنجره پاپ‌آپ تماس و پیام‌رسان‌ها -->
-  <div class="popup-phones" id="contactPopup">
-    <div style="font-size: 12px; color: #aaa; margin-bottom: 4px; text-align: center;">ارتباط با مدیریت و سفارش</div>
-    <button class="phone-opt" onclick="openEitaa()">
-      <span>پیام‌رسان ایتا</span>
-      <span style="color: #e66000;">●</span>
-    </button>
-    <button class="phone-opt" onclick="openBale()">
-      <span>پیام‌رسان بله</span>
-      <span style="color: #00a693;">●</span>
-    </button>
-    <button class="phone-opt" onclick="callDirect()">
-      <span>تماس مستقیم</span>
-      <span style="color: #f56e00;">📞</span>
-    </button>
+  <!-- مودال پاپ‌آپ محاسبه قیمت دینامیک روز (+۵٪) -->
+  <div class="modal-overlay" id="priceModal" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalPartName">لیست قیمت روز قطعه</h3>
+        <button class="modal-close" onclick="closePriceModal()">&times;</button>
+      </div>
+
+      <div class="price-notice">
+        ⚡ <strong>محاسبه کارمزد:</strong> قیمت نهایی شامل ۵٪ هزینه تست، بسته‌بندی و انبارداری است.
+      </div>
+
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>عنوان مشخصه</th>
+            <th>مبلغ و جزئیات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>اصالت و سازنده</td>
+            <td id="modalBrand">-</td>
+          </tr>
+          <tr>
+            <td>قیمت پایه روز</td>
+            <td id="modalBasePrice">- تومان</td>
+          </tr>
+          <tr>
+            <td>کارمزد انبارداری و تست (+۵٪)</td>
+            <td id="modalMarkup">- تومان</td>
+          </tr>
+          <tr>
+            <td><strong>قیمت نهایی قابل تسویه</strong></td>
+            <td class="final-price" id="modalFinalPrice">- تومان</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- دکمه‌های ثبت سفارش سریع در مودال -->
+      <div class="modal-order-actions">
+        <a href="https://wa.me/989390189270" target="_blank" id="modalWaBtn" class="modal-action-btn btn-whatsapp-action">
+          💬 استعلام سریع در واتس‌اپ
+        </a>
+        <a href="tel:09114538740" class="modal-action-btn btn-call-action">
+          📞 تماس با کارشناس فروش
+        </a>
+      </div>
+
+      <div class="modal-footer">
+        <span id="currentDateDisplay">تاریخ استعلام: امروز</span>
+        <span>وضعیت موجودی: آماده ارسال</span>
+      </div>
+    </div>
   </div>
 
-  <!-- دکمه‌های شناور گوشه صفحه -->
+  <!-- دکمه‌های شناور دسترسی سریع در موبایل و دسکتاپ -->
   <div class="floating-actions">
-    <button class="float-icon btn-float-phone" onclick="toggleContactPopup()" title="راه‌های ارتباطی">
+    <a href="https://wa.me/989390189270" target="_blank" class="float-btn float-wa" title="پیام در واتس‌اپ">
+      💬
+    </a>
+    <a href="tel:09114538740" class="float-btn float-call" title="تماس مستقیم">
       📞
-    </button>
-    <button class="float-icon btn-float-eitaa" onclick="openEitaa()" title="ارتباط در ایتا">
-      ایتا
-    </button>
-    <button class="float-icon btn-float-bale" onclick="openBale()" title="ارتباط در بله">
-      بله
-    </button>
+    </a>
   </div>
 
+  <!-- فوتر -->
+  <footer>
+    <div class="footer-grid">
+      <div class="contact-item">
+        <span class="contact-label">مدیریت و فروشگاه</span>
+        <a href="tel:09114538740" class="contact-val">0911 453 8740</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">مشاوره، واتس‌اپ، بله و ایتا</span>
+        <a href="https://wa.me/989390189270" target="_blank" class="contact-val">0939 018 9270</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">شماره تلفن ثابت دفتر</span>
+        <a href="tel:01152331643" class="contact-val">011-52331643</a>
+      </div>
+    </div>
+    <div class="copy-text">
+      تمامی حقوق مادی و معنوی محفوظ است © خزر استوک — مرکز پخش قطعات نو و استوک
+    </div>
+  </footer>
+
+  <!-- اسکریپت‌های اسلایدر و مودال دینامیک -->
   <script>
-    function toggleContactPopup() {
-      const pop = document.getElementById('contactPopup');
-      if (pop) pop.classList.toggle('show');
+    // ۱. درج تاریخ رسمی امروز در مودال
+    try {
+      const today = new Intl.DateTimeFormat('fa-IR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }).format(new Date());
+      document.getElementById('currentDateDisplay').textContent = 'تاریخ استعلام: ' + today;
+    } catch (e) {
+      document.getElementById('currentDateDisplay').textContent = 'تاریخ استعلام: امروز';
     }
 
-    document.addEventListener('click', function(e) {
-      const pop = document.getElementById('contactPopup');
-      const btn = document.querySelector('.btn-float-phone');
-      if (pop && btn && !pop.contains(e.target) && !btn.contains(e.target)) {
-        pop.classList.remove('show');
+    // ۲. اسلایدر خودکار و دستی
+    let currentIdx = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      if (index >= slides.length) currentIdx = 0;
+      else if (index < 0) currentIdx = slides.length - 1;
+      else currentIdx = index;
+
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+
+      slides[currentIdx].classList.add('active');
+      dots[currentIdx].classList.add('active');
+    }
+
+    function setSlide(index) {
+      showSlide(index);
+    }
+
+    let sliderInterval = setInterval(() => {
+      showSlide(currentIdx + 1);
+    }, 4500);
+
+    // ۳. باز شدن مودال و محاسبه دقیق ۵٪
+    function openPriceModal(partName, basePrice, brand) {
+      const markup = Math.round(basePrice * 0.05);
+      const finalPrice = basePrice + markup;
+
+      document.getElementById('modalPartName').textContent = partName;
+      document.getElementById('modalBrand').textContent = brand;
+      document.getElementById('modalBasePrice').textContent = basePrice.toLocaleString('fa-IR') + ' تومان';
+      document.getElementById('modalMarkup').textContent = markup.toLocaleString('fa-IR') + ' تومان (+۵٪)';
+      document.getElementById('modalFinalPrice').textContent = finalPrice.toLocaleString('fa-IR') + ' تومان';
+
+      // تنظیم لینک اختصاصی استعلام واتساپ با متن قطعه
+      const waMsg = encodeURIComponent(`سلام، برای خرید قطعه «${partName}» استعلام قیمت نهایی داشتم.`);
+      document.getElementById('modalWaBtn').href = `https://wa.me/989390189270?text=${waMsg}`;
+
+      document.getElementById('priceModal').classList.add('active');
+    }
+
+    function closePriceModal() {
+      document.getElementById('priceModal').classList.remove('active');
+    }
+
+    function closeModalOutside(event) {
+      if (event.target.id === 'priceModal') {
+        closePriceModal();
       }
-    });
-
-    const _c = ["0939", "018", "9270"].join("");
-
-    function openEitaa() {
-      window.open("https://eitaa.com/" + _c, "_blank");
-    }
-
-    function openBale() {
-      window.open("https://ble.ir/" + _c, "_blank");
-    }
-
-    function callDirect() {
-      window.location.href = "tel:" + _c;
     }
   </script>
-
 </body>
 </html>
